@@ -1,0 +1,591 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;600;700&display=swap");
+/* jangan lupa ini mengandung display, 
+klo displaynya tertumpuk,
+malah kagak bisa.
+*/
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  padding: 0;
+  margin: 0 auto;
+}
+
+a {
+  text-decoration: none;
+  color: #000000;
+}
+
+h1, h2, p, ul, li {
+  margin: 0;
+}
+
+p, li, td {
+  letter-spacing: 0.025em;
+}
+
+p {
+  font-family: "openSans", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+h1 {
+  font-size: 40px;
+  font-family: "Montserrat", sans-serif;
+}
+
+h2 {
+  font-family: "openSans", sans-serif;
+}
+
+.text-box .heading-title {
+  text-decoration: underline;
+}
+.text-box li {
+  font-family: "openSans", sans-serif;
+  font-weight: 400;
+}
+
+.header-call span {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+}
+
+.jm-text {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+}
+
+.nav ul {
+  list-style: none;
+  font-family: "openSans", sans-serif;
+}
+
+.navbarMobile ul {
+  list-style: none;
+  font-family: "openSans", sans-serif;
+}
+
+.heading-title {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 800;
+  font-size: 26px;
+  color: #0062D5;
+}
+
+h2 {
+  text-align: center;
+}
+
+.container-text h3 {
+  margin: 5px 0 15px 0;
+  font-size: 20px;
+  font-weight: 700;
+}
+.container-text .content-card {
+  line-height: 22px;
+}
+
+.hubungi .hubungi-title {
+  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+  padding: 50px;
+}
+.hubungi .copyright {
+  padding: 80px 0 25px 0;
+  text-align: center;
+}
+.hubungi .copyright p {
+  line-height: 30px;
+}
+.hubungi .copyright .bold {
+  font-weight: 700;
+}
+.hubungi .copyright span {
+  text-decoration: underline;
+}
+.hubungi .container-contact td {
+  text-decoration: underline;
+  font-size: 20px;
+  font-weight: 600;
+  font-family: "openSans", sans-serif;
+}
+
+h3, p, td, li, a {
+  color: #282828;
+}
+
+.carousel {
+  margin: auto;
+  position: relative;
+  max-width: 1500px;
+}
+.carousel .container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.carousel .container .nav-carousel {
+  position: absolute;
+  padding: 15px;
+  background-color: #000000;
+  opacity: 0.5;
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 30px;
+  border: 0;
+  cursor: pointer;
+}
+.carousel .container .nav-carousel:hover {
+  opacity: 1;
+}
+.carousel .container .kiri {
+  left: 5%;
+}
+.carousel .container .kanan {
+  right: 5%;
+}
+.carousel .container .produk {
+  display: none;
+}
+.carousel .container .active {
+  /*
+      Untuk menghilangkan whitespace antara
+      carousel dan content, gunakan flex
+  */
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+}
+.carousel .container .active img {
+  max-width: 100%;
+}
+
+@media only screen and (max-width: 480px) {
+  .carousel .container .nav-carousel {
+    padding: 5px;
+    font-size: 25px;
+  }
+}
+.active {
+  -webkit-animation: fadeIn 0.8s;
+          animation: fadeIn 0.8s;
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.navbarMobile {
+  display: none;
+}
+
+.header-call {
+  background-color: #F5F5F5;
+  padding: 5px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.35);
+}
+.header-call .container-call {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.header-call .container-call .content {
+  padding-top: 2px;
+  padding-right: 15px;
+  align-self: center;
+}
+.header-call .container-call .call-text {
+  padding-right: 20px;
+  font-size: 18px;
+  text-decoration: underline;
+}
+
+.container-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.container-header .company-name {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  align-self: center;
+  padding-left: 10%;
+}
+.container-header .company-name img {
+  width: 62px;
+  padding-right: 10px;
+}
+.container-header .company-name .jm-text {
+  font-size: 20px;
+  letter-spacing: -1px;
+}
+.container-header .navMobile {
+  display: none;
+  padding-right: 5%;
+  cursor: pointer;
+}
+.container-header .navMobile img {
+  width: 75%;
+}
+.container-header .nav li {
+  display: inline-block;
+  margin-right: 35px;
+}
+.container-header .nav li .login a {
+  color: #FFFFFF;
+  font-weight: 700;
+  padding: 10px 20px;
+  border-radius: 50px;
+  background: #066fe7;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+}
+.container-header .nav li .login a:hover {
+  background: linear-gradient(#0062D4, #58A5FE);
+}
+.container-header .nav li a {
+  letter-spacing: 0.4px;
+  font-size: 18px;
+}
+
+.hubungi .container {
+  margin: auto;
+  position: relative;
+  max-width: 1200px;
+}
+.hubungi .container .container-hub {
+  display: flex;
+  align-items: center;
+  -moz-column-gap: 50px;
+       column-gap: 50px;
+}
+.hubungi .container .container-hub .container-contact {
+  width: 100%;
+}
+.hubungi .container .container-hub .container-contact iframe {
+  float: right;
+  width: 75%;
+  height: 300px;
+}
+.hubungi .container .container-hub .container-contact td {
+  padding: 20px 0 20px 20px;
+}
+
+.toko {
+  background: url("../assets/img/bg/toko_bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.toko .container {
+  max-width: 1000px;
+}
+.toko .container .welcome {
+  color: #FFFFFF;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 0;
+}
+.toko .container .welcome .tanggal {
+  text-align: right;
+}
+.toko .container .welcome .text-welcome {
+  color: #FFFFFF;
+  margin-top: 15px;
+  font-size: 18px;
+}
+.toko .container .welcome .tanggal-full {
+  display: none;
+}
+.toko .container .halaman {
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  padding: 25px 25px 0 25px;
+  margin-bottom: 100px;
+}
+.toko .container .halaman .produk-unggulan h1 {
+  margin-bottom: 15px;
+}
+.toko .container .halaman .produk-unggulan .item {
+  display: flex;
+  align-items: center;
+}
+.toko .container .halaman .produk-unggulan .item img {
+  width: 35%;
+}
+.toko .container .halaman .produk-unggulan .item .teks-produk-unggulan {
+  padding: 30px;
+}
+.toko .container .halaman .produk-unggulan .item .teks-produk-unggulan h2 {
+  text-align: left;
+  font-weight: 700;
+  font-size: 26px;
+  margin-bottom: 10px;
+}
+.toko .container .halaman .promosi-hari-ini {
+  padding: 40px;
+}
+.toko .container .halaman .promosi-hari-ini h1 {
+  text-align: center;
+}
+.toko .container .halaman .promosi-hari-ini .filter-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -moz-column-gap: 30px;
+       column-gap: 30px;
+  padding: 30px 0;
+}
+.toko .container .halaman .promosi-hari-ini .filter-logo img {
+  width: 70px;
+  transition: all 0.5s ease;
+  cursor: pointer;
+}
+.toko .container .halaman .promosi-hari-ini .filter-logo img:hover {
+  transform: scale(1.3);
+}
+.toko .container .halaman .promosi-hari-ini .container-card {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: stretch;
+  width: 100%;
+  flex-wrap: wrap;
+  row-gap: 35px;
+  padding-bottom: 50px;
+  -moz-column-gap: 15px;
+       column-gap: 15px;
+}
+.toko .container .halaman .promosi-hari-ini .container-card .card {
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  max-width: 250px;
+  transition: all 0.5s ease;
+}
+.toko .container .halaman .promosi-hari-ini .container-card .card img {
+  border-radius: 9px 9px 0 0;
+}
+.toko .container .halaman .promosi-hari-ini .container-card .card img {
+  width: 100%;
+}
+.toko .container .halaman .promosi-hari-ini .container-card .card .container-text {
+  padding: 15px 15px;
+}
+.toko .container .halaman .promosi-hari-ini .container-card .card:hover {
+  transform: scale(1.05);
+}
+.toko .container .halaman .promosi-hari-ini .nav-card {
+  display: flex;
+  justify-content: center;
+}
+.toko .container .halaman .promosi-hari-ini .nav-card ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+@media only screen and (max-width: 767px) {
+  .toko .container .welcome {
+    flex-direction: column;
+  }
+  .toko .container .welcome .tanggal-full {
+    display: block;
+    text-decoration: underline;
+    margin-bottom: 15px;
+  }
+  .toko .container .welcome .tanggal {
+    display: none;
+  }
+  .toko .container .welcome .nama-toko {
+    text-align: center;
+  }
+  .toko .container .welcome .nama-toko h1 {
+    font-size: 28px;
+  }
+  .toko .container .halaman {
+    padding: 25px 15px 0 15px;
+  }
+  .toko .container .halaman .heading-title {
+    font-size: 24px;
+    text-align: center;
+  }
+  .toko .container .halaman .produk-unggulan .item {
+    flex-direction: column;
+  }
+  .toko .container .halaman .produk-unggulan .item img {
+    width: 100%;
+  }
+  .toko .container .halaman .produk-unggulan .item .teks-produk-unggulan {
+    padding: 0px;
+  }
+  .toko .container .halaman .produk-unggulan .item .teks-produk-unggulan h2 {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 22px;
+  }
+  .toko .container .halaman .produk-unggulan .item .teks-produk-unggulan p {
+    font-size: 16px;
+    text-align: justify;
+  }
+  .toko .container .halaman .promosi-hari-ini {
+    padding: 70px 0 0 0;
+  }
+  .toko .container .halaman .promosi-hari-ini .filter-logo img {
+    width: 55px;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  .header-call {
+    z-index: -1;
+  }
+  .header-call .container-call .content img {
+    width: 14px;
+  }
+  .header-call .container-call .call-text a {
+    font-size: 16px;
+  }
+
+  .navbarMobile {
+    display: none;
+    position: fixed;
+    background-color: #FFFFFF;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+  }
+  .navbarMobile .exitBtn {
+    float: right;
+    padding: 18px;
+    cursor: pointer;
+  }
+  .navbarMobile .exitBtn img {
+    width: 75%;
+  }
+  .navbarMobile ul {
+    padding-left: 20px;
+    margin: 7% 0 0 0;
+  }
+  .navbarMobile ul li {
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 25px;
+  }
+  .navbarMobile .login a {
+    color: #FFFFFF;
+    font-weight: 700;
+    padding: 10px 20px;
+    border-radius: 50px;
+    background: #066fe7;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+  }
+  .navbarMobile .login a:hover {
+    background: linear-gradient(#0062D4, #58A5FE);
+  }
+
+  .navActive {
+    display: block;
+  }
+
+  .container-header .company-name {
+    padding-left: 5%;
+  }
+  .container-header .company-name img {
+    width: 49px;
+  }
+  .container-header .company-name .jm-text {
+    font-size: 18px;
+  }
+  .container-header .nav {
+    display: none;
+  }
+  .container-header .navMobile {
+    display: block;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .hubungi .container {
+    margin: 0;
+    padding: 0;
+  }
+  .hubungi .container .hubungi-title {
+    font-size: 24px;
+  }
+  .hubungi .container .container-hub {
+    flex-direction: column;
+    -moz-column-gap: 0;
+         column-gap: 0;
+  }
+  .hubungi .container .container-hub .container-contact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .hubungi .container .container-hub .container-contact iframe {
+    margin-bottom: 25px;
+  }
+  .hubungi .container .container-hub .container-contact td {
+    padding: 20px 5px;
+  }
+  .hubungi .container .container-hub .container-contact td img {
+    width: 40px;
+  }
+  .hubungi .container .container-hub .container-contact td a {
+    font-size: 16px;
+  }
+  .hubungi .container .copyright {
+    padding: 25px 0 25px 0;
+  }
+  .hubungi .container .copyright p {
+    font-size: 14px;
+  }
+}
+@media only screen and (min-width: 601px) and (max-width: 768px) {
+  .hubungi .container {
+    margin: 0;
+    padding: 0;
+  }
+  .hubungi .container .container-hub {
+    flex-direction: column;
+    -moz-column-gap: 0;
+         column-gap: 0;
+  }
+  .hubungi .container .container-hub .container-contact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .hubungi .container .container-hub .container-contact iframe {
+    margin-bottom: 25px;
+  }
+  .hubungi .container .container-hub .container-contact td {
+    padding: 20px 5px;
+  }
+  .hubungi .container .container-hub .container-contact td img {
+    width: 40px;
+  }
+  .hubungi .container .copyright {
+    padding: 25px 0 25px 0;
+  }
+  .hubungi .container .copyright p {
+    font-size: 14px;
+  }
+}/*# sourceMappingURL=main.css.map */
