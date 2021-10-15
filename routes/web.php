@@ -14,5 +14,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('toko');
+    return view('home', [
+        'pos' => 'home'
+    ]);
+});
+
+Route::get('toko', function () {
+    return view('toko', [
+        'pos' => 'toko'
+    ]);
+});
+
+Route::get('login', function () {
+    return view('login');
 });

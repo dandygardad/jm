@@ -3,9 +3,21 @@
         <img src="assets/img/icons/exit.png" alt="Exit">
     </div>
     <ul>
-        <li><a href="#tentang" class="closedNav">Produk</a></li>
-        <li><a href="#kontak" class="closedNav">Kontak</a></li>
-        <li><a href="logout" class="closedNav">Logout</a></li>
+        @if($pos === 'home')
+            <li><a href="#tentang" class="closedNav">Tentang Kami</a></li>
+            <li><a href="#visidanmisi" class="closedNav">Visi Misi</a></li>
+            <li><a href="#penghargaan" class="closedNav">Penghargaan</a></li>
+            <li><a href="#mitra" class="closedNav">Mitra</a></li>
+            <li>
+                <div class="login">
+                    <a href="login" target="_blank">Login Toko</a>
+                </div>
+            </li>
+        @elseif ($pos === 'toko')
+            <li><a href="#produk" class="closedNav">Produk</a></li>
+            <li><a href="#kontak" class="closedNav">Kontak</a></li>
+            <li><a href="logout" class="closedNav">Logout</a></li>
+        @endif
     </ul>
 </div>
 
@@ -33,9 +45,21 @@
 
     <div class="content nav">
         <ul>
-            <li><a href="#produk">Produk</a></li>
-            <li><a href="#kontak">Kontak</a></li>
-            <li><a href="logout">Logout</a></li>
+            @if($pos === 'home')
+                <li><a href="#tentang">Tentang Kami</a></li>
+                <li><a href="#visidanmisi">Visi Misi</a></li>
+                <li><a href="#penghargaan">Penghargaan</a></li>
+                <li><a href="#mitra">Mitra</a></li>
+                <li>
+                    <div class="login">
+                        <a href="login.php" target="_blank">Login Toko</a>
+                    </div>
+                </li>
+            @elseif ($pos === 'toko')
+                <li><a href="#produk">Produk</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+                <li><a href="logout">Logout</a></li>
+            @endif
         </ul>
     </div>
 </div>
