@@ -1,0 +1,68 @@
+@use '../abstracts/variables' as var;
+@use '../abstracts/mixins' as mix;
+@use '../base/typography';
+
+@media only screen and (max-width: 767px) {
+    .toko {
+        .container {
+            .welcome {
+                flex-direction: column;
+                .tanggal-full {
+                    display: block;
+                    text-decoration: underline;
+                    margin-bottom: 15px;
+                }
+                .tanggal {
+                    display: none;
+                }
+                .nama-toko {
+                    text-align: center;
+                    h1 {
+                        font-size: 28px;
+                    }
+                }
+            }
+
+            .halaman {
+                padding: 25px 15px 0 15px;
+                .heading-title {
+                    font-size: 24px;
+                    text-align: center;
+                }
+
+                .produk-unggulan {
+                    .item {
+                        flex-direction: column;
+
+                        img {
+                            width: 100%;
+                        }
+                        .teks-produk-unggulan {
+                            padding: 0px;
+
+                            h2 {
+                                text-align: center;
+                                margin-top: 15px;
+                                font-size: 22px;
+                            }
+                            p {
+                                font-size: 16px;
+                                text-align: justify;
+                            }
+                        }
+                    }
+                }
+
+                .promosi-hari-ini {
+                    padding: 70px 0 0 0;
+
+                    .filter-logo {
+                        img {
+                            width: 55px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

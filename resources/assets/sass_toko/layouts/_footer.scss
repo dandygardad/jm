@@ -1,0 +1,26 @@
+@use '../abstracts/mixins' as mix;
+
+.hubungi {
+    .container {
+        @include mix.preventZoom();
+
+        .container-hub {
+            @include mix.flex(null, center);
+            column-gap: 50px;
+            
+            .container-contact {
+                width: 100%;
+
+                iframe {
+                    float: right;
+                    width: 75%;
+                    height: 300px;
+                }
+
+                td {
+                    padding: 20px 0 20px 20px;
+                }
+            }
+        }
+    }
+}

@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;600;700&display=swap");
+@import url(https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;600;700&display=swap);
 /* jangan lupa ini mengandung display, 
 klo displaynya tertumpuk,
 malah kagak bisa.
@@ -289,7 +289,7 @@ h3, p, td, li, a {
 }
 
 .toko {
-  background: url("../assets/img/bg/toko_bg.png");
+  background: url(/images/toko_bg.png?c1a9f0dbf6379fbc44eeb63e49d459ae);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -588,4 +588,4 @@ h3, p, td, li, a {
   .hubungi .container .copyright p {
     font-size: 14px;
   }
-}/*# sourceMappingURL=main.css.map */
+}

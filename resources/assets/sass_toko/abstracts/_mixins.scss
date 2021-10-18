@@ -1,0 +1,107 @@
+// Import variables
+@use '../abstracts/variables' as var;
+
+// display flex
+// argsnya merupakan default dari flex
+@mixin flex ($justify: flex-start, $align: stretch){
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+// gunakan border hanya untuk bantu
+@mixin border {
+    border: 2px solid black;
+}
+
+// button untuk home
+@mixin buttonLogin {
+    border-radius: 50px;
+    background: #066fe7;
+    box-shadow: 0 1px 2px rgba($color: #000000, $alpha: 0.8);
+}
+
+@mixin buttonLoginHover {
+    background: linear-gradient(#0062D4,#58A5FE);
+}
+
+// center picture
+/* jangan lupa ini mengandung display, 
+klo displaynya tertumpuk,
+malah kagak bisa.
+*/ 
+@mixin imgCenter($display) {
+    display: $display;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@mixin backgroundImg($url) {
+    background: url($url);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@mixin clearfix {
+    &::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+}
+
+@mixin preventZoom ($width: 1200px) {
+    margin: auto;
+    position: relative;
+    max-width: $width;
+}
+
+@mixin borderCard {
+    border: 1px solid rgba($color: #000000, $alpha: 0.3);
+    box-shadow: var.$boxShadowCard;
+    border-radius: 10px;
+    img {
+        border-radius: 9px 9px 0 0;
+    }
+}
+
+// Transition
+@mixin initialTransition($transform: translateY(30px)) {
+    opacity: 0;
+    transform: $transform;
+    transition: all 0.5s ease;
+}
+
+@mixin afterTransition() {
+    .aos {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@mixin afterText() {
+    .text-aos {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@mixin afterLogo() {
+    .logo-aos {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@mixin navBar {
+    .login {
+        a {
+            color: #FFFFFF;
+            font-weight: 700;
+            padding: 10px 20px;
+            @include buttonLogin();
+
+            &:hover {
+                @include buttonLoginHover();
+            }
+        }
+    }
+}

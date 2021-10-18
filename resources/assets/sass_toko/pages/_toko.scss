@@ -1,0 +1,130 @@
+@use '../abstracts/variables' as var;
+@use '../abstracts/mixins' as mix;
+@use '../base/typography';
+
+.toko {
+    @include mix.backgroundImg(var.$tokoBg);
+    
+    .container {
+        max-width: 1000px;
+
+        .welcome {
+            color: #FFFFFF;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 0;
+
+            .tanggal {
+                text-align: right;
+            }
+
+            .text-welcome {
+                color: #FFFFFF;
+                margin-top: 15px;
+                font-size: 18px;
+            }
+
+            .tanggal-full {
+                display: none;
+            }
+        }
+
+        .halaman {
+            background-color: #FFFFFF;
+            border-radius: 10px;
+            padding: 25px 25px 0 25px;
+            margin-bottom: 100px;
+
+            .produk-unggulan {
+                h1 {
+                    margin-bottom: 15px;
+                }
+                .item {
+                    display: flex;
+                    align-items: center;
+
+                    img {
+                        width: 35%;
+                    }
+
+                    .teks-produk-unggulan {
+                        padding: 30px;
+                        h2 {
+                            text-align: left;
+                            font-weight: 700;
+                            font-size: 26px;
+                            margin-bottom: 10px;
+                        }
+                    }
+                }
+            }
+
+            .promosi-hari-ini {
+                padding: 40px;
+
+                h1 {
+                    text-align: center;
+                }
+
+                .filter-logo {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    column-gap: 30px;
+                    padding: 30px 0;
+
+                    img {
+                        width: 70px;
+                        transition: all 0.5s ease;
+                        cursor: pointer;
+
+                        &:hover {
+                            transform: scale(1.3);
+                        }
+                    }
+                }
+
+                .container-card {
+                    @include mix.flex(space-evenly, stretch);
+                    width: 100%;
+                    flex-wrap: wrap;
+                    row-gap: 35px;
+                    padding-bottom: 50px;
+                    column-gap: 15px;
+                    
+                    .card {
+                        @include mix.borderCard();
+                        max-width: 250px;
+                        transition: all 0.5s ease;
+                        
+                        img {
+                            width: 100%;
+                        }
+
+                        .container-text {
+                            padding: 15px 15px;
+                        }
+
+                        &:hover {
+                            transform: scale(1.05);
+                        }
+                    }
+
+                    
+                }
+
+                .nav-card {
+                    display: flex;
+                    justify-content: center;
+                    ul {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        flex-wrap: wrap;
+                    }
+                }
+            }
+        }
+    }
+}

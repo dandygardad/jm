@@ -1,0 +1,177 @@
+@use '../abstracts/variables' as var;
+@use '../abstracts/mixins' as mix;
+@use '../base/typography';
+
+// TENTANG KAMI SECTION
+.tentang-kami {
+    @include mix.backgroundImg(var.$tentangBg);
+    padding: var.$padSection;
+    position: relative;
+
+    .container {
+        @include mix.clearfix();
+        @include mix.preventZoom();
+        @include mix.initialTransition();
+
+        .img-office {
+            img {
+                float: right;
+                width: 65%;
+            }
+        }
+    
+        .text-box {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 450px;
+            padding: 20px 25px;
+            background-color: #FFFFFF;
+            box-shadow: var.$boxShadow;
+            
+            .text {
+                padding-top: 10px;
+            }
+        }
+    }
+    @include mix.afterTransition();
+}
+
+
+// VISI DAN MISI
+.visi-misi {
+    @include mix.backgroundImg(var.$visiMisiBg);
+    position: relative;
+    padding: var.$padSectionTwo;
+
+    .container {
+        @include mix.preventZoom();
+        @include mix.initialTransition();
+
+        .vm-mobile {
+            display: none;
+        }
+
+        .text-box {
+            position: absolute;
+            background-color: #FFFFFF;
+            box-shadow: var.$boxShadow;
+            padding: 30px 25px 30px 0px;
+        }
+    
+        .heading-title {
+            padding-bottom: 10px;
+        }
+    
+        .visi {
+            top: 10%;
+        }
+    
+        .misi {
+            bottom: 10%;
+            right: 0;
+        }
+    
+        .pekerja {
+            @include mix.flex(null, center);
+            .img-pekerja {
+                display: none;
+            }
+    
+            .active {
+                @include mix.imgCenter(flex);
+                @include mix.flex(center, center);
+                img {
+                    max-width: 90%;
+                }
+            }
+        }
+    }
+    @include mix.afterTransition();
+}
+
+// PENGHARGAAN
+.penghargaan {
+    text-align: center;
+
+    .container {
+        padding: var.$padSectionThree;
+        @include mix.preventZoom();
+        @include mix.initialTransition();
+
+        .penghargaan-header {
+            padding: 0 250px;
+            .heading-title {
+                padding-bottom: 15px;
+            }
+        }
+
+        &-card {
+            @include mix.flex(space-evenly, stretch);
+            flex-wrap: wrap;
+            row-gap: 50px;
+            padding: 35px;
+
+            .card {
+                @include mix.borderCard();
+                width: 38%;
+                transition: 0.5s;
+
+                img {
+                    width: 100%;
+                }
+
+                .container-text {
+                    margin: 15px 25px 30px 25px;
+                }
+
+                &:hover {
+                    transform: scale(1.05);
+                }
+            }
+        }
+    }
+    @include mix.afterTransition();
+}
+
+// Mitra
+.mitra {
+    overflow-x: hidden;
+    background-color: var.$mitraBg;
+
+    .container {
+        @include mix.preventZoom();
+        @include mix.flex(center, center);
+        column-gap: 50px;
+        padding: var.$padSectionFour;
+
+        .mitra-text {
+            text-align: right;
+            width: 40%;
+            @include mix.initialTransition(translateX(30px));
+        }
+        @include mix.afterText();
+
+
+        .mitra-logo {
+            display: grid;
+            grid-template-columns: 25% 25% 25%;
+            row-gap: 30px;
+            width: 40%;
+            @include mix.initialTransition(translateX(-30px));
+
+            .logo {
+                img {
+                    transition: 0.5s;
+    
+                    &:hover {
+                        transform: scale(1.2);
+                    }
+                }
+
+            }
+        }
+        @include mix.afterLogo();
+    }
+}
+

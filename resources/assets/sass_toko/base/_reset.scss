@@ -1,0 +1,23 @@
+// Reset
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    padding: 0;
+    margin: 0 auto;
+}
+
+a {
+    text-decoration: none;
+    color: #000000;
+}
+
+h1, h2, p, ul, li {
+    margin: 0;
+}
+
+p, li, td {
+    letter-spacing: 0.025em;
+}

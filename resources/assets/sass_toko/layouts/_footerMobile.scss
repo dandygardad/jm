@@ -1,0 +1,73 @@
+@use '../abstracts/mixins' as mix;
+
+@media only screen and (max-width: 600px) {
+    .hubungi {
+        .container {
+            margin: 0;
+            padding: 0;
+            .hubungi-title {
+                font-size: 24px;
+            }
+            .container-hub {
+                flex-direction: column;
+                column-gap: 0;
+
+                .container-contact {
+                    @include mix.flex(center, center);
+                    iframe{
+                        margin-bottom: 25px;
+                        
+                    }
+                    td {
+                        padding: 20px 5px;
+                        img {
+                            width: 40px;
+                        }
+                        a {
+                            font-size: 16px;
+                        }
+                    }
+                }
+            }
+            .copyright {
+                padding: 25px 0 25px 0;
+                p {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 768px) {
+    .hubungi {
+        .container {
+            margin: 0;
+            padding: 0;
+            .container-hub {
+                flex-direction: column;
+                column-gap: 0;
+
+                .container-contact {
+                    @include mix.flex(center, center);
+                    iframe{
+                        margin-bottom: 25px;
+                        
+                    }
+                    td {
+                        padding: 20px 5px;
+                        img {
+                            width: 40px;
+                        }
+                    }
+                }
+            }
+            .copyright {
+                padding: 25px 0 25px 0;
+                p {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}

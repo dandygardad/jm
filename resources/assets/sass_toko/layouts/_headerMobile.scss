@@ -1,0 +1,76 @@
+@use '../abstracts/mixins' as mix;
+
+@media only screen and (max-width: 1024px){
+    .header-call {
+        z-index: -1;
+        .container-call {
+            .content {
+                img {
+                    width: 14px;
+                }
+            }
+            .call-text {
+                a {
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+
+    .navbarMobile {
+        display: none;
+        position: fixed;
+        background-color: #FFFFFF;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+
+
+        .exitBtn {
+            float: right;
+            padding: 18px;
+            cursor: pointer;
+            img {
+                width: 75%;
+            }
+        }
+
+        ul {
+            padding-left: 20px;
+            margin: 7% 0 0 0;
+            li {
+                display: block;
+                font-size: 20px;
+                font-weight: 700;
+                margin-bottom: 25px;
+            }
+        }
+        
+        @include mix.navBar();
+    }
+    .navActive {
+        display: block;
+    }
+    
+    .container-header {
+        .company-name {
+            padding-left: 5%;
+
+            img {
+                width: 49px;
+            }
+            .jm-text {
+                font-size: 18px;
+            }
+        }
+
+        .nav {
+            display: none;
+        }
+
+        .navMobile {
+            display: block;
+            
+        }
+    }
+}
