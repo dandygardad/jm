@@ -8,15 +8,15 @@
             <div class="container-contact">
                 <table>
                     <tr>
-                        <td><img src="assets/img/icons/mobile-call.png" alt="Logo Telepon"></td>
+                        <td><img src="{{ asset('') }}assets/img/icons/mobile-call.png" alt="Logo Telepon"></td>
                         <td><a href="tel:+628134012222">+628134012222</a></td>
                     </tr>
                     <tr>
-                        <td><img src="assets/img/icons/location.png" alt="Logo Lokasi"></td>
+                        <td><img src="{{ asset('') }}assets/img/icons/location.png" alt="Logo Lokasi"></td>
                         <td><a href="https://goo.gl/maps/qY4E66R65BwGiRrh6" target="_blank" rel="noopener">Jl. Andi Tonro No.19c</a></td>
                     </tr>
                     <tr>
-                        <td><img src="assets/img/icons/email.png" alt="Logo E-mail"></td>
+                        <td><img src="{{ asset('') }}assets/img/icons/email.png" alt="Logo E-mail"></td>
                         <td><a href="mailto:dandygarda@gmail.com">dandygarda@gmail.com</a></td>
                     </tr>
                 </table>

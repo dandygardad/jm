@@ -4,7 +4,7 @@
 
 .toko {
     @include mix.backgroundImg(var.$tokoBg);
-    
+
     .container {
         max-width: 1000px;
 
@@ -65,6 +65,7 @@
 
                 h1 {
                     text-align: center;
+                    margin-bottom: 25px;
                 }
 
                 .filter-logo {
@@ -92,12 +93,12 @@
                     row-gap: 35px;
                     padding-bottom: 50px;
                     column-gap: 15px;
-                    
+
                     .card {
                         @include mix.borderCard();
                         max-width: 250px;
                         transition: all 0.5s ease;
-                        
+
                         img {
                             width: 100%;
                         }
@@ -109,14 +110,17 @@
                         &:hover {
                             transform: scale(1.05);
                         }
+
+                        @include mix.tombolJumlah;
                     }
 
-                    
+
                 }
 
                 .nav-card {
                     display: flex;
                     justify-content: center;
+                    margin-bottom: 48px;
                     ul {
                         display: flex;
                         justify-content: center;
@@ -124,7 +128,67 @@
                         flex-wrap: wrap;
                     }
                 }
+
+                .garis {
+                    border: 2px solid black;
+                    width: 100%;
+                    margin-bottom: 20px;
+                }
             }
+            .checkout {
+                padding: 0 0 20px 0;
+                .heading-title {
+                    text-align: center;
+                    margin-bottom: 20px;
+                }
+                table, tr, th, td {
+                    border: 3px solid #505050;
+                    padding: 5px 7px;
+                    font-size: 18px;
+                    text-align: center;
+                }
+
+                table {
+                    width: 100%;
+                    tr {
+                        td {
+                            button {
+                                font-weight: 700;
+                                color: #FFFFFF;
+                                padding: 0 5px;
+                                background-color: red;
+                                border: 0;
+                                border-radius: 5px;
+                                font-size: 20px;
+                            }
+                            @include mix.tombolJumlah;
+                        }
+                    }
+                }
+
+                .container-center {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    .kirim {
+                        padding: 5px 20px;
+                        text-align: center;
+                        font-size: 22px;
+                        font-weight: 700;
+                        margin-top: 20px;
+                        background-color: #0062D4;
+                        border: 0;
+                        border-radius: 5px;
+                        color: #FFFFFF;
+                        box-shadow: var.$boxShadow;
+                        &:hover {
+                            background-color: #2687f7;
+                        }
+                    }
+
+                }
+            }
+
         }
     }
 }

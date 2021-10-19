@@ -1,0 +1,251 @@
+@import url('http://fonts.googleapis.com/css2? family=Poppins:wght@300;400;500;600&display=swap');
+
+:root {
+    --main-color: #0000FF;
+    --color-light: #ffffff;
+    --text-grey: #d6d6d6;
+    --logo-grey: #7e7d7d;
+}
+
+h3.tulisan_logo{
+    padding-bottom: 100px;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+.sidebar{
+    width: 310px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background: var(--main-color);
+    z-index: 100;
+}
+
+.sidebar-brand{
+    height: 100px;
+    padding: 1rem 0rem 1rem 2rem;
+    color: #fff;
+    padding-bottom: 100px;
+}
+
+.sidebar-brand span{
+    display: inline-block;
+    padding-right: 1rem;
+}
+
+.sidebar-menu{
+    margin-top: 2rem;
+}
+
+.sidebar-menu li{
+    width: 100%;
+    margin-bottom: 2.5rem;
+    padding-left: 0.25rem;
+}
+
+.sidebar-menu a{
+    padding-left: 1rem;
+    display: block;
+    color: #fff;
+    font-size: 1.1rem;
+}
+
+.sidebar-menu a span:first-child{
+    font-size: 1.5rem;
+    padding-right: 1rem;
+}
+
+.sidebar-menu a.active{
+    background: #fff;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    color: var(--main-color);
+    border-radius: 30px 0px 0px 30px;
+}
+.main-content{
+    margin-left: 310px;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+    position: fixed;
+    left: 305px;
+    width: calc(100% - 305px);
+    top: 0;
+    z-index: 100;
+}
+
+header h3{
+    color:#000000;
+    margin-top: 5px;
+}
+
+.search-wrapper{
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.search-wrapper span{
+    display: inline-block;
+    padding: 0rem 1rem;
+    font-size: 1.5rem;
+}
+
+.search-wrapper input{
+    height: 100%;
+    padding: 1.5rem;
+    border: none;
+    outline: none;
+}
+
+.user-wrapper{
+    display: flex;
+    align-items: center;
+}
+
+.user-wrapper img{
+    border-radius: 50%;
+    margin-right: 0.25rem;
+}
+
+.user-wrapper h5{
+    margin-right: 3px;
+    align-items: center;
+}
+
+.form_promosi{
+    display: block;
+    margin-top: 35px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 650px;
+    align-items: center;
+    height: 50%;
+    background: var(--main-color);
+    z-index: 100;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.form_promosi_1{
+    margin-left: auto;
+    margin-right: auto;
+    width: 650px;
+    height: 430px;
+    background: var(--color-light);
+    border-radius: 0px 0px 10px 10px;
+}
+
+.form_admin_1{
+    margin-left: auto;
+    margin-right: auto;
+    width: 650px;
+    height: 300px;
+    background: var(--color-light);
+    border-radius: 0 0 10px 10px;
+}
+
+.form_produk_1{
+    margin-left: auto;
+    margin-right: auto;
+    width: 650px;
+    height: 400px;
+    background: var(--color-light);
+    border-radius: 0 0 10px 10px;
+}
+
+h4.tulisan_input_data_promosi{
+    color: white;
+    text-align: center;
+}
+
+img.gambar_input_promosi{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+.col-25{
+    float: left;
+    width: 150px;
+    margin-top: 25px;
+    margin-left: 5%;
+}
+
+.col-75{
+    float: left;
+    width: 450px;
+    margin-top: 25px;
+}
+
+.letak_button{
+    margin-right: auto;
+    margin-left: auto;
+    width: auto;
+}
+
+button.submit_promosi{
+    margin-top: 30px;
+    margin-bottom: 20px;
+    width: 115px;
+    height: 40px;
+    background: var(--main-color);
+    color: var(--color-light);
+    border-radius: 10px;
+}
+
+main{
+    margin-top: 85px;
+    padding: 2rem 1.5rem;
+    background: var(--text-grey);
+    min-height: calc(100vh - 90px);
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.cards{
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 2rem;
+    margin-top: 1rem;
+}
+
+.card-single{
+    display: flex;
+    justify-content: space-between;
+    background: #fff;
+    padding: 2rem;
+    border-radius: 5px;
+}
+
+.card-single span + h1{
+    color: var(--logo-grey);
+}
+
+.button{
+    background: var(--main-color);
+    width: 200px;
+    height: 50px;
+    border: none;
+    color: var(--color-light);
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 24px;
+    border-radius: 12px;
+}

@@ -1,0 +1,14 @@
+body{
+    background-image: url('gambar/input_data/background.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100% ;
+}
+h5.tulisan_label{
+    font-weight: bold;
+}
+
+input[type=text]{
+    width: 100%;
+    font-size: 15px;
+}

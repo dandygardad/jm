@@ -26,10 +26,10 @@
 }
 
 // center picture
-/* jangan lupa ini mengandung display, 
+/* jangan lupa ini mengandung display,
 klo displaynya tertumpuk,
 malah kagak bisa.
-*/ 
+*/
 @mixin imgCenter($display) {
     display: $display;
     margin-left: auto;
@@ -102,6 +102,35 @@ malah kagak bisa.
             &:hover {
                 @include buttonLoginHover();
             }
+        }
+    }
+}
+
+@mixin tombolJumlah {
+    .plusminus {
+        display: flex;
+        justify-content: center;
+        column-gap: 10px;
+        align-items: center;
+        margin-bottom: 16px;
+
+        button {
+            font-size: 25px;
+            // color: white;
+            font-weight: 800;
+        }
+        .plus {
+            background-color: #33ff00;
+            padding: 0px 12px;
+        }
+        .minus {
+            background-color: #ff4d4d;
+            padding: 0px 15px;
+        }
+
+        .jumlah {
+            font-size: 24px;
+            font-weight: 700;
         }
     }
 }

@@ -16,7 +16,7 @@
                 <p class="text-welcome">27/09/2021</p>
             </div>
         </div>
-        
+
         <div class="halaman" id="produk">
             <div class="produk-unggulan">
                 <h1 class="heading-title">Produk Unggulan</h1>
@@ -28,28 +28,36 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="promosi-hari-ini">
                 <h1 class="heading-title">Promosi Hari Ini</h1>
-                <div class="filter-logo">
-                    <img src="assets/img/dummy_toko/filter-logo.png" alt="Logo">
-                    <img src="assets/img/dummy_toko/filter-logo.png" alt="Logo">
-                    <img src="assets/img/dummy_toko/filter-logo.png" alt="Logo">
-                </div>
-        
+
                 <div class="container-card">
+                    {{-- @foreach ($products as $product) --}}
                     <div class="card">
                         <img src="assets/img/dummy_toko/card.png" alt="Penghargaan 1">
                         <div class="container-text">
-                            <h3>Penjualan Produk Terbaik</h3>
-                            <p class="content-card">Lorem ipsum dolor sit amet, itaque, illum adipisci beatae vitae ipsum, est vero dolore, debitis soluta nesciunt voluptas inventore consectetur?</p>
+                            <h3></h3>
+                            <p class="content-card"></p>
+                        </div>
+                        <div class="plusminus">
+                            <form action="{{ route('add-product') }}" method="post">
+                                @csrf
+                                <input type="hidden" value="1" name="product_id">
+                                <button type="submit" class="plus">+</button>
+                            </form>
                         </div>
                     </div>
-                    <div class="card">
+
+                    {{-- @endforeach --}}
+                    {{-- <div class="card">
                         <img src="assets/img/dummy_toko/card.png" alt="Penghargaan 1">
                         <div class="container-text">
                             <h3>Sangat Terbaik</h3>
                             <p class="content-card">Lorem ipsum dolor sit amet,sicing elit. Placeat numquam itaque, illum adipisci beatae vitae ipsum, est vero dolore, debitis soluta nesciunt voluptas inventore consectetur?</p>
+                        </div>
+                        <div class="plusminus">
+                            <button class="plus">+</button>
                         </div>
                     </div>
                     <div class="card">
@@ -58,12 +66,8 @@
                             <h3>Penjualan Produk Terbaik</h3>
                             <p class="content-card">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat numquam itaque, illum adipisci beatae vitae ipsum, est vero dolore, debitis soluta nesciunt voluptas inventore consectetur?</p>
                         </div>
-                    </div>
-                    <div class="card">
-                        <img src="assets/img/dummy_toko/card.png" alt="Penghargaan 1">
-                        <div class="container-text">
-                            <h3>Penjualan Produk Terbaik</h3>
-                            <p class="content-card">Lorem ipsum dolor sit amet, consectetur</p>
+                        <div class="plusminus">
+                            <button class="plus">+</button>
                         </div>
                     </div>
                     <div class="card">
@@ -72,12 +76,8 @@
                             <h3>Penjualan Produk Terbaik</h3>
                             <p class="content-card">Lorem ipsum dolor sit amet, consectetur</p>
                         </div>
-                    </div>
-                    <div class="card">
-                        <img src="assets/img/dummy_toko/card.png" alt="Penghargaan 1">
-                        <div class="container-text">
-                            <h3>Penjualan Produk Terbaik</h3>
-                            <p class="content-card">Lorem ipsum dolor sit amet, consectetur</p>
+                        <div class="plusminus">
+                            <button class="plus">+</button>
                         </div>
                     </div>
                     <div class="card">
@@ -86,12 +86,8 @@
                             <h3>Penjualan Produk Terbaik</h3>
                             <p class="content-card">Lorem ipsum dolor sit amet, consectetur</p>
                         </div>
-                    </div>
-                    <div class="card">
-                        <img src="assets/img/dummy_toko/card.png" alt="Penghargaan 1">
-                        <div class="container-text">
-                            <h3>Penjualan Produk Terbaik</h3>
-                            <p class="content-card">Lorem ipsum dolor sit amet, consectetur</p>
+                        <div class="plusminus">
+                            <button class="plus">+</button>
                         </div>
                     </div>
                     <div class="card">
@@ -100,7 +96,40 @@
                             <h3>Penjualan Produk Terbaik</h3>
                             <p class="content-card">Lorem ipsum dolor sit amet, consectetur</p>
                         </div>
+                        <div class="plusminus">
+                            <button class="plus">+</button>
+                        </div>
                     </div>
+                    <div class="card">
+                        <img src="assets/img/dummy_toko/card.png" alt="Penghargaan 1">
+                        <div class="container-text">
+                            <h3>Penjualan Produk Terbaik</h3>
+                            <p class="content-card">Lorem ipsum dolor sit amet, consectetur</p>
+                        </div>
+                        <div class="plusminus">
+                            <button class="plus">+</button>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="assets/img/dummy_toko/card.png" alt="Penghargaan 1">
+                        <div class="container-text">
+                            <h3>Penjualan Produk Terbaik</h3>
+                            <p class="content-card">Lorem ipsum dolor sit amet, consectetur</p>
+                        </div>
+                        <div class="plusminus">
+                            <button class="plus">+</button>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="assets/img/dummy_toko/card.png" alt="Penghargaan 1">
+                        <div class="container-text">
+                            <h3>Penjualan Produk Terbaik</h3>
+                            <p class="content-card">Lorem ipsum dolor sit amet, consectetur</p>
+                        </div>
+                        <div class="plusminus">
+                            <button class="plus">+</button>
+                        </div>
+                    </div> --}}
                 </div>
                 <!-- Pagination -->
                 <nav class="nav-card" aria-label="Page navigation">

@@ -1,6 +1,6 @@
 <div class="navbarMobile">
     <div class="exitBtn">
-        <img src="assets/img/icons/exit.png" alt="Exit">
+        <img src="{{ asset('') }}assets/img/icons/exit.png" alt="Exit">
     </div>
     <ul>
         @if($pos === 'home')
@@ -24,7 +24,7 @@
 <div class="header-call">
     <div class="container-call">
         <span class="content">
-            <img src="assets/img/icons/header-mobile.png" alt="Logo Telepon">
+            <img src="{{ asset('') }}assets/img/icons/header-mobile.png" alt="Logo Telepon">
         </span>
         <span class="content call-text">
             <a href="tel:+628134012222">
@@ -36,11 +36,11 @@
 
 <div class="container-header">
     <div class="content company-name">
-        <img src="assets/img/icons/header-logo.png" alt="Logo Jaya Mandiri">
+        <img src="{{ asset('') }}assets/img/icons/header-logo.png" alt="Logo Jaya Mandiri">
         <span class="jm-text">Jaya Mandiri</span class="jm-text">
     </div>
     <div class="navMobile">
-        <img src="assets/img/icons/hamburger.png" alt="Menu button">
+        <img src="{{ asset('') }}assets/img/icons/hamburger.png" alt="Menu button">
     </div>
 
     <div class="content nav">
