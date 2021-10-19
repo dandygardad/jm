@@ -9,7 +9,7 @@
         <link rel="icon" type="image/png" sizes="96x96" href="../../assets/favicon/favicon-96x96.png">
         <link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon/favicon-16x16.png">
 
-        <link rel="stylesheet" href="../../css/login.css">
+        <link rel="stylesheet" href="{{ asset('') }}css/login.css">
     </head>
 
     <body>
@@ -17,16 +17,20 @@
             <div class="container">
                 <div class="login">
                     <div class="jm-image">
-                        <img src="../../assets/img/jm-logo.png" alt="Logo Jaya Mandiri">
+                        <img src="{{ asset('') }}assets/img/jm-logo.png" alt="Logo Jaya Mandiri">
                     </div>
                     <h1>Masuk</h1>
-                    <form>
+                    <form action="{{ route('login') }}" method="post">
+                        @csrf
                         <div class="input-text">
-                            <input type="text" name="username" id="username" placeholder="Username" required>
+                            @if (session()->has('error'))
+                                <span class="error-text">{{ session('error') }}</span>
+                            @endif
+                            <input type="text" name="id_toko" id="username" placeholder="ID Toko" required autofocus>
                             <input type="password" name="password" id="password" placeholder="Password" required>
                         </div>
                         <div class="login-button-form">
-                            <input type="button" name="masuk" value="Masuk">
+                            <button type="submit">Masuk</button>
                         </div>
                     </form>
                 </div>

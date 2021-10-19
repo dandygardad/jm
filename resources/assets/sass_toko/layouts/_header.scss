@@ -40,7 +40,7 @@
         img {
             width: 62px;
             padding-right: 10px;
-            
+
         }
 
         .jm-text {
@@ -58,15 +58,29 @@
         }
     }
     .nav {
-        li {
-            display: inline-block;
-            margin-right: 35px;
-            @include mix.navBar();
-            
-            a {
-                letter-spacing: 0.4px;
-                font-size: 18px;
+        ul {
+            display: flex;
+            li {
+                display: inline-block;
+                margin-right: 35px;
+                @include mix.navBar();
+
+                a {
+                    letter-spacing: 0.4px;
+                    font-size: 18px;
+                }
+
+                button {
+                    letter-spacing: 0.4px;
+                    font-size: 18px;
+                    border: 0px;
+                    padding: 0;
+                    color: red;
+                    font-weight: 700;
+                    background-color: initial;
+                }
             }
         }
+
     }
 }

@@ -19,6 +19,9 @@
 
         <div class="halaman" id="produk">
             <div class="checkout">
+                <div class="back">
+                    <a href="{{ url('/toko') }} " class="back">← Kembali ke halaman produk</a>
+                </div>
                 <h1 class="heading-title">Checkout</h1>
                 <table>
                     <tr>

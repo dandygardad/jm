@@ -19,6 +19,7 @@ class TokoController extends Controller
     public function checkout() {
         return view('checkout', [
             'pos' => 'toko',
+            'checkouts' => Checkout::all()
         ]);
     }
 

@@ -44,14 +44,24 @@
                 font-weight: 700;
                 margin-bottom: 25px;
             }
+
+            button {
+                letter-spacing: 0.4px;
+                font-size: 20px;
+                border: 0px;
+                background-color:#FFFFFF;
+                padding: 0;
+                font-weight: 700;
+                color: red;
+            }
         }
-        
+
         @include mix.navBar();
     }
     .navActive {
         display: block;
     }
-    
+
     .container-header {
         .company-name {
             padding-left: 5%;
@@ -70,7 +80,7 @@
 
         .navMobile {
             display: block;
-            
+
         }
     }
 }

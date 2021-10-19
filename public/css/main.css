@@ -245,11 +245,14 @@ h3, p, td, li, a {
 .container-header .navMobile img {
   width: 75%;
 }
-.container-header .nav li {
+.container-header .nav ul {
+  display: flex;
+}
+.container-header .nav ul li {
   display: inline-block;
   margin-right: 35px;
 }
-.container-header .nav li .login a {
+.container-header .nav ul li .login a {
   color: #FFFFFF;
   font-weight: 700;
   padding: 10px 20px;
@@ -257,12 +260,21 @@ h3, p, td, li, a {
   background: #066fe7;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
 }
-.container-header .nav li .login a:hover {
+.container-header .nav ul li .login a:hover {
   background: linear-gradient(#0062D4, #58A5FE);
 }
-.container-header .nav li a {
+.container-header .nav ul li a {
   letter-spacing: 0.4px;
   font-size: 18px;
+}
+.container-header .nav ul li button {
+  letter-spacing: 0.4px;
+  font-size: 18px;
+  border: 0px;
+  padding: 0;
+  color: red;
+  font-weight: 700;
+  background-color: initial;
 }
 
 .hubungi .container {
@@ -432,8 +444,37 @@ h3, p, td, li, a {
   width: 100%;
   margin-bottom: 20px;
 }
+.toko .container .halaman .promosi-hari-ini .checkout-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.toko .container .halaman .promosi-hari-ini .checkout-button p {
+  margin-bottom: 15px;
+  text-align: center;
+}
+.toko .container .halaman .promosi-hari-ini .checkout-button a {
+  color: white;
+  border-radius: 5px;
+  background-color: #0062D4;
+  padding: 8px 20px;
+  font-size: 24px;
+  font-weight: 700;
+}
+.toko .container .halaman .promosi-hari-ini .checkout-button a:hover {
+  background-color: #2687f7;
+  text-decoration: none;
+}
 .toko .container .halaman .checkout {
   padding: 0 0 20px 0;
+}
+.toko .container .halaman .checkout .back {
+  margin-bottom: 20px;
+}
+.toko .container .halaman .checkout .back a {
+  font-size: 18px;
+  text-decoration: underline;
 }
 .toko .container .halaman .checkout .heading-title {
   text-align: center;
@@ -591,6 +632,15 @@ h3, p, td, li, a {
     font-size: 20px;
     font-weight: 700;
     margin-bottom: 25px;
+  }
+  .navbarMobile ul button {
+    letter-spacing: 0.4px;
+    font-size: 20px;
+    border: 0px;
+    background-color: #FFFFFF;
+    padding: 0;
+    font-weight: 700;
+    color: red;
   }
   .navbarMobile .login a {
     color: #FFFFFF;

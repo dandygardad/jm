@@ -9,7 +9,7 @@
             </div>
             <div class="nama-toko">
                 <h1>Selamat Datang</h1>
-                <p class="text-welcome">Nama Toko</p>
+                <p class="text-welcome">{{ Auth::user()->name }}</p>
             </div>
             <div class="tanggal">
                 <h1>Selasa</h1>
@@ -33,23 +33,22 @@
                 <h1 class="heading-title">Promosi Hari Ini</h1>
 
                 <div class="container-card">
-                    {{-- @foreach ($products as $product) --}}
+                    @foreach ($products as $product)
                     <div class="card">
                         <img src="assets/img/dummy_toko/card.png" alt="Penghargaan 1">
                         <div class="container-text">
-                            <h3></h3>
-                            <p class="content-card"></p>
+                            <h3>{{ $product->name }}</h3>
+                            <p class="content-card">{{ $product->desc }}</p>
                         </div>
                         <div class="plusminus">
                             <form action="{{ route('add-product') }}" method="post">
                                 @csrf
-                                <input type="hidden" value="1" name="product_id">
-                                <button type="submit" class="plus">+</button>
+                                <input type="hidden" value="{{ $product->id }}" name="product_id">
+                                <button type="submit" class="plus"><img src="{{ asset('assets/img/icons/cart.png') }}" alt="Tambahkan ke keranjang", width="30", height="30"></button>
                             </form>
                         </div>
                     </div>
-
-                    {{-- @endforeach --}}
+                    @endforeach
                     {{-- <div class="card">
                         <img src="assets/img/dummy_toko/card.png" alt="Penghargaan 1">
                         <div class="container-text">
@@ -154,6 +153,10 @@
                         </li>
                     </ul>
                 </nav>
+                <div class="checkout-button">
+                    <p>Sudah selesai? Klik tombol di bawah ini</p>
+                    <a href="toko/checkout">Checkout</a>
+                </div>
             </div>
         </div>
     </div>

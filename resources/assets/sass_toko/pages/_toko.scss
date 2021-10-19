@@ -134,9 +134,41 @@
                     width: 100%;
                     margin-bottom: 20px;
                 }
+
+                .checkout-button {
+                    @include mix.flex(center, center);
+                    flex-direction: column;
+
+                    p {
+                        margin-bottom: 15px;
+                        text-align: center;
+                    }
+                    a {
+                        color: white;
+                        border-radius: 5px;
+                        background-color: #0062D4;
+                        padding: 8px 20px;
+                        font-size: 24px;
+                        font-weight: 700;
+
+                        &:hover {
+                            background-color: #2687f7;
+                            text-decoration: none;
+                        }
+                    }
+                }
             }
             .checkout {
                 padding: 0 0 20px 0;
+                .back{
+                    margin-bottom: 20px;
+                    a {
+                        font-size: 18px;
+                        text-decoration: underline;
+
+                    }
+                }
+
                 .heading-title {
                     text-align: center;
                     margin-bottom: 20px;

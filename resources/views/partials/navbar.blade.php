@@ -10,13 +10,20 @@
             <li><a href="#mitra" class="closedNav">Mitra</a></li>
             <li>
                 <div class="login">
-                    <a href="/toko/login" target="_blank">Login Toko</a>
+                    @auth
+                            <a href="toko" target="_blank">Masuk Toko</a>
+                    @else
+                            <a href="toko/login" target="_blank">Login Toko</a>
+                    @endauth
                 </div>
             </li>
         @elseif ($pos === 'toko')
             <li><a href="#produk" class="closedNav">Produk</a></li>
             <li><a href="#kontak" class="closedNav">Kontak</a></li>
-            <li><a href="/logout" class="closedNav">Logout</a></li>
+            <form action="{{ route('logout') }}" method="post">
+                @csrf
+                <li><button type="submit" class="closedNav">Logout</button></li>
+            </form>
         @endif
     </ul>
 </div>
@@ -52,13 +59,22 @@
                 <li><a href="#mitra">Mitra</a></li>
                 <li>
                     <div class="login">
-                        <a href="toko/login" target="_blank">Login Toko</a>
+                        @auth
+                            <a href="toko" target="_blank">Masuk Toko</a>
+                        @else
+                            <a href="toko/login" target="_blank">Login Toko</a>
+                        @endauth
                     </div>
                 </li>
             @elseif ($pos === 'toko')
                 <li><a href="#produk">Produk</a></li>
                 <li><a href="#kontak">Kontak</a></li>
-                <li><a href="toko/logout">Logout</a></li>
+
+                <form action="{{ route('logout') }}" method="post">
+                    @csrf
+                    <li><button type="submit" class="closedNav">Logout</button></li>
+                </form>
+                {{-- <li><a href="{{ url('toko/logout') }}">Logout</a></li> --}}
             @endif
         </ul>
     </div>
