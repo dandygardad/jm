@@ -19,7 +19,7 @@ class CreateProductsTable extends Migration
             $table->text('desc');
             $table->string('img')->nullable();
             $table->string('unit');
-            $table->boolean('unggulan')->default(0);
+            $table->boolean('unggulan')->default(0)->nullable();
             $table->timestamps();
         });
     }

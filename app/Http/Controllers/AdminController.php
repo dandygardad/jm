@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Contracts\Encryption\DecryptException;
 
 class AdminController extends Controller
@@ -22,7 +23,7 @@ class AdminController extends Controller
 
         return view('admin/dashboard', [
             'totalCustomer' => User::all()->count(),
-            'totalOrder' => User::all()->count()
+            'totalOrder' => Order::all()->count()
         ]);
     }
 
@@ -279,7 +280,7 @@ class AdminController extends Controller
     public function inputProduk(Request $request){
         // Validate
         $validated = $request->validate([
-            'name' => 'required',
+            'name' => 'required|unique:products,name',
             'unit' => 'required|max:5',
             'img' => 'required|image|file|max:1024',
             'desc' => 'required'
@@ -294,6 +295,77 @@ class AdminController extends Controller
         return redirect('/admin/master_data');
     }
 
+    public function viewProduk($id) {
+        return view('admin.edit_data_master_data', [
+            'produk' => Product::find($id)
+        ]);
+    }
+
+    public function editProduk(Request $request) {
+        $rules = [
+            'id' => 'required',
+            'gambar' => 'required',
+            'name' => 'required|unique:products',
+            'unit' => 'required|max:5',
+            'img' => 'image|file|max:1024',
+            'desc' => 'required'
+        ];
+
+        try {
+            $request['gambar'] = Crypt::decryptString($request->gambar);
+            $request['id'] = Crypt::decryptString($request->id);
+        } catch (DecryptException $e) {
+            abort(403);
+        }
+
+        $product = Product::find($request['id']);
+
+        if($request->name == $product->name){
+            $rules['name'] = 'required';
+        }
+
+        $validated = $request->validate($rules);
+
+        if(!$request->img) {
+            $validated['img'] = $validated['gambar'];
+        }
+        else {
+            $validated['img'] = $request->file('img')->store('products');
+            Storage::delete($validated['gambar']);
+        }
+
+        $update = Product::find($validated['id']);
+        $update->name = $validated['name'];
+        $update->img = $validated['img'];
+        $update->unit = $validated['unit'];
+        $update->desc = $validated['desc'];
+        $update->save();
+
+        return redirect('/admin/master_data');
+    }
+
+    public function deleteProduk(Request $request) {
+        $validated = $request->validate([
+            'id' => 'required',
+            'gambar' => 'required'
+        ]);
+
+        try {
+            $validated['gambar'] = Crypt::decryptString($request->gambar);
+            $validated['id'] = Crypt::decryptString($request->id);
+        } catch (DecryptException $e) {
+            abort(403);
+        }
+
+        Storage::delete($validated['gambar']);
+        $customer = Product::find($validated['id']);
+        $customer->delete();
+        return redirect('/admin/master_data');
+    }
+
+
+
+    // Logout
     public function logout(Request $request) {
         Auth::logout();
         $request->session()->invalidate();

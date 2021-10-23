@@ -77,7 +77,7 @@
                             @enderror
 
                             @error('img')
-                            <p class="warning">Gambar tidak boleh kosong!</p>
+                            <p class="warning">Gambar tidak boleh kosong/lebih dari 1MB!</p>
                             @enderror
 
                             @error('desc')
@@ -138,8 +138,15 @@
                         <td>{{ $product->unit }}</td>
                         <td><a href="{{ asset('storage/' . $product->img) }}" target="_blank">Lihat</a></td>
                         <td>
-                            <button class="button_edit text-white">Edit</button>
-                            <button class="button_hapus">Hapus</button>
+                            <a href="{{ url('admin/master_data/view/' . $product->id) }}"><button class="button_edit text-white">Edit</button></a>
+                            <form action="{{ route('deleteProduk') }}" method="POST">
+                                @csrf
+                                <input type="hidden" name="id" value="{{ Crypt::encryptString($product->id) }}">
+                                <input type="hidden" name="gambar" value="{{ Crypt::encryptString($product->img) }}">
+
+                                {{-- JANGAN DINYALAKAN TOMBOL HAPUS PRODUK, KONSEKUENSINYA ORDER AKAN KACAU --}}
+                                {{-- <button class="button_hapus" type="submit" onclick="return confirm('APAKAH ANDA INGIN MENGHAPUS PRODUK INI?')">Hapus</button> --}}
+                            </form>
                         </td>
                     </tr>
                     @endforeach
