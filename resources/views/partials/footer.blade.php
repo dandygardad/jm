@@ -24,7 +24,7 @@
         </div>
         <div class="copyright">
             <p class="bold">Copyright © 2021 Jaya Mandiri. All Rights Reserved</p>
-            <p>Web by <span>Dandy Garda</span></p>
+            <p>local • Web Design by <span>Dandy Garda</span></p>
         </div>
     </div>
 </div>

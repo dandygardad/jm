@@ -26,7 +26,7 @@
                             @if (session()->has('error'))
                                 <span class="error-text">{{ session('error') }}</span>
                             @endif
-                            <input type="text" name="id_toko" id="username" placeholder="ID Toko" required autofocus>
+                            <input type="text" name="toko_id" id="username" placeholder="ID Toko" required autofocus>
                             <input type="password" name="password" id="password" placeholder="Password" required>
                         </div>
                         <div class="login-button-form">
@@ -36,10 +36,10 @@
                 </div>
 
                 <div class="switch">
-                    <p>Belum terdaftar?</p>
-                    <h1>Daftar sekarang!</h1>
+                    <p>Ingin bermitra dengan kami?</p>
+                    <h1>Silahkan hubungi kami!</h1>
                     <div class="register-button-form">
-                        <a href="/#kontak" target="_blank">Daftar</a>
+                        <a href="/#kontak" target="_blank">Cek disini!</a>
                     </div>
                 </div>
             </div>

@@ -16,25 +16,29 @@
         </div>
         <div class="sidebar-menu">
             <ul>
-                <li >
-                    <a href="{{ url('') }}/admin" class="active"><span class="la la-tachometer"></span>
+                <li>
+                    <a href="{{ url('/admin') }}" class="active"><span class="la la-tachometer"></span>
                     <span>Dashboard</span></a>
                 </li>
                 <li>
-                    <a href="admin/promosi"><span class="la la-percent"></span>
+                    <a href="{{ url('/admin/promosi') }}"><span class="la la-percent"></span>
                     <span>Promosi</span></a>
                 </li>
                 <li>
-                    <a href="admin/produk"><span class="la la-box"></span>
+                    <a href="{{ url('/admin/produk') }}"><span class="la la-box"></span>
                     <span>Produk Unggulan</span></a>
                 </li>
                 <li>
-                    <a href="admin/admin"><span class="las la-users"></span>
-                    <span>Admin</span></a>
+                    <a href="{{ url('/admin/admin') }}"><span class="las la-users"></span>
+                    <span>Pelanggan</span></a>
                 </li>
                 <li>
-                    <a href="admin/order"><span class="las la-clipboard"></span>
+                    <a href="{{ url('/admin/order') }}"><span class="las la-clipboard"></span>
                     <span>Order</span></a>
+                </li>
+                <li>
+                    <a href="{{ url('/admin/master_data') }}"><span class="las la-database"></span>
+                    <span>Master Data Produk</span></a>
                 </li>
             </ul>
         </div>
@@ -45,10 +49,13 @@
         <header>
             <h3>Dashboard</h3>
             <div class="user-wrapper">
-                <img src="{{ asset('') }}dash/gambar/dasboard/logo_admin.png" width="40px" height="40px" alt="">
-                <div>
-                    <h5>Admin</h5>
-                </div>
+                <img src="{{ asset('') }}dash/gambar/dasboard/logout.png" width="50px" height="40px" alt="">
+                <form action='{{ route('logoutAdmin') }}' method="post">
+                    @csrf
+                    <div>
+                        <button class="button_logout" type="submit">Logout</button>
+                    </div>
+                </form>
             </div>
         </header>
         <main>
@@ -60,7 +67,7 @@
                         <span>Visitors</span>
                     </div>
                     <div>
-                        <img src="{{ asset('') }}dash/gambar/dasboard/logo visitor.png" style="padding-left: 30px;" width="125rem" alt="">
+                        <img src="{{ asset('') }}dash/gambar/dasboard/visitor.png" style="padding-left: 30px;" width="150px" height="95px" alt="">
                     </div>
                 </div>
             </div>
@@ -68,22 +75,22 @@
             <div class="cards">
                 <div class="card-single">
                     <div>
-                        <h1>125</h1>
+                        <h1>{{ $totalCustomer }}</h1>
                         <span>Costumers</span>
                     </div>
                     <div>
-                        <img src="{{ asset('') }}dash/gambar/dasboard/Capture-removebg-preview (1).png" style="padding-left: 30px;" width="125rem" alt="">
+                        <img src="{{ asset('') }}dash/gambar/dasboard/Capture-removebg-preview (1).png" style="padding-left: 30px;" width="125px" alt="">
                     </div>
                 </div>
             </div>
             <div class="cards">
                 <div class="card-single">
                     <div>
-                        <h1>12</h1>
+                        <h1>{{ $totalOrder }}</h1>
                         <span>Order</span>
                     </div>
                     <div>
-                        <img src="{{ asset('') }}dash/gambar/dasboard/order-removebg-preview.png" style="padding-left: 30px;" width="125rem" alt="">
+                        <img src="{{ asset('') }}dash/gambar/dasboard/order-removebg-preview.png" class="gambar_order" alt="">
                     </div>
                 </div>
             </div>

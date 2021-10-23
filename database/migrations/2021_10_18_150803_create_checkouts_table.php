@@ -15,6 +15,7 @@ class CreateCheckoutsTable extends Migration
     {
         Schema::create('checkouts', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id');
             $table->foreignId('product_id');
             $table->string('jumlah');
             $table->timestamps();

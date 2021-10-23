@@ -27,6 +27,7 @@
 <link rel="stylesheet" href="{{ asset('') }}css/bootstrap.min.css">
 <link rel="stylesheet" href="{{ asset('') }}css/bootstrap-theme.min.css"
 <script defer src="{{ asset('') }}js/bootstrap.min.js"></script>
+<script defer src="{{ asset('') }}js/toko.js"></script>
 
 <link rel="stylesheet" href="{{ asset('') }}css/main.css">
 <script defer src="{{ asset('') }}js/script.js"></script>

@@ -44,9 +44,10 @@
         </div>
     </div>
     <!-- Akhir menu bagian samping -->
+
     <div class="main-content">
-        <div class="header_order">
-            <h3>Order Barang</h3>
+        <header>
+            <h3>View Order</h3>
             <div class="user-wrapper">
                 <img src="{{ asset('') }}dash/gambar/dasboard/logout.png" width="50px" height="40px" alt="">
                 <form action='{{ route('logoutAdmin') }}' method="post">
@@ -56,47 +57,59 @@
                     </div>
                 </form>
             </div>
+        </header>
+
+    <div class="bagian_lihat_order">
+        <br>
+        <div class="row-1">
+            <div class="col-awal">
+                <h5 class="nama_lihat_order">Nama Toko &ensp; &ensp; &ensp; &ensp; &ensp;&ensp; &ensp;:</h5>
+            </div>
+            <div class="col-panggilan">
+                <h5 class="nama_lihat_order">{{ $order->user->name }}</h5>
+            </div>
+            <div class="col-button-terima">
+                <a href="#buttonterima" class="text-white"><button class="button_terima_lihat_order">Terima</a></button>
+            </div>
         </div>
+        <div class="row-1">
+            <div class="col-awal">
+                <h5 class="nama_lihat_order">ID Toko &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp;:</h5>
+            </div>
+            <div class="col-panggilan">
+                <h5 class="nama_lihat_order">{{ $order->user->toko_id }}</h5>
+            </div>
+            <div class="col-button-tolak">
+                <a href="#buttontolak" class="text-white"><button class="button_tolak_lihat_order">Tolak</a></button>
+            </div>
+        </div>
+        <div class="row-1">
+            <div class="col-awal">
+                <h5 class="nama_lihat_order">Tanggal Pemesanan &ensp;  :</h5>
+            </div>
+            <div class="col-panggilan">
+                <h5 class="nama_lihat_order">{{ $order->created_at }}</h5>
+            </div>
+        </div>
+        <br>
     </div>
-    <div class="main-content">
-        <div class="page_order">
-            <h3 class="tulisan_order">Order</h3>
-            <!-- Awal Tabel Order pada Dashboard -->
-            <table class="letak_tabel_order">
-                <tr class="tr_order">
-                    <th>No.</th>
-                    <th>ID Order</th>
-                    <th>Nama Toko</th>
-                    <th>Aksi</th>
-                </tr>
-                @foreach ($orders_not_finished as $order)
-                <tr class="tr_order">
-                    <td>{{ $loop->iteration }}</td>
-                    <td>{{ $order->id }}</td>
-                    <td>{{ $order->user->name }}</td>
-                    <td><a href="{{ url('admin/order/view/' . $order->id) }}" class="text-white"><button class="button_lihat">Lihat</a></button></td>
-                </tr>
-                @endforeach
-            </table>
-            <!-- Tabel riwayat -->
-            <h3 class="tulisan_riwayat">Riwayat</h3>
-            <table class="letak_tabel_order">
-                <tr>
-                    <th>No.</th>
-                    <th>Id Toko</th>
-                    <th>Nama Toko</th>
-                    <th>Keterangan</th>
-                </tr>
-                @foreach ($orders_finished as $order)
+    <div class="bagian_list_order_tabel">
+        <h3 class="tabel_tulisan_list_order">List Order</h3>
+        <table class="letak_tabel_produk">
+            <tr>
+                <th>No.</th>
+                <th>Nama Barang</th>
+                <th>Jumlah Item</th>
+            </tr>
+            @foreach ($listOrder as $order)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
-                    <td>{{ $order->user->toko_id }}</td>
-                    <td>{{ $order->user->name }}</td>
-                    <td>Terverifikasi</td>
+                    <td class="nama_barang_order">{{ $order->product->name}}</td>
+                    <td class="jumlah_item_order">{{ $order->jumlah }} {{ $order->product->unit }}</td>
                 </tr>
-                @endforeach
-            </table>
-        </div>
+            @endforeach
+
+        </table>
     </div>
 </body>
 </html>

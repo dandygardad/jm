@@ -10,9 +10,11 @@
 <body>
     <div class="container">
         <div class="text">
-            <h1>Error 403</h1>
-            <p>Tidak diizinkan</p>
-            <a href="/"><img src="{{ url('/assets/img/jm-logo.png') }}" alt="Logo Jaya Mandiri"></a>
+            <h1>Maintenance</h1>
+            <p>Tunggu sesaat</p>
+            <div class="img">
+                <a href="/"><img src="{{ url('/assets/img/jm-logo.png') }}" alt="Logo Jaya Mandiri"></a>
+            </div>
         </div>
     </div>
 </body>

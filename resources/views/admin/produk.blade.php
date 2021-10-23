@@ -7,6 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('') }}dash/style.css">
 </head>
+
 <body>
     <!-- Awal Menu bagian samping -->
     <div class="sidebar">
@@ -16,25 +17,29 @@
         </div>
         <div class="sidebar-menu">
             <ul>
-                <li >
-                    <a href="{{ url('') }}/admin"><span class="la la-tachometer"></span>
+                <li>
+                    <a href="{{ url('/admin') }}"><span class="la la-tachometer"></span>
                     <span>Dashboard</span></a>
                 </li>
                 <li>
-                    <a href="promosi"><span class="la la-percent"></span>
+                    <a href="{{ url('/admin/promosi') }}"><span class="la la-percent"></span>
                     <span>Promosi</span></a>
                 </li>
                 <li>
-                    <a href="produk" class="active"><span class="la la-box"></span>
+                    <a href="{{ url('/admin/produk') }}" class="active"><span class="la la-box"></span>
                     <span>Produk Unggulan</span></a>
                 </li>
                 <li>
-                    <a href="admin"><span class="las la-users"></span>
-                    <span>Admin</span></a>
+                    <a href="{{ url('/admin/admin') }}"><span class="las la-users"></span>
+                    <span>Pelanggan</span></a>
                 </li>
                 <li>
-                    <a href="order"><span class="las la-clipboard"></span>
+                    <a href="{{ url('/admin/order') }}"><span class="las la-clipboard"></span>
                     <span>Order</span></a>
+                </li>
+                <li>
+                    <a href="{{ url('/admin/master_data') }}"><span class="las la-database"></span>
+                    <span>Master Data Produk</span></a>
                 </li>
             </ul>
         </div>
@@ -42,21 +47,53 @@
     <!-- Akhir menu bagian samping -->
 
     <div class="main-content">
-        <header>
-            <h3>Produk</h3>
+        <div class="header_produk">
+            <h3>Produk Unggulan</h3>
             <div class="user-wrapper">
-                <img src="{{ asset('') }}dash/gambar/dasboard/logo_admin.png" width="40px" height="40px" alt="">
-                <div>
-                    <h5>Admin</h5>
-                </div>
+                <img src="{{ asset('') }}dash/gambar/dasboard/logout.png" width="50px" height="40px" alt="">
+                <form action='{{ route('logoutAdmin') }}' method="post">
+                    @csrf
+                    <div>
+                        <button class="button_logout" type="submit">Logout</button>
+                    </div>
+                </form>
             </div>
-        </header>
-        <main>
-            <a href="produk/input"><button class="button">Input Data</button></a>
-            <!-- menghapus semua data promosi yang sudah di input -->
-            <button class="button">Clear Data</button>
-        </main>
+        </div>
     </div>
+    <div class="main-content">
+        <div class="page_order">
+            <h3 class="tulisan_master_data">Daftar Produk Unggulan</h3>
 
+            @if (session('success'))
+                {{ session('success') }}
+            @endif
+            <!-- Awal Tabel Order pada Dashboard -->
+            <form action="{{ route('gantiProduk') }}" method="post">
+                @csrf
+                <table class="letak_tabel_produk">
+                    <tr>
+                        <th>Checklist</th>
+                        <th>No.</th>
+                        <th>Nama Barang</th>
+                        <th>Deskripsi Barang</th>
+                    </tr>
+                    @foreach ($products as $product)
+                    <tr>
+                        @if ($product->unggulan)
+                            <td><input type="radio" name="unggulan" value="{{ $product->id }}" checked></td>
+                        @else
+                            <td><input type="radio" name="unggulan" value="{{ $product->id }}"></td>
+                        @endif
+
+                        <td>{{ $num++ }}</td>
+                        <td class="nama_barang">{{ $product->name }}</td>
+                        <td class="deskripsi">{{ $product->desc }}</td>
+                    </tr>
+                    @endforeach
+                </table>
+                <button type="submit" class="button_produk_unggulan" onclick="return confirm('Apakah anda yakin ingin mengubah Produk Unggulan?')">Submit</button>
+            </form>
+        </div>
+    </div>
 </body>
 </html>

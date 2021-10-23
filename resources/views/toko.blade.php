@@ -12,8 +12,8 @@
                 <p class="text-welcome">{{ Auth::user()->name }}</p>
             </div>
             <div class="tanggal">
-                <h1>Selasa</h1>
-                <p class="text-welcome">27/09/2021</p>
+                <h1 class="hari">Selasa</h1>
+                <p class="text-welcome isi-tanggal">27/09/2021</p>
             </div>
         </div>
 
@@ -41,7 +41,7 @@
                             <p class="content-card">{{ $product->desc }}</p>
                         </div>
                         <div class="plusminus">
-                            <form action="{{ route('add-product') }}" method="post">
+                            <form action="{{ route('addProduct') }}" method="post">
                                 @csrf
                                 <input type="hidden" value="{{ $product->id }}" name="product_id">
                                 <button type="submit" class="plus"><img src="{{ asset('assets/img/icons/cart.png') }}" alt="Tambahkan ke keranjang", width="30", height="30"></button>

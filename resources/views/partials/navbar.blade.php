@@ -11,9 +11,9 @@
             <li>
                 <div class="login">
                     @auth
-                            <a href="toko" target="_blank">Masuk Toko</a>
+                            <a href="toko">Masuk Toko</a>
                     @else
-                            <a href="toko/login" target="_blank">Login Toko</a>
+                            <a href="toko/login">Login Toko</a>
                     @endauth
                 </div>
             </li>
@@ -60,9 +60,9 @@
                 <li>
                     <div class="login">
                         @auth
-                            <a href="toko" target="_blank">Masuk Toko</a>
+                            <a href="toko">Masuk Toko</a>
                         @else
-                            <a href="toko/login" target="_blank">Login Toko</a>
+                            <a href="toko/login">Login Toko</a>
                         @endauth
                     </div>
                 </li>

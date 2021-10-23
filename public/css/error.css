@@ -27,3 +27,9 @@ p {
     font-size: 24px;
     margin-top: 10px;
 }
+
+.img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
