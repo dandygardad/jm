@@ -60,39 +60,43 @@
     </div>
     <div class="main-content">
         <div class="page_order">
-            <h3 class="tulisan_order">Order</h3>
+            <h3 class="tulisan_order">Order yang belum selesai</h3>
             <!-- Awal Tabel Order pada Dashboard -->
             <table class="letak_tabel_order">
                 <tr class="tr_order">
-                    <th>No.</th>
                     <th>ID Order</th>
                     <th>Nama Toko</th>
+                    <th>ID Toko</th>
                     <th>Aksi</th>
                 </tr>
+                {{-- @foreach ($orders_not_finished as $order) --}}
                 @foreach ($orders_not_finished as $order)
                 <tr class="tr_order">
-                    <td>{{ $loop->iteration }}</td>
                     <td>{{ $order->id }}</td>
-                    <td>{{ $order->user->name }}</td>
+                    <td>{{ $order->users->name }}</td>
+                    <td>{{ $order->users->toko_id }}</td>
+                    {{-- IDnya merupakan ID order, dimana bakal di catch di view --}}
                     <td><a href="{{ url('admin/order/view/' . $order->id) }}" class="text-white"><button class="button_lihat">Lihat</a></button></td>
                 </tr>
                 @endforeach
             </table>
             <!-- Tabel riwayat -->
-            <h3 class="tulisan_riwayat">Riwayat</h3>
+            <h3 class="tulisan_riwayat">Order yang sudah selesai</h3>
             <table class="letak_tabel_order">
                 <tr>
-                    <th>No.</th>
-                    <th>Id Toko</th>
+                    <th>ID Order</th>
                     <th>Nama Toko</th>
+                    <th>ID Toko</th>
                     <th>Keterangan</th>
+                    <th>Lihat</th>
                 </tr>
                 @foreach ($orders_finished as $order)
                 <tr>
-                    <td>{{ $loop->iteration }}</td>
-                    <td>{{ $order->user->toko_id }}</td>
-                    <td>{{ $order->user->name }}</td>
+                    <td>{{ $order->id }}</td>
+                    <td>{{ $order->users->name }}</td>
+                    <td>{{ $order->users->toko_id }}</td>
                     <td>Terverifikasi</td>
+                    <td><a href="{{ url('admin/order/view/' . $order->id) }}" class="text-white"><button class="button_lihat">Lihat</a></button></td>
                 </tr>
                 @endforeach
             </table>

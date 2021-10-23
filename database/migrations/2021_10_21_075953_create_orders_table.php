@@ -14,9 +14,9 @@ class CreateOrdersTable extends Migration
     public function up()
     {
         Schema::create('orders', function (Blueprint $table) {
-            $table->id();
-            $table->string('user_id');
-            $table->foreignId('product_id');
+            $table->id(); // don't care
+            $table->foreignId('orderslist_id'); // Terhubung dari tabel Order
+            $table->foreignId('product_id'); //Terhubung sama tabel Products
             $table->string('jumlah');
             $table->boolean('terverifikasi')->default(0);
             $table->timestamps();

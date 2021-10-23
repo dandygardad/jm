@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePromotionsTable extends Migration
+class CreateOrderslistsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreatePromotionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('promotions', function (Blueprint $table) {
+        Schema::create('orderslists', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('product_id');
-            $table->text('desc_promo')->nullable();
+            $table->foreignId('user_id'); // Terhubung dari tabel User
+            $table->boolean('status')->default(0);
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class CreatePromotionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('promotions');
+        Schema::dropIfExists('orderslists');
     }
 }

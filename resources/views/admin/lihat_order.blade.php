@@ -66,29 +66,42 @@
                 <h5 class="nama_lihat_order">Nama Toko &ensp; &ensp; &ensp; &ensp; &ensp;&ensp; &ensp;:</h5>
             </div>
             <div class="col-panggilan">
-                <h5 class="nama_lihat_order">{{ $order->user->name }}</h5>
+                <h5 class="nama_lihat_order">{{ $order_profile->name }}</h5>
             </div>
-            <div class="col-button-terima">
-                <a href="#buttonterima" class="text-white"><button class="button_terima_lihat_order">Terima</a></button>
-            </div>
+            @if ($created_date->status == 0)
+                <form action="{{ route('terimaOrder') }}" method="post">
+                    @csrf
+                    <input type="hidden" name="id" value="{{ Crypt::encryptString($created_date->id) }}">
+                    <div class="col-button-terima">
+                        <button class="button_terima_lihat_order text-white">Terima</button>
+                    </div>
+                </form>
+            @endif
+
         </div>
         <div class="row-1">
             <div class="col-awal">
                 <h5 class="nama_lihat_order">ID Toko &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp;:</h5>
             </div>
             <div class="col-panggilan">
-                <h5 class="nama_lihat_order">{{ $order->user->toko_id }}</h5>
+                <h5 class="nama_lihat_order">{{ $order_profile->toko_id }}</h5>
             </div>
-            <div class="col-button-tolak">
-                <a href="#buttontolak" class="text-white"><button class="button_tolak_lihat_order">Tolak</a></button>
-            </div>
+            @if ($created_date->status == 0)
+            <form action="{{ route('tolakOrder') }}" method="post">
+                @csrf
+                <input type="hidden" name="id" value="{{ Crypt::encryptString($created_date->id) }}">
+                <div class="col-button-tolak">
+                    <button type="submit" class="button_tolak_lihat_order text-white">Tolak</button>
+                </div>
+            </form>
+            @endif
         </div>
         <div class="row-1">
             <div class="col-awal">
                 <h5 class="nama_lihat_order">Tanggal Pemesanan &ensp;  :</h5>
             </div>
             <div class="col-panggilan">
-                <h5 class="nama_lihat_order">{{ $order->created_at }}</h5>
+                <h5 class="nama_lihat_order">{{ $created_date->created_at }}</h5>
             </div>
         </div>
         <br>
@@ -101,7 +114,7 @@
                 <th>Nama Barang</th>
                 <th>Jumlah Item</th>
             </tr>
-            @foreach ($listOrder as $order)
+            @foreach ($order_product as $order)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td class="nama_barang_order">{{ $order->product->name}}</td>

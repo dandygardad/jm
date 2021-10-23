@@ -6,10 +6,13 @@ use App\Models\User;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\Promotion;
+use App\Models\Orderslist;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Crypt;
+use Illuminate\Contracts\Encryption\DecryptException;
 
 class AdminController extends Controller
 {
@@ -29,13 +32,13 @@ class AdminController extends Controller
         return view('admin.promosi', [
             'num' => 1,
             'products' => Product::all(),
-            'promotions' => Promotion::all(),
+            'promotions' => Promotion::orderBy('product_id', 'asc')->get(),
         ]);
     }
 
     public function inputPromosi(Request $request) {
         $validated = $request->validate([
-            'name' => 'required|unique:promotions|exists:products,name',
+            'product_id' => 'required|unique:promotions|exists:products,id',
             'desc_promo' => 'required'
         ]);
 
@@ -46,8 +49,8 @@ class AdminController extends Controller
     public function viewPromosi($id){
         // Untuk memunculkan product yang tidak dalam tabel promotions
         // fun fact: membutuhkan 2 jam untuk mendapatkan kode ini
-        $promotion = Promotion::pluck('name');
-        $products = Product::whereNotIn('name',$promotion)->get();
+        $promotion = Promotion::pluck('product_id');
+        $products = Product::whereNotIn('id',$promotion)->get();
 
         return view('admin.edit_promosi',[
             'findPromo' => Promotion::find($id),
@@ -58,12 +61,12 @@ class AdminController extends Controller
     public function editPromosi(Request $request) {
         $validated = $request->validate([
             'id' => 'required',
-            'name' => 'required|exists:products,name',
+            'product_id' => 'required|exists:products,id|unique:promotions,id',
             'desc_promo' => 'required'
         ]);
 
         $update = Promotion::find($validated['id']);
-        $update->name = $validated['name'];
+        $update->product_id = $validated['product_id'];
         $update->desc_promo = $validated['desc_promo'];
         $update->save();
 
@@ -200,21 +203,71 @@ class AdminController extends Controller
 
     // Order
     public function order() {
+        $not_finished = Orderslist::where('status', 0)->get();
+        $finished = Orderslist::where('status', 1)->get();
+
+        // dd($not_finished);
         return view('admin.order', [
-            'orders_num' => 1,
-            'orders_not_finished' => Order::where('terverifikasi', 0)->get(),
-            'orders_finished' => Order::where('terverifikasi', 1)->get()
+            'orders_not_finished' => $not_finished,
+            'orders_finished' => $finished
         ]);
     }
 
     public function viewOrder($id) {
-        $id = Order::find($id);
-        $find = Order::where('user_id', $id->user_id)->get();
+        // GET PROFILE
+        // Find by id dulu
+        $profile = Orderslist::find($id);
+
+        // GET ORDERNYA
+        // Find by id Product
+        $orders = Order::where('orderslist_id', $id)->get();
+
         return view('admin.lihat_order', [
-            'order' => $id,
-            'listOrder' => $find
+            'order_profile' => $profile->users,
+            'created_date' => $profile,
+            'order_product' => $orders,
         ]);
     }
+
+    public function terimaOrder(Request $request) {
+        // Validated
+        $validated = $request->validate([
+            'id' => 'required'
+        ]);
+
+        try {
+            $validated['id'] = Crypt::decryptString($request->id);
+        } catch (DecryptException $e) {
+            abort(403);
+        }
+
+        $terima = Orderslist::find($validated['id']);
+        $terima->status = '1';
+        $terima->save();
+        return redirect('/admin/order');
+    }
+
+    public function tolakOrder(Request $request){
+        $validated = $request->validate([
+            'id' => 'required'
+        ]);
+
+        try {
+            $validated['id'] = Crypt::decryptString($request->id);
+        } catch (DecryptException $e) {
+            abort(403);
+        }
+
+        $customer = Orderslist::find($validated['id']);
+        $customer->delete();
+
+        $order = Order::where('orderslist_id', $validated['id']);
+        $order->delete();
+
+        return redirect('/admin/order');
+    }
+
+
 
     // Master
     public function master() {
@@ -227,7 +280,7 @@ class AdminController extends Controller
         // Validate
         $validated = $request->validate([
             'name' => 'required',
-            'unit' => 'required|max=5',
+            'unit' => 'required|max:5',
             'img' => 'required|image|file|max:1024',
             'desc' => 'required'
         ]);

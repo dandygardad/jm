@@ -63,10 +63,15 @@ Route::middleware('admin')->group(function () {
         // Order
         Route::get('/order', [AdminController::class, 'order']);
         Route::get('/order/view/{id}', [AdminController::class, 'viewOrder']);
+        Route::post('/order/view/terima', [AdminController::class, 'terimaOrder'])->name('terimaOrder');
+        Route::post('/order/view/tolak', [AdminController::class, 'tolakOrder'])->name('tolakOrder');
 
         // Master Data Produk
         Route::get('/master_data', [AdminController::class, 'master']);
+        Route::get('/master_data/view/{id}', [AdminController::class, 'viewProduk']);
         Route::post('/master_data', [AdminController::class, 'inputProduk'])->name('inputProduk');
+        Route::post('/master_data/success', [AdminController::class, 'editProduk'])->name('editProduk');
+        Route::post('/master_data/delete', [AdminController::class, 'deleteProduk'])->name('deleteProduk');
     });
 });
 

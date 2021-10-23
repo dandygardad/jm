@@ -79,7 +79,7 @@
                         @csrf
                         <div class="row">
                             <h3 class="tulisan_input_data_promosi">Input Data</h3>
-                            @error('name')
+                            @error('product_id')
                                 <p class="warning">Nama Produk Sudah Terdaftar/Nama Tidak Boleh Kosong</p>
                             @enderror
                             @error('desc_promo')
@@ -89,10 +89,10 @@
                                 <h5 class="tulisan_label"><label for="nama">Nama</label></h5>
                             </div>
                             <div class="col-75">
-                                <select id="name" name="name" placeholder="Pilih produk..." style="width: 100%" required>
+                                <select id="name" name="product_id" placeholder="Pilih produk..." style="width: 100%" required>
                                     <option value="">Pilih produk...</option>
                                     @foreach ($products as $product)
-                                    <option value="{{ $product->name }}">{{ $product->name }}</option>
+                                    <option value="{{ $product->id }}">{{ $product->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -125,15 +125,15 @@
             <!-- Awal Tabel Order pada Dashboard -->
             <table class="letak_tabel_order">
                 <tr>
-                    <th>No.</th>
+                    <th>ID Barang</th>
                     <th>Nama Barang</th>
                     <th>Deskripsi Promo</th>
                     <th>Aksi</th>
                 </tr>
                 @foreach ($promotions as $promotion)
                 <tr>
-                    <td>{{ $num++ }}</td>
-                    <td class="nama_barang">{{ $promotion->name }}</td>
+                    <td>{{ $promotion->product_id }}</td>
+                    <td class="nama_barang">{{ $promotion->product->name }}</td>
                     <td class="deskripsi">{{ $promotion->desc_promo }}</td>
                     <td>
                         <a href="{{ url('admin/promosi/edit/' . $promotion->id) }}"><button class="button_edit text-white">Edit</button></a>

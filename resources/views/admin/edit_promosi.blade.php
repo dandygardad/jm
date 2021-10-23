@@ -31,7 +31,7 @@
                 <input type="hidden" name="id" value="{{ $findPromo->id }}">
                 <div class="row">
                     <h3 class="tulisan_input_data_promosi">Edit Promosi</h3>
-                    @error('name')
+                    @error('product_id')
                     <p class="warning">Produk sudah ada/Tidak boleh kosong!</p>
                     @enderror
                     @error('desc_promo')
@@ -41,10 +41,10 @@
                         <h5 class="tulisan_label"><label for="nama">Nama</label></h5>
                     </div>
                     <div class="col-75">
-                        <select id="name" name="name" placeholder="Pilih produk..." style="width: 100%" required>
-                            <option value="{{ $findPromo->name }}">{{ $findPromo->name }}</option>
+                        <select id="name" name="product_id" placeholder="Pilih produk..." style="width: 100%" required>
+                            <option value="{{ $findPromo->product_id }}">{{ $findPromo->product->name }}</option>
                             @foreach ($products as $product)
-                            <option value="{{ $product->name }}">{{ $product->name }}</option>
+                            <option value="{{ $product->id }}">{{ $product->name }}</option>
                             @endforeach
                         </select>
                     </div>
