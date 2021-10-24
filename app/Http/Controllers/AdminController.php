@@ -60,11 +60,25 @@ class AdminController extends Controller
     }
 
     public function editPromosi(Request $request) {
-        $validated = $request->validate([
+        try {
+            $request['id'] = Crypt::decryptString($request->id);
+        } catch (DecryptException $e) {
+            abort(403);
+        }
+
+        $rules = [
             'id' => 'required',
-            'product_id' => 'required|exists:products,id|unique:promotions,id',
-            'desc_promo' => 'required'
-        ]);
+            'product_id' => 'required',
+            'desc_promo' => 'required',
+        ];
+
+        $check = Promotion::find($request->id);
+
+        if($request->product_id != $check->product_id){
+            $rules['product_id'] = 'required|exists:products,id|unique:promotions,product_id';
+        }
+
+        $validated = $request->validate($rules);
 
         $update = Promotion::find($validated['id']);
         $update->product_id = $validated['product_id'];
@@ -84,6 +98,12 @@ class AdminController extends Controller
             'id' => 'required'
         ]);
 
+        try {
+            $validated['id'] = Crypt::decryptString($request->id);
+        } catch (DecryptException $e) {
+            abort(403);
+        }
+
         $promosi = Promotion::find($validated['id']);
         $promosi->delete();
 
@@ -102,8 +122,11 @@ class AdminController extends Controller
 
     public function gantiProduk(Request $request) {
         $old = Product::where('unggulan', 1)->first();
-        $old->unggulan = 0;
-        $old->save();
+        if($old != null){
+            $old->unggulan = 0;
+            $old->save();
+        }
+
 
         $validated = $request->validate([
             'unggulan' => 'required|unique:products,unggulan'

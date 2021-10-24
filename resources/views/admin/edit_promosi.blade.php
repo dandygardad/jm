@@ -28,7 +28,7 @@
         <div class="edit_promosi_1">
             <form action="{{ route('editPromosi') }}" method="post">
                 @csrf
-                <input type="hidden" name="id" value="{{ $findPromo->id }}">
+                <input type="hidden" name="id" value="{{ Crypt::encryptString($findPromo->id) }}">
                 <div class="row">
                     <h3 class="tulisan_input_data_promosi">Edit Promosi</h3>
                     @error('product_id')

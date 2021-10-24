@@ -139,7 +139,7 @@
                         <a href="{{ url('admin/promosi/edit/' . $promotion->id) }}"><button class="button_edit text-white">Edit</button></a>
                         <form action="{{ route('deletePromosi') }}" method="post">
                             @csrf
-                            <input type="hidden" name="id" value="{{ $promotion->id }}">
+                            <input type="hidden" name="id" value="{{ Crypt::encryptString($promotion->id) }}">
                             <button type="submit" class="button_hapus" onclick="return confirm('Apakah anda yakin ingin menghapus?')">Hapus</button>
                         </form>
                     </td>

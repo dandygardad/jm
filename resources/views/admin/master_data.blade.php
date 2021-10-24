@@ -69,7 +69,7 @@
                         <div class="row">
                             <h3 class="tulisan_input_data_promosi">Input Produk</h3>
                             @error('name')
-                            <p class="warning">Nama tidak boleh kosong!</p>
+                            <p class="warning">Nama produk sudah terdaftar!</p>
                             @enderror
 
                             @error('unit')
