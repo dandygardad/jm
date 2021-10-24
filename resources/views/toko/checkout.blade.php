@@ -29,28 +29,19 @@
                         <th style="width: 70%">Nama Produk</th>
                         <th>Jumlah</th>
                     </tr>
-                    <tr>
-                        <td class="mobile">1</td>
-                        <td class>Lorem ipsum dolor sit amet.</td>
-                        <td class="bold">
-                            <div class="plusminus">
-                                <button class="minus">-</button>
-                                <p class="jumlah">0</p>
-                                <button class="plus">+</button>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="mobile">2</td>
-                        <td>Lorem ipsum dolor sit amet.</td>
-                        <td class="bold">
-                            <div class="plusminus">
-                                <button class="minus">-</button>
-                                <p class="jumlah">0</p>
-                                <button class="plus">+</button>
-                            </div>
-                        </td>
-                    </tr>
+                    @foreach ($checkouts as $checkout)
+                        <tr>
+                            <td class="mobile">{{ $loop->iteration }}</td>
+                            <td class>{{ $checkout->product->name }}</td>
+                            <td class="bold">
+                                <div class="plusminus">
+                                    <button class="minus">-</button>
+                                    <p class="jumlah">{{ $checkout->jumlah }}</p>
+                                    <button class="plus">+</button>
+                                </div>
+                            </td>
+                        </tr>
+                    @endforeach
                 </table>
                 <div class="container-center">
                     <p>Mohon dicek kembali <b>Nama Produk</b> dan <b>Jumlah Barang</b> sebelum menekan <b>Tombol Kirim!</b></p>

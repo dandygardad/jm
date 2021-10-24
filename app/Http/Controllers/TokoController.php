@@ -2,23 +2,63 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Checkout;
 use App\Models\Product;
+use App\Models\Checkout;
+use App\Models\Promotion;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Crypt;
+use Illuminate\Contracts\Encryption\DecryptException;
 
 class TokoController extends Controller
 {
-    // TOKO
+    // TOKO INDEX
     public function index() {
         if(auth()->user()->toko_id === 'D121181506') {
             return redirect('/admin');
         }
 
+        $check = Checkout::where('user_id', Auth::id())->get(['product_id']);
+
+        $unggulan = Product::where('unggulan', 1)->first();
+        $promosi = Promotion::orderBy('product_id', 'asc')->get();
+
         return view('toko.toko', [
             'pos' => 'toko',
-            'products' => Product::all()
+            'unggulan' => $unggulan,
+            'products' => $promosi,
+            'productAlready' => $check
         ]);
     }
+
+    public function addProduct(Request $request){
+        $rules = [
+            'product_id' => 'required'
+        ];
+
+        $validated = $request->validate($rules);
+
+        try{
+            $validated['product_id'] = Crypt::decryptString($request->product_id);
+        } catch (DecryptException) {
+            abort(403);
+        }
+
+        $check = Checkout::where('user_id', Auth::id())->get(['product_id']);
+
+        if ($check->contains(['product_id'],$validated['product_id'])){
+            return redirect('/toko#promosi-hari-ini')->with('error', 'Produk sudah tertambah di checkout!');
+        }
+
+        Checkout::create([
+            'product_id' => $validated['product_id'],
+            'user_id' => Auth::id(),
+            'jumlah' => 1
+        ]);
+
+        return redirect('/toko#promosi-hari-ini')->with('success', 'Produk berhasil ditambahkan ke checkout!');
+    }
+
 
 
     // CHECKOUT
@@ -29,22 +69,10 @@ class TokoController extends Controller
 
         return view('toko.checkout', [
             'pos' => 'toko',
-            'checkouts' => Checkout::all(),
-            // 'date' => now()->toDateTimeString('Y-m-d')
+            'checkouts' => Checkout::get()
         ]);
     }
 
-    public function addProduct(Request $request){
-        $request->validate([
-            'product_id' => 'required'
-        ]);
-
-        Checkout::create([
-            'product_id' => $request->product_id,
-            'jumlah' => 1
-        ]);
-        return redirect('/toko');
-    }
 
 
     // STATUS

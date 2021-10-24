@@ -23,112 +23,52 @@
                 <div class="item">
                     <img src="assets/img/dummy_toko/produk-unggulan.png" alt="Produk Unggulan">
                     <div class="teks-produk-unggulan">
-                        <h2>Lorem, ipsum.</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro maxime odio nemo quidem eos ad quae alias enim esse?</p>
+                        <h2>{{ $unggulan->name }}</h2>
+                        <p>{{ $unggulan->desc }}</p>
                     </div>
                 </div>
             </div>
 
-            <div class="promosi-hari-ini">
+            <div class="promosi-hari-ini" id="promosi-hari-ini">
                 <h1 class="heading-title">Promosi Hari Ini</h1>
+
+                @if (session('error'))
+                    <div class="error-sudah-ada">{{ session('error') }}</div>
+                @elseif (session('success'))
+                    <div class="berhasil">{{ session('success') }}</div>
+                @endif
 
                 <div class="container-card">
                     @foreach ($products as $product)
+                    @if (!$productAlready->contains('product_id', $product->product_id))
                     <div class="card">
+                        {{-- ISI ASSET GAMBAR DISINI DAN TENTUKAN SIZENYA --}}
                         <img src="assets/img/dummy_toko/card.png" alt="Penghargaan 1">
                         <div class="container-text">
-                            <h3>{{ $product->name }}</h3>
-                            <p class="content-card">{{ $product->desc }}</p>
+                            <h3>{{ $product->product->name }}</h3>
+                            <p class="content-card">{{ $product->desc_promo }}</p>
                         </div>
                         <div class="plusminus">
                             <form action="{{ route('addProduct') }}" method="post">
                                 @csrf
-                                <input type="hidden" value="{{ $product->id }}" name="product_id">
+                                <input type="hidden" value="{{ Crypt::encryptString($product->product_id) }}" name="product_id">
                                 <button type="submit" class="plus"><img src="{{ asset('assets/img/icons/cart.png') }}" alt="Tambahkan ke keranjang", width="30", height="30"></button>
                             </form>
                         </div>
                     </div>
+                    @else
+                    <div class="card">
+                        {{-- ISI ASSET GAMBAR DISINI DAN TENTUKAN SIZENYA --}}
+                        <img src="assets/img/dummy_toko/card.png" alt="Penghargaan 1">
+                        <div class="container-text">
+                            <h3>{{ $product->product->name }}</h3>
+                            <p class="content-card">{{ $product->desc_promo }}</p>
+                        </div>
+
+                        <div class="tertambah">Sudah tertambah</div>
+                    </div>
+                    @endif
                     @endforeach
-                    {{-- <div class="card">
-                        <img src="assets/img/dummy_toko/card.png" alt="Penghargaan 1">
-                        <div class="container-text">
-                            <h3>Sangat Terbaik</h3>
-                            <p class="content-card">Lorem ipsum dolor sit amet,sicing elit. Placeat numquam itaque, illum adipisci beatae vitae ipsum, est vero dolore, debitis soluta nesciunt voluptas inventore consectetur?</p>
-                        </div>
-                        <div class="plusminus">
-                            <button class="plus">+</button>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img src="assets/img/dummy_toko/card.png" alt="Penghargaan 1">
-                        <div class="container-text">
-                            <h3>Penjualan Produk Terbaik</h3>
-                            <p class="content-card">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat numquam itaque, illum adipisci beatae vitae ipsum, est vero dolore, debitis soluta nesciunt voluptas inventore consectetur?</p>
-                        </div>
-                        <div class="plusminus">
-                            <button class="plus">+</button>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img src="assets/img/dummy_toko/card.png" alt="Penghargaan 1">
-                        <div class="container-text">
-                            <h3>Penjualan Produk Terbaik</h3>
-                            <p class="content-card">Lorem ipsum dolor sit amet, consectetur</p>
-                        </div>
-                        <div class="plusminus">
-                            <button class="plus">+</button>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img src="assets/img/dummy_toko/card.png" alt="Penghargaan 1">
-                        <div class="container-text">
-                            <h3>Penjualan Produk Terbaik</h3>
-                            <p class="content-card">Lorem ipsum dolor sit amet, consectetur</p>
-                        </div>
-                        <div class="plusminus">
-                            <button class="plus">+</button>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img src="assets/img/dummy_toko/card.png" alt="Penghargaan 1">
-                        <div class="container-text">
-                            <h3>Penjualan Produk Terbaik</h3>
-                            <p class="content-card">Lorem ipsum dolor sit amet, consectetur</p>
-                        </div>
-                        <div class="plusminus">
-                            <button class="plus">+</button>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img src="assets/img/dummy_toko/card.png" alt="Penghargaan 1">
-                        <div class="container-text">
-                            <h3>Penjualan Produk Terbaik</h3>
-                            <p class="content-card">Lorem ipsum dolor sit amet, consectetur</p>
-                        </div>
-                        <div class="plusminus">
-                            <button class="plus">+</button>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img src="assets/img/dummy_toko/card.png" alt="Penghargaan 1">
-                        <div class="container-text">
-                            <h3>Penjualan Produk Terbaik</h3>
-                            <p class="content-card">Lorem ipsum dolor sit amet, consectetur</p>
-                        </div>
-                        <div class="plusminus">
-                            <button class="plus">+</button>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img src="assets/img/dummy_toko/card.png" alt="Penghargaan 1">
-                        <div class="container-text">
-                            <h3>Penjualan Produk Terbaik</h3>
-                            <p class="content-card">Lorem ipsum dolor sit amet, consectetur</p>
-                        </div>
-                        <div class="plusminus">
-                            <button class="plus">+</button>
-                        </div>
-                    </div> --}}
                 </div>
                 <!-- Pagination -->
                 <nav class="nav-card" aria-label="Page navigation">
