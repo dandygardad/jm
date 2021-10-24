@@ -29,6 +29,30 @@
                     font-size: 24px;
                     text-align: center;
                 }
+                .checkout {
+                    .back {
+                        text-align: center;
+                        a {
+                            font-size: 16px;
+                        }
+                    }
+                    .mobile {
+                        display: none;
+                    }
+                    table {
+                        width: 100%;
+                        th {
+                            background-color: aquamarine;
+                        }
+                        td {
+                            @include mix.tombolPlusMinusMobile;
+                        }
+                    }
+
+                    table, tr, th, td {
+                        font-size: 16px;
+                    }
+                }
 
                 .produk-unggulan {
                     .item {
@@ -61,13 +85,6 @@
                             width: 55px;
                         }
                     }
-
-                    .checkout {
-                        table, tr, th, td {
-                            font-size: 16px;
-                        }
-                    }
-
                 }
             }
         }

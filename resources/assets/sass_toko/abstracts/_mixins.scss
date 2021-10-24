@@ -120,8 +120,15 @@ malah kagak bisa.
             font-weight: 800;
         }
         .plus {
-            background-color: #33ff00;
-            padding: 0px 12px;
+            background-color: #4bff3b;
+            margin-top: 20px;
+            padding: 3px 10px;
+            border: 2px solid gray;
+            border-radius: 5px;
+            img {
+                @include flex(center, center);
+            }
+
         }
         .minus {
             background-color: #ff4d4d;
@@ -130,6 +137,85 @@ malah kagak bisa.
 
         .jumlah {
             font-size: 24px;
+            font-weight: 700;
+        }
+    }
+}
+
+@mixin tombolPlusMinus {
+    .plusminus {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        column-gap: 10px;
+        align-items: center;
+
+        button {
+            // font-size: 25px;
+            // color: white;
+            font-weight: 800;
+            @include flex(center,center);
+        }
+        .plus {
+            @include flex(center,center);
+            background-color: #54e926;
+            // margin-top: 20px;
+            padding: 0 10px;
+            border: 1px solid gray;
+            border-radius: 5px;
+
+        }
+        .minus {
+            @include flex(center,center);
+            background-color: #ff4d4d;
+            padding: 0 15px;
+            border: 1px solid gray;
+            border-radius: 5px;
+        }
+
+        .jumlah {
+            font-size: 24px;
+            font-weight: 700;
+            text-align: center;
+        }
+    }
+}
+
+
+@mixin tombolPlusMinusMobile {
+    .plusminus {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        column-gap: 0;
+        flex-direction: column-reverse;
+        align-items: center;
+
+        button {
+            font-size: 18px;
+            // color: white;
+            font-weight: 800;
+            @include flex(center,center);
+        }
+        .plus {
+            @include flex(center,center);
+            background-color: #54e926;
+            // margin-top: 20px;
+            padding: 0 10px;
+            border: 1px solid gray;
+            border-radius: 5px;
+
+        }
+        .minus {
+            @include flex(center,center);
+            background-color: #ff4d4d;
+            padding: 0 15px;
+            border: 1px solid gray;
+            border-radius: 5px;
+        }
+
+        .jumlah {
+            font-size: 18px;
             font-weight: 700;
         }
     }

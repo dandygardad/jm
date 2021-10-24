@@ -4,7 +4,14 @@
 body {
     font-family: 'Montserrat', sans-serif;
     margin: 0;
+}
+
+.login-bg {
     background-image: linear-gradient(to right, #00B4DB, #0080AC);
+}
+
+.ganti-bg {
+    background-image: linear-gradient(to right, #2E5266, #6E8898);
 }
 
 input {
@@ -29,8 +36,8 @@ a:visited {
     color: #000000;
 }
 
-#email, #username, #password {
-    width: 280px;
+.input-box {
+    width: 260px;
     height: 30px;
     border: 2px solid;
     border-radius: 5px;

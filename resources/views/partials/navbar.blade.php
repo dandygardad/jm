@@ -11,15 +11,16 @@
             <li>
                 <div class="login">
                     @auth
-                            <a href="toko">Masuk Toko</a>
+                            <a href="{{ url('/toko') }}">Masuk Toko</a>
                     @else
-                            <a href="toko/login">Login Toko</a>
+                            <a href="{{ url('toko/login') }}">Login Toko</a>
                     @endauth
                 </div>
             </li>
         @elseif ($pos === 'toko')
-            <li><a href="#produk" class="closedNav">Produk</a></li>
-            <li><a href="#kontak" class="closedNav">Kontak</a></li>
+            <li><a href="{{ url('/toko/checkout') }}" class="closedNav">Checkout</a></li>
+            <li><a href="{{ url('/toko/status') }}">Status Order (0)</a></li>
+            <li><a href="{{ url('/toko/ganti-password') }}" class="closedNav">Ganti Password</a></li>
             <form action="{{ route('logout') }}" method="post">
                 @csrf
                 <li><button type="submit" class="closedNav">Logout</button></li>
@@ -42,13 +43,24 @@
 </div>
 
 <div class="container-header">
-    <div class="content company-name">
-        <img src="{{ asset('') }}assets/img/icons/header-logo.png" alt="Logo Jaya Mandiri">
-        <span class="jm-text">Jaya Mandiri</span class="jm-text">
-    </div>
-    <div class="navMobile">
-        <img src="{{ asset('') }}assets/img/icons/hamburger.png" alt="Menu button">
-    </div>
+    @if ($pos === 'home')
+        <div class="content company-name">
+            <img src="{{ asset('') }}assets/img/icons/header-logo.png" alt="Logo Jaya Mandiri">
+            <span class="jm-text"><a href="{{ url('') }}">Jaya Mandiri</a></span class="jm-text">
+        </div>
+        <div class="navMobile">
+            <img src="{{ asset('') }}assets/img/icons/hamburger.png" alt="Menu button">
+        </div>
+    @elseif ($pos === 'toko')
+        <div class="content company-name">
+            <img src="{{ asset('') }}assets/img/icons/header-logo.png" alt="Logo Jaya Mandiri">
+            <span class="jm-text"><a href="{{ url('/toko') }}">Jaya Mandiri</a></span class="jm-text">
+        </div>
+        <div class="navMobile">
+            <img src="{{ asset('') }}assets/img/icons/hamburger.png" alt="Menu button">
+        </div>
+    @endif
+
 
     <div class="content nav">
         <ul>
@@ -60,15 +72,16 @@
                 <li>
                     <div class="login">
                         @auth
-                            <a href="toko">Masuk Toko</a>
+                            <a href="{{ url('/toko') }}">Masuk Toko</a>
                         @else
-                            <a href="toko/login">Login Toko</a>
+                            <a href="{{ url('/toko/login') }}">Login Toko</a>
                         @endauth
                     </div>
                 </li>
             @elseif ($pos === 'toko')
-                <li><a href="#produk">Produk</a></li>
-                <li><a href="#kontak">Kontak</a></li>
+                <li><a href="{{ url('/toko/checkout') }}">Checkout</a></li>
+                <li><a href="{{ url('/toko/status') }}">Status Order (0)</a></li>
+                <li><a href="{{ url('/toko/ganti-password') }}">Ganti Password</a></li>
 
                 <form action="{{ route('logout') }}" method="post">
                     @csrf

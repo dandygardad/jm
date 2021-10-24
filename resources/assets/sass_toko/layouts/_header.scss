@@ -46,6 +46,14 @@
         .jm-text {
             font-size: 20px;
             letter-spacing: -1px;
+
+            a {
+                text-decoration: none;
+                &:hover {
+                    text-decoration: none;
+                    color: #000000;
+                }
+            }
         }
     }
 

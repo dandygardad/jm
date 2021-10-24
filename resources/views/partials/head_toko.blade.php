@@ -25,9 +25,13 @@
 
 <!-- Custom Bootstrap (Modal dan Pagination) -->
 <link rel="stylesheet" href="{{ asset('') }}css/bootstrap.min.css">
-<link rel="stylesheet" href="{{ asset('') }}css/bootstrap-theme.min.css"
+<link rel="stylesheet" href="{{ asset('') }}css/bootstrap-theme.min.css">
 <script defer src="{{ asset('') }}js/bootstrap.min.js"></script>
 <script defer src="{{ asset('') }}js/toko.js"></script>
+
+{{-- DataTables --}}
+{{-- <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+<script defer src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script> --}}
 
 <link rel="stylesheet" href="{{ asset('') }}css/main.css">
 <script defer src="{{ asset('') }}js/script.js"></script>

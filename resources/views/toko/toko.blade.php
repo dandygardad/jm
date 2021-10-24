@@ -5,7 +5,7 @@
     <div class="container">
         <div class="welcome">
             <div class="tanggal-full">
-                <p class="text-welcome">Selasa, 27/09/2021</p>
+                <p class="text-welcome">{{ date('d/m/Y') }}</p>
             </div>
             <div class="nama-toko">
                 <h1>Selamat Datang</h1>

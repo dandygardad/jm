@@ -237,6 +237,13 @@ h3, p, td, li, a {
   font-size: 20px;
   letter-spacing: -1px;
 }
+.container-header .company-name .jm-text a {
+  text-decoration: none;
+}
+.container-header .company-name .jm-text a:hover {
+  text-decoration: none;
+  color: #000000;
+}
 .container-header .navMobile {
   display: none;
   padding-right: 5%;
@@ -417,8 +424,16 @@ h3, p, td, li, a {
   font-weight: 800;
 }
 .toko .container .halaman .promosi-hari-ini .container-card .card .plusminus .plus {
-  background-color: #33ff00;
-  padding: 0px 12px;
+  background-color: #4bff3b;
+  margin-top: 20px;
+  padding: 3px 10px;
+  border: 2px solid gray;
+  border-radius: 5px;
+}
+.toko .container .halaman .promosi-hari-ini .container-card .card .plusminus .plus img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .toko .container .halaman .promosi-hari-ini .container-card .card .plusminus .minus {
   background-color: #ff4d4d;
@@ -476,6 +491,9 @@ h3, p, td, li, a {
   font-size: 18px;
   text-decoration: underline;
 }
+.toko .container .halaman .checkout .mobile {
+  text-align: center;
+}
 .toko .container .halaman .checkout .heading-title {
   text-align: center;
   margin-bottom: 20px;
@@ -487,7 +505,30 @@ h3, p, td, li, a {
   text-align: center;
 }
 .toko .container .halaman .checkout table {
-  width: 100%;
+  border-collapse: collapse;
+  width: 85%;
+  margin: 25px auto;
+  box-shadow: 1px 1px 5px 2px #505050;
+}
+.toko .container .halaman .checkout table th {
+  background-color: aquamarine;
+}
+.toko .container .halaman .checkout table .view-link-belum {
+  color: #FFFFFF;
+  background-color: #0062D4;
+  padding: 4px 10px;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+.toko .container .halaman .checkout table .view-link-selesai {
+  color: #FFFFFF;
+  background-color: #22b93b;
+  padding: 4px 10px;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+.toko .container .halaman .checkout table tr td {
+  text-align: left;
 }
 .toko .container .halaman .checkout table tr td button {
   font-weight: 700;
@@ -496,36 +537,54 @@ h3, p, td, li, a {
   background-color: red;
   border: 0;
   border-radius: 5px;
-  font-size: 20px;
+  font-size: 25px;
 }
 .toko .container .halaman .checkout table tr td .plusminus {
   display: flex;
   justify-content: center;
+  align-items: center;
   -moz-column-gap: 10px;
        column-gap: 10px;
   align-items: center;
-  margin-bottom: 16px;
 }
 .toko .container .halaman .checkout table tr td .plusminus button {
-  font-size: 25px;
   font-weight: 800;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .toko .container .halaman .checkout table tr td .plusminus .plus {
-  background-color: #33ff00;
-  padding: 0px 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #54e926;
+  padding: 0 10px;
+  border: 1px solid gray;
+  border-radius: 5px;
 }
 .toko .container .halaman .checkout table tr td .plusminus .minus {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #ff4d4d;
-  padding: 0px 15px;
+  padding: 0 15px;
+  border: 1px solid gray;
+  border-radius: 5px;
 }
 .toko .container .halaman .checkout table tr td .plusminus .jumlah {
   font-size: 24px;
   font-weight: 700;
+  text-align: center;
 }
 .toko .container .halaman .checkout .container-center {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  margin: 50px 0 10px 0;
+}
+.toko .container .halaman .checkout .container-center p {
+  text-align: center;
 }
 .toko .container .halaman .checkout .container-center .kirim {
   padding: 5px 20px;
@@ -568,6 +627,62 @@ h3, p, td, li, a {
     font-size: 24px;
     text-align: center;
   }
+  .toko .container .halaman .checkout .back {
+    text-align: center;
+  }
+  .toko .container .halaman .checkout .back a {
+    font-size: 16px;
+  }
+  .toko .container .halaman .checkout .mobile {
+    display: none;
+  }
+  .toko .container .halaman .checkout table {
+    width: 100%;
+  }
+  .toko .container .halaman .checkout table th {
+    background-color: aquamarine;
+  }
+  .toko .container .halaman .checkout table td .plusminus {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -moz-column-gap: 0;
+         column-gap: 0;
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+  .toko .container .halaman .checkout table td .plusminus button {
+    font-size: 18px;
+    font-weight: 800;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .toko .container .halaman .checkout table td .plusminus .plus {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #54e926;
+    padding: 0 10px;
+    border: 1px solid gray;
+    border-radius: 5px;
+  }
+  .toko .container .halaman .checkout table td .plusminus .minus {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ff4d4d;
+    padding: 0 15px;
+    border: 1px solid gray;
+    border-radius: 5px;
+  }
+  .toko .container .halaman .checkout table td .plusminus .jumlah {
+    font-size: 18px;
+    font-weight: 700;
+  }
+  .toko .container .halaman .checkout table, .toko .container .halaman .checkout tr, .toko .container .halaman .checkout th, .toko .container .halaman .checkout td {
+    font-size: 16px;
+  }
   .toko .container .halaman .produk-unggulan .item {
     flex-direction: column;
   }
@@ -591,9 +706,6 @@ h3, p, td, li, a {
   }
   .toko .container .halaman .promosi-hari-ini .filter-logo img {
     width: 55px;
-  }
-  .toko .container .halaman .promosi-hari-ini .checkout table, .toko .container .halaman .promosi-hari-ini .checkout tr, .toko .container .halaman .promosi-hari-ini .checkout th, .toko .container .halaman .promosi-hari-ini .checkout td {
-    font-size: 16px;
   }
 }
 @media only screen and (max-width: 1024px) {

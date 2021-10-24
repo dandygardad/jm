@@ -12,31 +12,32 @@
         <link rel="stylesheet" href="{{ asset('') }}css/login.css">
     </head>
 
-    <body class="login-bg">
+    <body class="ganti-bg">
         <div class="full-page">
             <div class="container">
                 <div class="login">
                     <div class="jm-image">
-                        <a href="{{ url('/') }}"><img src="{{ asset('') }}assets/img/jm-logo.png" alt="Logo Jaya Mandiri"></a>
+                        <a href="{{ url('/toko') }}"><img src="{{ asset('') }}assets/img/jm-logo.png" alt="Logo Jaya Mandiri"></a>
                     </div>
-                    <h1>Masuk</h1>
+                    <h1>Ganti Password</h1>
                     <form action="{{ route('login') }}" method="post">
                         @csrf
                         <div class="input-text">
                             @if (session()->has('error'))
                                 <span class="error-text">{{ session('error') }}</span>
                             @endif
-                            <input type="text" name="toko_id" class="input-box" placeholder="ID Toko" required autofocus>
-                            <input type="password" name="password" class="input-box" placeholder="Password" required>
+                            <input type="password" name="old_pass" class="input-box" placeholder="Masukkan Password Lama" required autofocus>
+                            <input type="password" name="new_pass" class="input-box" placeholder="Masukkan Password Baru" required >
+                            <input type="password" name="confirm_pass" class="input-box" placeholder="Konfirmasi Password Baru" required>
                         </div>
                         <div class="login-button-form">
-                            <button type="submit">Masuk</button>
+                            <button type="submit">Ganti</button>
                         </div>
                     </form>
                 </div>
 
                 <div class="switch">
-                    <p>Ingin bermitra dengan kami?</p>
+                    <p>Akun sedang bermasalah?</p>
                     <h1>Silahkan hubungi kami!</h1>
                     <div class="register-button-form">
                         <a href="/#kontak" target="_blank">Cek disini!</a>
