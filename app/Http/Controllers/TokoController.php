@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
 use App\Models\Product;
 use App\Models\Checkout;
 use App\Models\Promotion;
+use App\Models\Orderslist;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Crypt;
@@ -69,11 +71,99 @@ class TokoController extends Controller
 
         return view('toko.checkout', [
             'pos' => 'toko',
-            'checkouts' => Checkout::get()
+            'checkouts' => Checkout::where('user_id', Auth::id())->get()
         ]);
     }
 
+    public function checkoutToOrder (Request $request) {
+        // Inisialisasi
+        $rules = [];
+        $keys = [];
+        $value = [];
 
+        // Mengambil id dari product untuk validasi dan disimpan dalam array
+        $products  = Product::pluck('id')->toArray();
+
+        // Menghitung berapa banyak produk yang dipesan
+        $checkouts = Checkout::where('user_id', Auth::id())->count();
+
+        // Mengambil keys dari Request diubah menjadi Array
+        // Berguna untuk menjadikan product_id nantinya
+        $requestArray = $request->keys();
+
+
+
+        // Melakukan perulangan untuk decrypt product_id dan
+        // Memasukkan jumlah ke dalam value
+        for ($i = 1; $i < $checkouts+1; $i++) {
+            try {
+                $keys[$i-1] = Crypt::decryptString($requestArray[$i]);
+            } catch(DecryptException) {
+                // Jika seseorang merubah valuenya maka akan muncul 403 (Tidak diizinkan)
+                abort(403);
+            }
+
+            $value[$i-1] = $request[$keys[$i-1]];
+            $rules[$requestArray[$i]] = 'required|numeric|min:1|not_in:0';
+        }
+
+        // Validasi input
+        $validated = $request->validate($rules);
+
+        // Cek jika product_id (checkout) ada dalam tabel produk
+        // Untuk mencegah perubahan sengaja di inspect
+        // May not the best security but bismillah saja
+        for ($i=0; $i < count($keys); $i++) {
+            if(!in_array($keys[$i], $products)){
+                abort('403');
+            }
+        }
+
+        // Buat Orderlist untuk mendapatkan ID Order
+        $orderlist = new Orderslist;
+        $orderlist->user_id = Auth::id();
+        $orderlist->save();
+
+        $id_order = $orderlist->latest()->get(['id'])->first();
+
+        // Isi produk-produk ke dalam tabel Orders
+        for ($i=0; $i < count($keys); $i++) {
+                Order::create([
+                'orderslist_id' => $id_order->id,
+                'product_id' => $keys[$i],
+                'jumlah' => $validated[$requestArray[$i+1]]
+            ]);
+        }
+
+        // Jika berhasil tertambah, lakukan bersihkan checkout dari user
+        $deleteCheckout = Checkout::where('user_id', Auth::id());
+        $deleteCheckout->delete();
+
+        return redirect('/toko/status')->with('success', 'Order anda sudah diterima, kami akan menghubungi anda nanti.');
+    }
+
+    public function viewDeleteCheckout() {
+        return view('toko.hapus_produk', [
+            'pos' => 'toko',
+            'checkouts' => Checkout::where('user_id', Auth::id())->get()
+        ]);
+    }
+
+    public function deleteCheckout(Request $request){
+        $validated = $request->validate([
+            'id' => 'required'
+        ]);
+
+        try {
+            $id = Crypt::decryptString($validated['id']);
+        } catch (DecryptException) {
+            abort(403);
+        }
+
+        $delete = Checkout::where('user_id', Auth::id())->find($id);
+        $delete->delete();
+        return redirect('/toko/checkout/hapus-produk');
+    }
 
     // STATUS
     public function status() {

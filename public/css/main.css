@@ -497,6 +497,34 @@ h3, p, td, li, a {
   font-size: 18px;
   text-decoration: underline;
 }
+.toko .container .halaman .checkout .tutorial-checkout {
+  text-align: center;
+  margin-bottom: 15px;
+}
+.toko .container .halaman .checkout .tutorial-checkout .red {
+  color: red;
+  font-weight: 700;
+}
+.toko .container .halaman .checkout .space-for-delete {
+  margin: 0 auto;
+  width: 85%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.toko .container .halaman .checkout .space-for-delete .delete-button {
+  font-weight: 700;
+  background-color: #c52929;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  box-shadow: 2px 4px 4px #888888;
+  text-decoration: none;
+}
+.toko .container .halaman .checkout .space-for-delete .delete-button:hover {
+  background-color: #ad2828;
+}
 .toko .container .halaman .checkout .mobile {
   text-align: center;
 }
@@ -554,6 +582,7 @@ h3, p, td, li, a {
   align-items: center;
 }
 .toko .container .halaman .checkout table tr td .plusminus button {
+  font-size: 20px;
   font-weight: 800;
   display: flex;
   justify-content: center;
@@ -573,13 +602,14 @@ h3, p, td, li, a {
   justify-content: center;
   align-items: center;
   background-color: #ff4d4d;
-  padding: 0 15px;
+  padding: 0 10px;
   border: 1px solid gray;
   border-radius: 5px;
 }
 .toko .container .halaman .checkout table tr td .plusminus .jumlah {
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 700;
+  width: 80px;
   text-align: center;
 }
 .toko .container .halaman .checkout .container-center {
@@ -596,6 +626,7 @@ h3, p, td, li, a {
   padding: 5px 20px;
   text-align: center;
   font-size: 22px;
+  text-decoration: none;
   font-weight: 700;
   margin-top: 20px;
   background-color: #0062D4;
@@ -639,52 +670,47 @@ h3, p, td, li, a {
   .toko .container .halaman .checkout .back a {
     font-size: 16px;
   }
+  .toko .container .halaman .checkout .space-for-delete {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .toko .container .halaman .checkout .space-for-delete .delete-button {
+    padding: 7px 15px;
+    font-size: 14px;
+  }
   .toko .container .halaman .checkout .mobile {
     display: none;
   }
   .toko .container .halaman .checkout table {
     width: 100%;
   }
-  .toko .container .halaman .checkout table th {
+  .toko .container .halaman .checkout table tr th {
     background-color: aquamarine;
   }
-  .toko .container .halaman .checkout table td .plusminus {
+  .toko .container .halaman .checkout table tr td .plusminus {
     display: flex;
     justify-content: center;
     align-items: center;
     -moz-column-gap: 0;
          column-gap: 0;
-    flex-direction: column-reverse;
     align-items: center;
   }
-  .toko .container .halaman .checkout table td .plusminus button {
+  .toko .container .halaman .checkout table tr td .plusminus button {
     font-size: 18px;
-    font-weight: 800;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .toko .container .halaman .checkout table td .plusminus .plus {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #54e926;
-    padding: 0 10px;
-    border: 1px solid gray;
-    border-radius: 5px;
-  }
-  .toko .container .halaman .checkout table td .plusminus .minus {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #ff4d4d;
-    padding: 0 15px;
-    border: 1px solid gray;
-    border-radius: 5px;
-  }
-  .toko .container .halaman .checkout table td .plusminus .jumlah {
-    font-size: 18px;
+    padding: 0 1px;
     font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .toko .container .halaman .checkout table tr td .plusminus .minus {
+    padding: 0 10px;
+  }
+  .toko .container .halaman .checkout table tr td .plusminus .jumlah {
+    font-weight: 700;
+    width: 55px;
+    margin-right: 5px;
   }
   .toko .container .halaman .checkout table, .toko .container .halaman .checkout tr, .toko .container .halaman .checkout th, .toko .container .halaman .checkout td {
     font-size: 16px;

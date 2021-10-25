@@ -151,7 +151,7 @@ malah kagak bisa.
         align-items: center;
 
         button {
-            // font-size: 25px;
+            font-size: 20px;
             // color: white;
             font-weight: 800;
             @include flex(center,center);
@@ -168,14 +168,15 @@ malah kagak bisa.
         .minus {
             @include flex(center,center);
             background-color: #ff4d4d;
-            padding: 0 15px;
+            padding: 0 10px;
             border: 1px solid gray;
             border-radius: 5px;
         }
 
         .jumlah {
-            font-size: 24px;
+            font-size: 18px;
             font-weight: 700;
+            width: 80px;
             text-align: center;
         }
     }
@@ -188,35 +189,24 @@ malah kagak bisa.
         justify-content: center;
         align-items: center;
         column-gap: 0;
-        flex-direction: column-reverse;
         align-items: center;
 
         button {
             font-size: 18px;
+            padding: 0 1px;
             // color: white;
-            font-weight: 800;
+            font-weight: 700;
             @include flex(center,center);
         }
-        .plus {
-            @include flex(center,center);
-            background-color: #54e926;
-            // margin-top: 20px;
-            padding: 0 10px;
-            border: 1px solid gray;
-            border-radius: 5px;
 
-        }
         .minus {
-            @include flex(center,center);
-            background-color: #ff4d4d;
-            padding: 0 15px;
-            border: 1px solid gray;
-            border-radius: 5px;
+            padding: 0 10px;
         }
 
         .jumlah {
-            font-size: 18px;
             font-weight: 700;
+            width: 55px;
+            margin-right: 5px;
         }
     }
 }

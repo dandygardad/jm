@@ -20,39 +20,36 @@
         <div class="halaman" id="produk">
             <div class="checkout">
                 <div class="back">
-                    <a href="{{ url('/toko') }} " class="back">← Kembali ke halaman produk</a>
+                    <a href="{{ url('/toko/checkout') }} " class="back">← Kembali ke halaman checkout</a>
                 </div>
-                <h1 class="heading-title">Checkout</h1>
-                <p class="tutorial-checkout">Isi jumlah barang yang diinginkan <b>(Tidak kurang dari 1)</b>, jika ingin hapus salah satu produk, klik tombol <b>Hapus Produk</b></p>
+                <h1 class="heading-title">Hapus Produk</h1>
+                <p class="tutorial-checkout">Pilih produk yang ingin dihapus, tekan tombol <span class="red">X</span> di dalam tabel.</p>
 
                 <table>
                     <tr>
                         <th style="width: 5%" class="mobile">No</th>
-                        <th style="width: 70%">Nama Produk</th>
-                        <th>Jumlah</th>
+                        <th style="width: 80%">Nama Produk</th>
+                        <th>Hapus</th>
                     </tr>
-                    <form action="{{ route('checkoutToOrder') }}" method="POST">
-                        @csrf
                     @foreach ($checkouts as $checkout)
                         <tr>
                             <td class="mobile">{{ $loop->iteration }}</td>
                             <td class>{{ $checkout->product->name }}</td>
                             <td class="bold">
                                 <div class="plusminus">
-                                    <input type="number" name="{{ Crypt::encryptString($checkout->product_id) }}" class="jumlah" value="{{ $checkout->jumlah }}">
-                                    <span>{{ $checkout->product->unit }}</span>
+                                    <form action="{{ route('deleteCheckout') }}" method="post">
+                                        @csrf
+                                        <input type="hidden" name="id" value="{{ Crypt::encryptString($checkout->id) }}">
+                                        <button type="submit" class="minus">X</button>
+                                    </form>
                                 </div>
                             </td>
                         </tr>
                     @endforeach
                 </table>
-                <div class="space-for-delete">
-                    <a href="{{ url('/toko/checkout/hapus-produk') }}" class="delete-button">Hapus Produk</a>
-                </div>
                 <div class="container-center">
-                    <p>Mohon dicek kembali <b>Nama Produk</b> dan <b>Jumlah Barang</b> sebelum menekan <b>Tombol Kirim!</b></p>
-                    <button type="submit" class="kirim" onclick="return confirm('APAKAH PRODUK SUDAH COCOK?\nJIKA SETUJU, MAKA ORDER TIDAK DAPAT DIUBAH!')">Kirim Pesanan</button>
-                </form>
+                    <p>Jika sudah sesuai, tekan tombol dibawah ini untuk kembali ke halaman Checkout</b></p>
+                    <a href="{{ url('/toko/checkout') }}" class="kirim">Kembali ke Checkout</a>
                 </div>
             </div>
         </div>

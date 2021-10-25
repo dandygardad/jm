@@ -37,7 +37,9 @@ Route::prefix('toko')->group(function (){
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
     Route::get('checkout', [TokoController::class, 'checkout'])->middleware('auth');
-
+    Route::post('/checkout/success', [TokoController::class, 'checkoutToOrder'])->name('checkoutToOrder');
+    Route::get('/checkout/hapus-produk', [TokoController::class, 'viewDeleteCheckout'])->name('viewDeleteCheckout');
+    Route::post('/checkout/delete', [TokoController::class, 'deleteCheckout'])->name('deleteCheckout');
 });
 
 Route::middleware('admin')->group(function () {
