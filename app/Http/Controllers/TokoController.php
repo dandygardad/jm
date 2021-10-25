@@ -69,6 +69,11 @@ class TokoController extends Controller
             return redirect('/admin');
         }
 
+        // Pindah halaman ke toko jika tidak ada checkout
+        if(Checkout::where('user_id', Auth::id())->count() == 0){
+            return redirect('/toko');
+        }
+
         return view('toko.checkout', [
             'pos' => 'toko',
             'checkouts' => Checkout::where('user_id', Auth::id())->get()
@@ -143,6 +148,10 @@ class TokoController extends Controller
     }
 
     public function viewDeleteCheckout() {
+        if(Checkout::where('user_id', Auth::id())->count() == 0){
+            return redirect('/toko');
+        }
+
         return view('toko.hapus_produk', [
             'pos' => 'toko',
             'checkouts' => Checkout::where('user_id', Auth::id())->get()
