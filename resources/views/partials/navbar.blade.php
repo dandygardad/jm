@@ -4,10 +4,10 @@
     </div>
     <ul>
         @if($pos === 'home' or $pos === 'about')
-            <li><a href="#tentang" class="closedNav">Tentang Kami</a></li>
-            <li><a href="#visidanmisi" class="closedNav">Visi Misi</a></li>
-            <li><a href="#penghargaan" class="closedNav">Penghargaan</a></li>
-            <li><a href="#mitra" class="closedNav">Mitra</a></li>
+            <li><a href="{{ url('/#tentang') }}" class="closedNav">Tentang Kami</a></li>
+            <li><a href="{{ url('/#visidanmisi') }}" class="closedNav">Visi Misi</a></li>
+            <li><a href="{{ url('/#penghargaan') }}" class="closedNav">Penghargaan</a></li>
+            <li><a href="{{ url('/#mitra') }}" class="closedNav">Mitra</a></li>
             <li>
                 <div class="login">
                     @auth
@@ -63,10 +63,10 @@
     <div class="content nav">
         <ul>
             @if($pos === 'home' or $pos === 'about')
-                <li><a href="#tentang">Tentang Kami</a></li>
-                <li><a href="#visidanmisi">Visi Misi</a></li>
-                <li><a href="#penghargaan">Penghargaan</a></li>
-                <li><a href="#mitra">Mitra</a></li>
+                <li><a href="{{ url('/#tentang') }}">Tentang Kami</a></li>
+                <li><a href="{{ url('/#visidanmisi') }}">Visi Misi</a></li>
+                <li><a href="{{ url('/#penghargaan') }}">Penghargaan</a></li>
+                <li><a href="{{ url('/#mitra') }}">Mitra</a></li>
                 <li>
                     <div class="login">
                         @auth
