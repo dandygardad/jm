@@ -25,12 +25,6 @@ p, li, td {
   letter-spacing: 0.025em;
 }
 
-p {
-  font-family: "openSans", sans-serif;
-  font-weight: 400;
-  font-size: 16px;
-}
-
 h1 {
   font-size: 40px;
   font-family: "Montserrat", sans-serif;
@@ -38,6 +32,16 @@ h1 {
 
 h2 {
   font-family: "openSans", sans-serif;
+}
+
+li {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.italic {
+    font-style: italic;
 }
 
 .text-box .heading-title {
@@ -339,7 +343,8 @@ h3, p, td, li, a {
 .toko .container .halaman {
   background-color: #FFFFFF;
   border-radius: 10px;
-  padding: 25px 25px 0 25px;
+  padding: 0 25px 0 25px;
+  margin-top: 100px;
   margin-bottom: 100px;
 }
 .toko .container .halaman .produk-unggulan h1 {
@@ -365,6 +370,8 @@ h3, p, td, li, a {
 .toko .container .halaman .promosi-hari-ini {
   padding: 40px;
 }
+
+
 .toko .container .halaman .promosi-hari-ini h1 {
   text-align: center;
   margin-bottom: 25px;
@@ -678,7 +685,10 @@ h3, p, td, li, a {
 }
 
 @media only screen and (max-width: 767px) {
-  .toko .container .welcome {
+  p {
+      text-indent: 25px;
+  }
+    .toko .container .welcome {
     flex-direction: column;
   }
   .toko .container .welcome .tanggal-full {
@@ -696,7 +706,7 @@ h3, p, td, li, a {
     font-size: 28px;
   }
   .toko .container .halaman {
-    padding: 25px 15px 0 15px;
+    padding: 0 15px 0 15px;
   }
   .toko .container .halaman .heading-title {
     font-size: 24px;
@@ -772,7 +782,7 @@ h3, p, td, li, a {
     text-align: justify;
   }
   .toko .container .halaman .promosi-hari-ini {
-    padding: 70px 0 20px 0;
+    padding: 30px 0 20px 0;
   }
   .toko .container .halaman .promosi-hari-ini .filter-logo img {
     width: 55px;

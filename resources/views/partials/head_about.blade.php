@@ -23,7 +23,17 @@
 <meta name="msapplication-TileImage" content="assets/favicon/ms-icon-144x144.png">
 <meta name="theme-color" content="#ffffff">
 
-<link rel="stylesheet" href="profile/css/main.css">
-<script defer src="profile/js/script.js"></script>
-<script defer src="profile/js/carousel.js"></script>
-<script defer src="profile/js/transition.js"></script>
+<!-- Custom Bootstrap (Modal dan Pagination) -->
+<link rel="stylesheet" href="{{ asset('') }}css/bootstrap.min.css">
+<link rel="stylesheet" href="{{ asset('') }}css/bootstrap-theme.min.css">
+<script defer src="{{ asset('') }}js/bootstrap.min.js"></script>
+<script defer src="{{ asset('') }}js/toko.js"></script>
+
+{{-- DataTables --}}
+{{-- <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+<script defer src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script> --}}
+
+<link rel="stylesheet" href="{{ asset('') }}profile/css/tentang.css">
+<script defer src="{{ asset('') }}js/script.js"></script>
+
+<link rel="manifest" href="{{ asset('') }}assets/manifest.json" />

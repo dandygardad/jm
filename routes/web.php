@@ -22,6 +22,12 @@ Route::get('/', function () {
     ]);
 });
 
+Route::get('/about', function () {
+    return view('about', [
+        'pos' => 'about'
+    ]);
+});
+
 Route::prefix('toko')->group(function (){
     Route::get('/', [TokoController::class, 'index'])->middleware('auth');
     Route::post('/', [TokoController::class, 'addProduct'])->name('addProduct');

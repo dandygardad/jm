@@ -11,7 +11,9 @@
                         <td><img src="{{ asset('') }}assets/img/icons/mobile-call.png" alt="Logo Telepon"></td>
                         <td>
                             <a href="tel:+6281241615252">+6281241615252</a>
-                            <a href="tel:0411887451">0411887451</a>
+                            <div class="nomor-tel">
+                                <a href="tel:0411887451" class="nomor-tel">0411887451</a>
+                            </div>
                         </td>
                     </tr>
                     <tr>

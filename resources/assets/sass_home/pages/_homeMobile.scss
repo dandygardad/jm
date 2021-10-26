@@ -1,0 +1,687 @@
+@use '../abstracts/variables' as var;
+@use '../abstracts/mixins' as mix;
+
+@media only screen and (max-width: 430px) {
+    .tentang-kami {
+        padding: 0;
+        height: 500px;
+        .container {
+            width: 100%;
+            padding: 0;
+            top: 50px;
+            // transform: translateY(-50%);
+            .img-office {
+                img {
+                    width: 295px;
+                    margin-right: 10px;
+                }
+            }
+
+            .text-box {
+                // display: none;
+                width: 260px;
+                margin-left: 12px;
+                padding: 10px 15px;
+                top: 280px;
+                h1 {
+                    font-size: 20px;
+                }
+                p {
+                    font-size: 14px;
+                    line-height: 20px;
+                    letter-spacing: normal;
+                }
+            }
+
+
+        }
+    }
+
+    .visi-misi {
+        margin: 0;
+        padding: 75px 0px 200px 0px;
+
+        .container {
+            position: relative;
+
+            .pekerja {
+                .img-pekerja {
+                    img {
+                        width: 300px;
+                    }
+                }
+            }
+
+            .text {
+                position: absolute;
+                bottom: 70px;
+                left: 0;
+                right: 0;
+                margin-left: auto;
+                margin-right: auto;
+
+                .text-box {
+                    left: 0;
+                    right: 0;
+                    margin-left: auto;
+                    margin-right: auto;
+                    background-color: #FFFFFF;
+                    width: 300px;
+                    padding: 10px 5px 10px 0px;
+
+                    h2 {
+                        font-size: 22px;
+                    }
+
+                    li {
+                        font-size: 14px;
+                        line-height: 20px;
+                        font-family: var.$openSans;
+                    }
+                }
+                .visi {
+
+                    top: auto;
+                    .visi-text {
+                        p {
+                            font-size: 14px;
+                            padding: 0 5px;
+                            width: 100%;
+                        }
+                    }
+                }
+
+                .misi {
+                    bottom: auto;
+
+                    .misi-text {
+                        ul {
+                            width: 92%;
+                            padding: 0;
+                            padding-left: 30px;
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+
+    .penghargaan {
+        .container {
+            padding: 30px 0;
+            .penghargaan-header {
+                padding: 5%;
+
+                h1 {
+                    font-size: 24px;
+                }
+                p {
+                    font-size: 16px;
+                    line-height: 24px;
+                }
+            }
+            &-card {
+                @include mix.flex();
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                column-gap: 40px;
+                padding: 20px 20px;
+
+                .card {
+                    min-width: 270px;
+
+                    .container-text {
+                        h3 {
+                            font-size: 18px;
+                        }
+                        .content-card {
+                            font-size: 16px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .mitra {
+        .container {
+            margin: 0;
+            padding: 20px;
+            flex-direction: column;
+            column-gap: normal;
+
+            .mitra-text {
+                text-align: center;
+                width: 100%;
+                padding-bottom: 20px;
+
+                .heading-title {
+                    font-size: 24px;
+
+                }
+
+                p {
+                    font-size: 16px;
+                }
+            }
+
+            .mitra-logo {
+                grid-template-columns: auto auto auto;
+                column-gap: 20px;
+                row-gap: 10px;
+                width: auto;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 431px) and (max-width: 600px) {
+    .tentang-kami {
+        padding: 0;
+        height: 530px;
+        .container {
+            width: 100%;
+            padding: 0;
+            top: 50px;
+            .img-office {
+                img {
+                    width: 400px;
+                    margin-right: 10px;
+                }
+            }
+
+            .text-box {
+                // display: none;
+                width: 310px;
+                margin-left: 12px;
+                padding: 10px 15px;
+                top: 320px;
+                h1 {
+                    font-size: 20px;
+                }
+                p {
+                    font-size: 14px;
+                    line-height: 20px;
+                    letter-spacing: normal;
+                }
+                .baca-selengkapnya {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+
+    .visi-misi {
+        margin: 0;
+        padding: 50px 0px 150px 0px;
+
+        .container {
+            position: relative;
+
+            .pekerja {
+                .img-pekerja {
+                    img {
+                        width: 370px;
+                    }
+                }
+            }
+
+            .text {
+                position: absolute;
+                bottom: 70px;
+                left: 0;
+                right: 0;
+                margin-left: auto;
+                margin-right: auto;
+
+                .text-box {
+                    left: 0;
+                    right: 0;
+                    margin-left: auto;
+                    margin-right: auto;
+                    background-color: #FFFFFF;
+                    width: 400px;
+                    padding: 20px 10px 20px 0px;
+
+                    h2 {
+                        font-size: 22px;
+                    }
+
+                    li {
+                        font-size: 14px;
+                        line-height: 20px;
+                        font-family: var.$openSans;
+                    }
+                }
+                .visi {
+                    top: auto;
+                    .visi-text {
+                        p {
+                            font-size: 14px;
+                            padding: 0 5px;
+                            width: 100%;
+                        }
+                    }
+                }
+
+                .misi {
+                    bottom: auto;
+                    .misi-text {
+                        ul {
+                            width: 92%;
+                            padding: 0;
+                            padding-left: 30px;
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+
+    .penghargaan {
+        .container {
+            padding: 30px 0;
+            .penghargaan-header {
+                padding: 5%;
+
+                h1 {
+                    font-size: 24px;
+                }
+                p {
+                    font-size: 16px;
+                    line-height: 24px;
+                }
+            }
+            &-card {
+                @include mix.flex();
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                column-gap: 40px;
+                padding: 20px 20px;
+
+                .card {
+                    min-width: 270px;
+
+                    .container-text {
+                        h3 {
+                            font-size: 18px;
+                        }
+                        .content-card {
+                            font-size: 16px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .mitra {
+        .container {
+            margin: 0;
+            padding: 20px;
+            flex-direction: column;
+            column-gap: normal;
+
+            .mitra-text {
+                text-align: center;
+                width: 100%;
+                padding-bottom: 20px;
+
+                .heading-title {
+                    font-size: 24px;
+
+                }
+
+                p {
+                    font-size: 16px;
+                }
+            }
+
+            .mitra-logo {
+                grid-template-columns: auto auto auto;
+                column-gap: 20px;
+                row-gap: 10px;
+                width: auto;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 850px) {
+    .tentang-kami {
+        padding: 0;
+        height: 680px;
+        .container {
+            width: 100%;
+            padding: 0;
+            top: 50px;
+            .img-office {
+                img {
+                    width: 500px;
+                    margin-right: 10px;
+                }
+            }
+
+            .text-box {
+                // display: none;
+                width: 380px;
+                margin-left: 12px;
+                padding: 30px 15px;
+                top: 400px;
+                h1 {
+                    font-size: 24px;
+                }
+                p {
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+
+    .visi-misi {
+        margin: 0;
+        padding: 70px 0px 180px 0px;
+
+        .container {
+            position: relative;
+
+            .pekerja {
+                .img-pekerja {
+                    img {
+                        width: 480px;
+                    }
+                }
+            }
+
+            .text {
+                position: absolute;
+                bottom: 70px;
+                left: 0;
+                right: 0;
+                margin-left: auto;
+                margin-right: auto;
+
+                .text-box {
+                    left: 0;
+                    right: 0;
+                    margin-left: auto;
+                    margin-right: auto;
+                    background-color: #FFFFFF;
+                    width: 540px;
+                    padding: 30px 10px 30px 0px;
+                }
+                .visi {
+                    top: auto;
+                    .visi-text {
+                        p {
+                            font-size: 16px;
+                            padding: 0 5px;
+                            width: 100%;
+                        }
+                    }
+                }
+
+                .misi {
+                    bottom: auto;
+                    .misi-text {
+                        ul {
+                            width: 92%;
+                            // padding: 0;
+                            // padding-left: 30px;
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+
+    .penghargaan {
+        .container {
+            padding: 30px 0;
+            .penghargaan-header {
+                padding: 5%;
+            }
+            &-card {
+                @include mix.flex();
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                column-gap: 40px;
+                padding: 20px 20px;
+
+                .card {
+                    min-width: 270px;
+
+                    .container-text {
+                        h3 {
+                            font-size: 18px;
+                        }
+                        .content-card {
+                            font-size: 16px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .mitra {
+        .container {
+            margin: 0;
+            padding: 40px;
+            flex-direction: column;
+            column-gap: normal;
+
+            .mitra-text {
+                text-align: center;
+                width: 100%;
+                padding-bottom: 50px;
+            }
+
+            .mitra-logo {
+                grid-template-columns: auto auto auto;
+                column-gap: 50px;
+                width: auto;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 851px) and (max-width: 1024px) {
+    .tentang-kami {
+        padding: 0;
+        height: 780px;
+        .container {
+            width: 100%;
+            padding: 0;
+            top: 50px;
+            .img-office {
+                img {
+                    width: 650px;
+                    margin-right: 10px;
+                }
+            }
+
+            .text-box {
+                width: 600px;
+                margin-left: 12px;
+                top: 500px;
+                h1 {
+                    font-size: 24px;
+                }
+                p {
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+
+    .visi-misi {
+        margin: 0;
+        padding: 50px 0px 180px 0px;
+
+        .container {
+            position: relative;
+
+            .pekerja {
+                .img-pekerja {
+                    img {
+                        width: 520px;
+                    }
+                }
+            }
+
+            .text {
+                position: absolute;
+                bottom: 70px;
+                left: 0;
+                right: 0;
+                margin-left: auto;
+                margin-right: auto;
+
+                .text-box {
+                    left: 0;
+                    right: 0;
+                    margin-left: auto;
+                    margin-right: auto;
+                    background-color: #FFFFFF;
+                    width: 540px;
+                    padding: 30px 0px 30px 0px;
+                }
+                .visi {
+                    top: auto;
+                    .visi-text {
+                        p {
+                            font-size: 16px;
+                            padding: 0;
+                            width: 100%;
+                        }
+                    }
+                }
+
+                .misi {
+                    bottom: auto;
+                    ul {
+                        width: 92%;
+                        // padding: 0;
+                        // padding-left: 30px;
+                    }
+                }
+            }
+
+        }
+    }
+
+    .penghargaan {
+        .container {
+            padding: 15px 0;
+            .penghargaan-header {
+                padding: 5%;
+            }
+        }
+    }
+
+    .mitra {
+        .container {
+            margin: 0;
+            padding: 40px;
+            flex-direction: column;
+            column-gap: normal;
+
+            .mitra-text {
+                text-align: center;
+                width: 100%;
+                padding-bottom: 50px;
+            }
+
+            .mitra-logo {
+                grid-template-columns: auto auto auto;
+                column-gap: 50px;
+                width: auto;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 1025px) and (max-width: 1200px) {
+    .tentang-kami {
+        .container {
+            .text-box {
+                width: 300px;
+            }
+        }
+    }
+
+    .visi-misi {
+        margin: 0;
+        padding: 50px 0px 180px 0px;
+
+        .container {
+            position: relative;
+
+            .pekerja {
+                .img-pekerja {
+                    img {
+                        width: 520px;
+                    }
+                }
+            }
+
+            .text {
+                position: absolute;
+                bottom: 70px;
+                left: 0;
+                right: 0;
+                margin-left: auto;
+                margin-right: auto;
+
+                .text-box {
+                    left: 0;
+                    right: 0;
+                    margin-left: auto;
+                    margin-right: auto;
+                    background-color: #FFFFFF;
+                    width: 540px;
+                    padding: 30px 0 30px 0px;
+                }
+                .visi {
+                    top: auto;
+                }
+
+                .misi {
+                    bottom: auto;
+                    ul {
+                        width: 92%;
+                        // padding: 0;
+                        // padding-left: 30px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 1200px) {
+    .fade {
+        animation-name: fade;
+        animation-duration: 10s;
+        animation-iteration-count: infinite;
+    }
+
+    @keyframes fade {
+        0% {
+            opacity: 0;
+        }
+        49% {
+            opacity: 0;
+        }
+        50% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+}

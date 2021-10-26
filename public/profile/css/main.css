@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;600;700&display=swap");
+@import url(https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;600;700&display=swap);
 /* jangan lupa ini mengandung display, 
 klo displaynya tertumpuk,
 malah kagak bisa.
@@ -313,9 +313,12 @@ h3, p, td, li, a {
 .hubungi .container .container-hub .container-contact td {
   padding: 20px 0 20px 20px;
 }
+.hubungi .container .container-hub .container-contact td .nomor-tel {
+  margin-top: 10px;
+}
 
 .tentang-kami {
-  background: url("../assets/img/bg/kantor.jpg");
+  background: url(/images/kantor.jpg?826c499e36989d289d0cf9eceb8f7924);
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -351,13 +354,28 @@ h3, p, td, li, a {
 .tentang-kami .container .text-box .text {
   padding-top: 10px;
 }
+.tentang-kami .container .text-box .baca-selengkapnya {
+  color: white;
+  border-radius: 5px;
+  margin-top: 20px;
+  border: 0;
+  background-color: #0062D4;
+  padding: 8px 15px;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.tentang-kami .container .text-box .baca-selengkapnya:hover {
+  background-color: #2687f7;
+  text-decoration: none;
+}
 .tentang-kami .aos {
   opacity: 1;
   transform: translateY(0);
 }
 
 .visi-misi {
-  background: url("../assets/img/bg/gudang-min.jpg");
+  background: url(/images/gudang-min.jpg?00f311d07e1ca6683e1d04a214a5ca52);
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -379,17 +397,38 @@ h3, p, td, li, a {
   position: absolute;
   background-color: #FFFFFF;
   box-shadow: 2px 4px 4px #888888;
-  padding: 30px 25px 30px 0px;
+  padding: 30px 0px 30px 0px;
 }
 .visi-misi .container .heading-title {
   padding-bottom: 10px;
 }
 .visi-misi .container .visi {
   top: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.visi-misi .container .visi .visi-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.visi-misi .container .visi .visi-text p {
+  text-align: center;
+  width: 400px;
+  padding: 0 20px;
 }
 .visi-misi .container .misi {
   bottom: 10%;
   right: 0;
+}
+.visi-misi .container .misi .misi-text {
+  padding-right: 5px;
+}
+.visi-misi .container .misi .misi-text ul {
+  width: 400px;
 }
 .visi-misi .container .pekerja {
   display: flex;
@@ -513,7 +552,7 @@ h3, p, td, li, a {
 @media only screen and (max-width: 430px) {
   .tentang-kami {
     padding: 0;
-    height: 530px;
+    height: 500px;
   }
   .tentang-kami .container {
     width: 100%;
@@ -541,7 +580,7 @@ h3, p, td, li, a {
 
   .visi-misi {
     margin: 0;
-    padding: 50px 0px 150px 0px;
+    padding: 75px 0px 200px 0px;
   }
   .visi-misi .container {
     position: relative;
@@ -564,7 +603,7 @@ h3, p, td, li, a {
     margin-right: auto;
     background-color: #FFFFFF;
     width: 300px;
-    padding: 10px 10px 10px 0px;
+    padding: 10px 5px 10px 0px;
   }
   .visi-misi .container .text .text-box h2 {
     font-size: 22px;
@@ -577,8 +616,18 @@ h3, p, td, li, a {
   .visi-misi .container .text .visi {
     top: auto;
   }
+  .visi-misi .container .text .visi .visi-text p {
+    font-size: 14px;
+    padding: 0 5px;
+    width: 100%;
+  }
   .visi-misi .container .text .misi {
     bottom: auto;
+  }
+  .visi-misi .container .text .misi .misi-text ul {
+    width: 92%;
+    padding: 0;
+    padding-left: 30px;
   }
 
   .penghargaan .container {
@@ -655,7 +704,7 @@ h3, p, td, li, a {
     margin-right: 10px;
   }
   .tentang-kami .container .text-box {
-    width: 360px;
+    width: 310px;
     margin-left: 12px;
     padding: 10px 15px;
     top: 320px;
@@ -667,6 +716,9 @@ h3, p, td, li, a {
     font-size: 14px;
     line-height: 20px;
     letter-spacing: normal;
+  }
+  .tentang-kami .container .text-box .baca-selengkapnya {
+    font-size: 14px;
   }
 
   .visi-misi {
@@ -693,7 +745,7 @@ h3, p, td, li, a {
     margin-left: auto;
     margin-right: auto;
     background-color: #FFFFFF;
-    width: 420px;
+    width: 400px;
     padding: 20px 10px 20px 0px;
   }
   .visi-misi .container .text .text-box h2 {
@@ -707,8 +759,18 @@ h3, p, td, li, a {
   .visi-misi .container .text .visi {
     top: auto;
   }
+  .visi-misi .container .text .visi .visi-text p {
+    font-size: 14px;
+    padding: 0 5px;
+    width: 100%;
+  }
   .visi-misi .container .text .misi {
     bottom: auto;
+  }
+  .visi-misi .container .text .misi .misi-text ul {
+    width: 92%;
+    padding: 0;
+    padding-left: 30px;
   }
 
   .penghargaan .container {
@@ -785,7 +847,7 @@ h3, p, td, li, a {
     margin-right: 10px;
   }
   .tentang-kami .container .text-box {
-    width: 450px;
+    width: 380px;
     margin-left: 12px;
     padding: 30px 15px;
     top: 400px;
@@ -794,12 +856,12 @@ h3, p, td, li, a {
     font-size: 24px;
   }
   .tentang-kami .container .text-box p {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   .visi-misi {
     margin: 0;
-    padding: 50px 0px 150px 0px;
+    padding: 70px 0px 180px 0px;
   }
   .visi-misi .container {
     position: relative;
@@ -827,8 +889,16 @@ h3, p, td, li, a {
   .visi-misi .container .text .visi {
     top: auto;
   }
+  .visi-misi .container .text .visi .visi-text p {
+    font-size: 16px;
+    padding: 0 5px;
+    width: 100%;
+  }
   .visi-misi .container .text .misi {
     bottom: auto;
+  }
+  .visi-misi .container .text .misi .misi-text ul {
+    width: 92%;
   }
 
   .penghargaan .container {
@@ -904,7 +974,7 @@ h3, p, td, li, a {
 
   .visi-misi {
     margin: 0;
-    padding: 50px 0px 150px 0px;
+    padding: 50px 0px 180px 0px;
   }
   .visi-misi .container {
     position: relative;
@@ -927,17 +997,25 @@ h3, p, td, li, a {
     margin-right: auto;
     background-color: #FFFFFF;
     width: 540px;
-    padding: 30px 10px 30px 0px;
+    padding: 30px 0px 30px 0px;
   }
   .visi-misi .container .text .visi {
     top: auto;
   }
+  .visi-misi .container .text .visi .visi-text p {
+    font-size: 16px;
+    padding: 0;
+    width: 100%;
+  }
   .visi-misi .container .text .misi {
     bottom: auto;
   }
+  .visi-misi .container .text .misi ul {
+    width: 92%;
+  }
 
   .penghargaan .container {
-    padding: 30px 0;
+    padding: 15px 0;
   }
   .penghargaan .container .penghargaan-header {
     padding: 5%;
@@ -963,9 +1041,13 @@ h3, p, td, li, a {
   }
 }
 @media only screen and (min-width: 1025px) and (max-width: 1200px) {
+  .tentang-kami .container .text-box {
+    width: 300px;
+  }
+
   .visi-misi {
     margin: 0;
-    padding: 50px 0px 150px 0px;
+    padding: 50px 0px 180px 0px;
   }
   .visi-misi .container {
     position: relative;
@@ -988,13 +1070,16 @@ h3, p, td, li, a {
     margin-right: auto;
     background-color: #FFFFFF;
     width: 540px;
-    padding: 30px 10px 30px 0px;
+    padding: 30px 0 30px 0px;
   }
   .visi-misi .container .text .visi {
     top: auto;
   }
   .visi-misi .container .text .misi {
     bottom: auto;
+  }
+  .visi-misi .container .text .misi ul {
+    width: 92%;
   }
 }
 @media only screen and (min-width: 320px) and (max-width: 1200px) {
@@ -1173,4 +1258,4 @@ h3, p, td, li, a {
   .hubungi .container .copyright p {
     font-size: 14px;
   }
-}/*# sourceMappingURL=main.css.map */
+}

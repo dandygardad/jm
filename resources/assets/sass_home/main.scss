@@ -1,0 +1,21 @@
+// Abstracts
+@use "abstracts/mixins";
+
+// Base
+@use "base/reset";
+@use "base/typography";
+
+// Components
+@use "components/carousel";
+@use "components/carouselMobile";
+@use "components/animation";
+
+// Layouts
+@use "layouts/header";
+@use "layouts/footer";
+
+// Pages
+@use "pages/home";
+@use "pages/homeMobile";
+@use "layouts/headerMobile";
+@use "layouts/footerMobile";

@@ -26,16 +26,8 @@
                 </div>
                 <div class="text-box">
                     <h1 class="heading-title">TENTANG KAMI</h1>
-                    <p class="text">CV Jaya Mandiri adalah perusahaan distributor Consumer Good yang didirikan pada tahun 1996. Pada mulanya berkantor di jalan Sultan Hasanuddin Kabupaten Gowa Sulawesi Selatan. Awalnya, CV Jaya Mandiri hanya memasarkan produk-produk UD Kian Jaya berupa minuman berkarbonisasi (soda) dalam perkembangannya. Pada tahun 1998, CV. Jaya Mandiri menambah produk untuk dipasarkan yaitu Air Mineral Merk Aquaria. Kemudiah berturut-turut pada tahun 2000, CV Jaya Mandiri menambah produk-produk yang di pasarkan yaitu berupa Snack Kerupuk Merk Kenyi dan Kacang Merk Mayasi.</p>
-                    {{-- <p class="text">Pada tahun 2001, CV Jaya Mandiri mendapat kepercayaan untuk menambah produk-produk terkenal yaitu: PT Nestle Indonesia yang mana produknya antara lain : Dancow, Milo, Nescafe dan lain-lain. Pada Juli 2001 CV Jaya Mandiri berpindah tempat yang lebih luas ( Memiliki gudang dan kantor ). Tempat tersebut berada di Jalan Andi Tonro No.19C, Gowa. Pada Tahun 2004, CV. Jaya Mandiri membuka cabang yang pertama di Sulawesi Tenggara yang bertempat di Jalan A. Yani No 117 Wua Wua Kendari sedangkan produknya yang dipasarkan hampir sama yang ada di Makassar.</p>
-                    {{-- <p class="text">Sampai saat ini CV Jaya Mandiri telah mendistribusikan beberapa produk Nasional dan Internasional, Seperti :</p>
-                    {{-- <li>PT. Nestle Indonesia</li>
-                    <li>PT. KAO Indonesia</li>
-                    <li>PT. Sari Ayu Indonesia</li>
-                    <li>PT. Panjan Lestari</li>
-                    <li>Produk pasta gigi enzim</li>
-                    <li>Produk Madu Nusantara</li>
-                    <li>Dan masih banyak lagi</li> --}}
+                    <p class="text">CV Jaya Mandiri adalah perusahaan distributor Consumer Good yang didirikan pada tahun 1996. </p>
+                    <button onclick="location.href='{{ url('/about') }}'" class="baca-selengkapnya">Baca selengkapnya</button>
                 </div>
 
             </div>
@@ -57,16 +49,20 @@
 
                 <div class="text">
                     <div class="text-box visi">
-                        <h2 class="heading-title">VISI</h2>
+                        <div class="visi-text">
+                            <h2 class="heading-title">VISI</h2>
                             <p>Menjadi Perusahaan distribusi yang cukup dikenal di Sulawesi khususnya Sulawesi Selatan dan Tenggara</p>
+                        </div>
                     </div>
                     <div class="text-box misi">
-                        <h2 class="heading-title">MISI</h2>
-                        <ul>
-                            <li>Meningkatkan kemampuan kerja karyawan sehingga memiliki kemampuan yang siap pakai</li>
-                            <li>Memberikan kepuasaan kepada karyawan sehingga bisa bekerja dengan nyaman</li>
-                            <li>Memperluas jaringan distribusi pemasaran</li>
-                        </ul>
+                        <div class="misi-text">
+                            <h2 class="heading-title">MISI</h2>
+                            <ul>
+                                <li>Meningkatkan kemampuan kerja karyawan sehingga memiliki kemampuan yang siap pakai</li>
+                                <li>Memberikan kepuasaan kepada karyawan sehingga bisa bekerja dengan nyaman</li>
+                                <li>Memperluas jaringan distribusi pemasaran</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
 
@@ -84,7 +80,7 @@
                         <img src="assets/img/dummy/achivement_1.png" alt="Penghargaan 1">
                         <div class="container-text">
                             <p class="rank">#1</p>
-                            <h3>The Best Distributor in the year 2019</h3>
+                            <h3>The Best Distributor In The Year 2019</h3>
                             <p class="content-card">CV. Jaya Mandiri menjadi distributor terbaik pada tahun 2018</p>
                         </div>
                     </div>
@@ -136,7 +132,7 @@
                         <img src="assets/img/Gambar_logo_parthner/lotte.png" width="75px" alt="LOTTE">
                     </div>
                     <div class="logo">
-                        <img src="assets/img/Gambar_logo_parthner/sari_ayu.png" width="75px" alt="Sari Ayu">
+                        <img src="assets/img/Gambar_logo_parthner/sari ayu.png" width="75px" alt="Sari Ayu">
                     </div>
                     <div class="logo">
                         <img src="assets/img/Gambar_logo_parthner/universal_indofood.png" width="75px" alt="Indofood">

@@ -1,0 +1,50 @@
+@use '../abstracts/mixins' as mix;
+
+// Gambar home
+.carousel {
+    @include mix.preventZoom(1500px);
+    .container {
+        position: relative;
+        @include mix.flex(null, center);
+        
+        .nav-carousel {
+            position: absolute;
+            padding: 15px;
+            background-color: #000000;
+            opacity: 0.5;
+            color: #FFFFFF;
+            font-weight: 700;
+            font-size: 30px;
+            border: 0;
+            cursor: pointer;
+            
+            &:hover {
+                opacity: 1.0;
+            }
+        }
+    
+        // Penting banget untuk menaruh kiri kanannya
+        .kiri {
+            left: 5%;
+        }
+            
+        .kanan {
+            right: 5%;
+        }
+        
+        .produk {
+            display: none;
+        }
+        
+        .active {
+            /*
+                Untuk menghilangkan whitespace antara
+                carousel dan content, gunakan flex
+            */
+            @include mix.imgCenter(flex);
+            img {
+                max-width: 100%;
+            }
+        }
+    }
+}

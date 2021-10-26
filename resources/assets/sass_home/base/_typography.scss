@@ -1,0 +1,159 @@
+@use '../abstracts/variables' as var;
+
+// PRIMARY FONTS
+// Montserrat (Semi Bold, Bold, Extra Bold)
+// Open Sans (Regular, Bold, Semi Bold)
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;600;700&display=swap');
+
+p {
+    font-family: var.$openSans;
+    font-weight: 400;
+}
+
+h1 {
+    font-size: 32px;
+    text-decoration: underline;
+}
+
+h3 {
+    font-family: var.$openSans;
+}
+
+.text-box {
+    .heading-title {
+        text-decoration: underline;
+    }
+
+    li {
+        font-family: var.$openSans;
+        font-weight: 400;
+    }
+}
+
+
+// HEADER
+.header-call {
+    span {
+        font-family: var.$montserrat;
+        font-weight: 600;
+        
+    }
+}
+
+.jm-text {
+    font-family: var.$montserrat;
+    font-weight: 700;
+}
+
+.nav {
+    ul{
+        list-style: none;
+        font-family: var.$openSans;
+    }
+}
+.navbarMobile {
+    ul{
+        list-style: none;
+        font-family: var.$openSans;
+    }
+}
+
+// CONTENT
+.heading-title {
+    font-family: var.$montserrat;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    color: #0062D5;
+}
+
+// content text
+.text {
+    line-height: 30px;
+    font-size: 18px;
+}
+
+h2 {
+    text-align: center;
+}
+
+.text-box {
+    li {
+        line-height: 22px;
+        font-size: 16px;
+    }
+}
+
+.container-text {
+    .rank {
+        font-size: 42px;
+        font-weight: 700;
+    }
+
+    h3 {
+        margin: 5px 0 15px 0;
+        font-size: 24px;
+        font-weight: 600;
+    }
+    
+    .content-card {
+        line-height: 22px;
+    }
+}
+
+.penghargaan-header {
+    p {
+        font-size: 18px;
+        line-height: 25px;
+    }
+}
+
+.mitra-text {
+    h1 {
+        margin: 5px 0 15px 0;
+    }
+
+    p {
+        line-height: 25px;
+        font-size: 18px;
+    }
+    
+}
+
+.hubungi {
+    .hubungi-title {
+        text-decoration: none;
+        font-family: var.$montserrat;
+        text-align: center;
+        padding: 50px;
+    }
+
+    .copyright {
+        padding: 80px 0 25px 0;
+        text-align: center;
+
+        p {
+            line-height: 30px;
+        }
+        
+        .bold {
+            font-weight: 700;
+        }
+
+        span {
+            text-decoration: underline;
+        }
+    }
+
+    .container-contact {
+        td {
+            text-decoration: underline;
+            font-size: 20px;
+            font-weight: 600;
+            font-family: var.$openSans;
+        }
+    }
+}
+
+h3, p, td, li, a {
+    color: #282828;
+}

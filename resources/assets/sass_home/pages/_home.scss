@@ -32,14 +32,16 @@
             .text {
                 padding-top: 10px;
             }
-
             .baca-selengkapnya {
                 color: white;
                 border-radius: 5px;
+                margin-top: 20px;
+                border: 0;
                 background-color: #0062D4;
-                padding: 8px 20px;
-                font-size: 24px;
+                padding: 8px 15px;
+                font-size: 18px;
                 font-weight: 700;
+                cursor: pointer;
 
                 &:hover {
                     background-color: #2687f7;
@@ -70,7 +72,7 @@
             position: absolute;
             background-color: #FFFFFF;
             box-shadow: var.$boxShadow;
-            padding: 30px 25px 30px 0px;
+            padding: 30px 0px 30px 0px;
         }
 
         .heading-title {
@@ -79,11 +81,31 @@
 
         .visi {
             top: 10%;
+            @include mix.flex(center, center);
+            flex-direction: column;
+            .visi-text {
+                @include mix.flex(center,center);
+                flex-direction: column;
+                p {
+                    // padding: 0 0 0 15px;
+                    text-align: center;
+                    width: 400px;
+                    padding: 0 20px;
+                }
+            }
+
         }
 
         .misi {
             bottom: 10%;
             right: 0;
+
+            .misi-text {
+                padding-right: 5px;
+                ul {
+                    width: 400px;
+                }
+            }
         }
 
         .pekerja {

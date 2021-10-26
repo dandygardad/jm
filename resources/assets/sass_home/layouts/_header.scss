@@ -1,0 +1,72 @@
+@use '../abstracts/mixins' as mix;
+
+
+// Navbar mobile
+.navbarMobile {
+    display: none;
+}
+
+// Header call
+.header-call {
+    background-color: #F5F5F5;
+    padding: 5px;
+    border-bottom: 1px solid rgba($color: #000000, $alpha: 0.35);
+
+    .container-call {
+        @include mix.flex(flex-end, center);
+
+        .content {
+            padding-top: 2px;
+            padding-right: 15px;
+            align-self: center;
+        }
+        .call-text {
+            padding-right: 20px;
+            font-size: 18px;
+            text-decoration: underline;
+        }
+    }
+}
+
+// Company name and nav
+.container-header {
+    @include mix.flex(space-between, center);
+
+    .company-name {
+        @include mix.flex(flex-start, center);
+        align-self: center;
+        padding-left: 10%;
+
+        img {
+            width: 62px;
+            padding-right: 10px;
+            
+        }
+
+        .jm-text {
+            font-size: 20px;
+            letter-spacing: -1px;
+        }
+    }
+
+    .navMobile {
+        display: none;
+        padding-right: 5%;
+        cursor: pointer;
+        img {
+            width: 75%;
+        }
+    }
+    .nav {
+        li {
+            display: inline-block;
+            margin-right: 35px;
+            @include mix.navBar();
+            
+            a {
+                letter-spacing: 0.4px;
+                font-size: 18px;
+            }
+        }
+    }
+}

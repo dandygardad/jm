@@ -3,7 +3,7 @@
         <img src="{{ asset('') }}assets/img/icons/exit.png" alt="Exit">
     </div>
     <ul>
-        @if($pos === 'home')
+        @if($pos === 'home' or $pos === 'about')
             <li><a href="#tentang" class="closedNav">Tentang Kami</a></li>
             <li><a href="#visidanmisi" class="closedNav">Visi Misi</a></li>
             <li><a href="#penghargaan" class="closedNav">Penghargaan</a></li>
@@ -35,15 +35,13 @@
             <img src="{{ asset('') }}assets/img/icons/header-mobile.png" alt="Logo Telepon">
         </span>
         <span class="content call-text">
-            <a href="tel:+628134012222">
-                +6281340122XX
-            </a>
+            <a href="tel:+6281241615252">+6281241615252</a>
         </span>
     </div>
 </div>
 
 <div class="container-header">
-    @if ($pos === 'home')
+    @if ($pos === 'home' or $pos === 'about')
         <div class="content company-name">
             <img src="{{ asset('') }}assets/img/icons/header-logo.png" alt="Logo Jaya Mandiri">
             <span class="jm-text"><a href="{{ url('') }}">Jaya Mandiri</a></span class="jm-text">
@@ -64,7 +62,7 @@
 
     <div class="content nav">
         <ul>
-            @if($pos === 'home')
+            @if($pos === 'home' or $pos === 'about')
                 <li><a href="#tentang">Tentang Kami</a></li>
                 <li><a href="#visidanmisi">Visi Misi</a></li>
                 <li><a href="#penghargaan">Penghargaan</a></li>
