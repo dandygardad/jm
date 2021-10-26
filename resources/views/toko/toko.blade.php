@@ -31,6 +31,10 @@
 
             <div class="promosi-hari-ini" id="promosi-hari-ini">
                 <h1 class="heading-title">Promosi Hari Ini</h1>
+                <form action="/toko" class="searching">
+                    <input type="text" class="search" name="search">
+                    <button type="submit">Cari</button>
+                </form>
 
                 @if (session('error'))
                     <div class="error-sudah-ada">{{ session('error') }}</div>
@@ -40,59 +44,40 @@
 
                 <div class="container-card">
                     @foreach ($products as $product)
-                    @if (!$productAlready->contains('product_id', $product->product_id))
-                    <div class="card">
-                        {{-- ISI ASSET GAMBAR DISINI DAN TENTUKAN SIZENYA --}}
-                        <img src="assets/img/dummy_toko/card.png" alt="Penghargaan 1">
-                        <div class="container-text">
-                            <h3>{{ $product->product->name }}</h3>
-                            <p class="content-card">{{ $product->desc_promo }}</p>
+                        @if (!$productAlready->contains('product_id', $product->product_id))
+                        <div class="card">
+                            {{-- ISI ASSET GAMBAR DISINI DAN TENTUKAN SIZENYA --}}
+                            <img src="assets/img/dummy_toko/card.png" alt="Penghargaan 1">
+                            <div class="container-text">
+                                <h3>{{ $product->product->name }}</h3>
+                                <p class="content-card">{{ $product->desc_promo }}</p>
+                            </div>
+                            <div class="plusminus">
+                                <form action="{{ route('addProduct') }}" method="post">
+                                    @csrf
+                                    <input type="hidden" value="{{ Crypt::encryptString($product->product_id) }}" name="product_id">
+                                    <button type="submit" class="plus"><img src="{{ asset('assets/img/icons/cart.png') }}" alt="Tambahkan ke keranjang", width="30", height="30"></button>
+                                </form>
+                            </div>
                         </div>
-                        <div class="plusminus">
-                            <form action="{{ route('addProduct') }}" method="post">
-                                @csrf
-                                <input type="hidden" value="{{ Crypt::encryptString($product->product_id) }}" name="product_id">
-                                <button type="submit" class="plus"><img src="{{ asset('assets/img/icons/cart.png') }}" alt="Tambahkan ke keranjang", width="30", height="30"></button>
-                            </form>
-                        </div>
-                    </div>
-                    @else
-                    <div class="card">
-                        {{-- ISI ASSET GAMBAR DISINI DAN TENTUKAN SIZENYA --}}
-                        <img src="assets/img/dummy_toko/card.png" alt="Penghargaan 1">
-                        <div class="container-text">
-                            <h3>{{ $product->product->name }}</h3>
-                            <p class="content-card">{{ $product->desc_promo }}</p>
-                        </div>
+                        @else
+                        <div class="card">
+                            {{-- ISI ASSET GAMBAR DISINI DAN TENTUKAN SIZENYA --}}
+                            <img src="assets/img/dummy_toko/card.png" alt="Penghargaan 1">
+                            <div class="container-text">
+                                <h3>{{ $product->product->name }}</h3>
+                                <p class="content-card">{{ $product->desc_promo }}</p>
+                            </div>
 
-                        <div class="tertambah">Sudah tertambah</div>
-                    </div>
-                    @endif
+                            <div class="tertambah">Sudah tertambah</div>
+                        </div>
+                        @endif
                     @endforeach
                 </div>
                 <!-- Pagination -->
-                <nav class="nav-card" aria-label="Page navigation">
-                    <ul class="pagination pagination-lg">
-                        <li>
-                            <a href="#" aria-label="Previous">
-                                <span aria-hidden="true">&laquo;</span>
-                            </a>
-                        </li>
-                        <li class="active"><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#">6</a></li>
-                        <li><a href="#">7</a></li>
-                        <li><a href="#">8</a></li>
-                        <li>
-                            <a href="#" aria-label="Next">
-                                <span aria-hidden="true">&raquo;</span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
+                <div class="pagination">
+                    {{ $products->links() }}
+                </div>
                 <div class="checkout-button">
                     <p>Sudah selesai? Klik tombol di bawah ini</p>
                     <a href="toko/checkout">Checkout</a>

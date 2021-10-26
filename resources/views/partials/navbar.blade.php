@@ -19,7 +19,7 @@
             </li>
         @elseif ($pos === 'toko')
             <li><a href="{{ url('/toko/checkout') }}" class="closedNav">Checkout</a></li>
-            <li><a href="{{ url('/toko/status') }}">Status Order (0)</a></li>
+            <li><a href="{{ url('/toko/status') }}">Status Order ({{ $count->count() }})</a></li>
             <li><a href="{{ url('/toko/ganti-password') }}" class="closedNav">Ganti Password</a></li>
             <form action="{{ route('logout') }}" method="post">
                 @csrf
@@ -80,7 +80,7 @@
                 </li>
             @elseif ($pos === 'toko')
                 <li><a href="{{ url('/toko/checkout') }}">Checkout</a></li>
-                <li><a href="{{ url('/toko/status') }}">Status Order (0)</a></li>
+                <li><a href="{{ url('/toko/status') }}">Status Order ({{ $count->count() }})</a></li>
                 <li><a href="{{ url('/toko/ganti-password') }}">Ganti Password</a></li>
 
                 <form action="{{ route('logout') }}" method="post">

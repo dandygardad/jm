@@ -30,9 +30,10 @@ Route::prefix('toko')->group(function (){
     Route::post('/login', [LoginController::class, 'login'])->name('login');
 
     Route::get('/status', [TokoController::class, 'status'])->middleware('auth');
-    Route::get('/status/view/', [TokoController::class, 'viewStatus'])->middleware('auth');
+    Route::get('/status/view/{id}', [TokoController::class, 'viewStatus'])->middleware('auth');
 
     Route::get('/ganti-password', [TokoController::class, 'gantiPass'])->middleware('auth');
+    Route::post('/ganti-password/success', [TokoController::class, 'gantiPassBerhasil'])->name('gantiPassBerhasil');
 
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 

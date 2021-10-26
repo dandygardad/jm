@@ -365,6 +365,34 @@ h3, p, td, li, a {
   text-align: center;
   margin-bottom: 25px;
 }
+.toko .container .halaman .promosi-hari-ini .searching {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -moz-column-gap: 10px;
+       column-gap: 10px;
+  margin-bottom: 20px;
+}
+.toko .container .halaman .promosi-hari-ini .searching .search {
+  width: 40%;
+  height: 32px;
+  border: 2px solid #0062D4;
+  border-radius: 5px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+  padding: 15px 10px;
+  font-size: 16px;
+  font-weight: 700;
+}
+.toko .container .halaman .promosi-hari-ini .searching button {
+  width: 65px;
+  height: 32px;
+  font-size: 18px;
+  border-radius: 5px;
+  border: 0;
+  font-weight: 700;
+  background-color: #0062D4;
+  color: #FFFFFF;
+}
 .toko .container .halaman .promosi-hari-ini .error-sudah-ada {
   margin-bottom: 15px;
   text-align: center;
@@ -486,6 +514,11 @@ h3, p, td, li, a {
 .toko .container .halaman .promosi-hari-ini .checkout-button a:hover {
   background-color: #2687f7;
   text-decoration: none;
+}
+.toko .container .halaman .pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .toko .container .halaman .checkout {
   padding: 0 0 20px 0;

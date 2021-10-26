@@ -31,16 +31,13 @@
                         <th style="width: 65%">ID Order</th>
                         <th>Status</th>
                     </tr>
-                    <tr>
-                        <td class="mobile">1</td>
-                        <td style="text-align: center;">#01010101</td>
-                        <td style="text-align: center; font-weight:600;"><a href="{{ url('toko/status/view') }}" class="view-link-belum">Lihat</a>
-                    </tr>
-                    <tr>
-                        <td class="mobile">2</td>
-                        <td style="text-align: center;" class="status-center">#0101010</td>
-                        <td style="text-align: center; font-weight:600;"><a href="{{ url('toko/status/view') }}" class="view-link-belum">Lihat</a>
-                    </tr>
+                    @foreach ($order_not_finished as $order)
+                        <tr>
+                            <td class="mobile">{{ $loop->iteration }}</td>
+                            <td style="text-align: center;">#{{ $order->id }}</td>
+                            <td style="text-align: center; font-weight:600;"><a href="{{ url('toko/status/view/'. $order->id) }}" class="view-link-belum">Lihat</a>
+                        </tr>
+                    @endforeach
                 </table>
 
                 {{-- Status selesai --}}
@@ -51,16 +48,13 @@
                         <th style="width: 65%">ID Order</th>
                         <th>Status</th>
                     </tr>
-                    <tr>
-                        <td class="mobile">1</td>
-                        <td style="text-align: center;">#01010101</td>
-                        <td style="text-align: center; font-weight:600;"><a href="{{ url('toko/status/view') }}" class="view-link-selesai">Lihat</a>
-                    </tr>
-                    <tr>
-                        <td class="mobile">2</td>
-                        <td style="text-align: center;" class="status-center">#0101010</td>
-                        <td style="text-align: center; font-weight:600;"><a href="{{ url('toko/status/view') }}" class="view-link-selesai">Lihat</a>
-                    </tr>
+                    @foreach ($order_finished as $order)
+                        <tr>
+                            <td class="mobile">1</td>
+                            <td style="text-align: center;">#{{ $order->id }}</td>
+                            <td style="text-align: center; font-weight:600;"><a href="{{ url('toko/status/view/' . $order->id) }}" class="view-link-selesai">Lihat</a>
+                        </tr>
+                    @endforeach
                 </table>
                 <div class="container-center">
                     <p><b>Jika terjadi kesalahan, mohon hubungi nomor dibawah ini.</b></p>

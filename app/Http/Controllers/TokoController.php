@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\Checkout;
@@ -9,6 +10,7 @@ use App\Models\Promotion;
 use App\Models\Orderslist;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Contracts\Encryption\DecryptException;
 
@@ -23,28 +25,43 @@ class TokoController extends Controller
         $check = Checkout::where('user_id', Auth::id())->get(['product_id']);
 
         $unggulan = Product::where('unggulan', 1)->first();
-        $promosi = Promotion::orderBy('product_id', 'asc')->get();
+
+        $promosi = Promotion::orderBy('product_id', 'asc');
+
+        if (request('search')) {
+            $search = Promotion::with('product')->whereHas('product', function($q){
+                $q->where('name', 'like', '%' . request('search') . '%')->orWhere('desc_promo', 'like', '%' . request('search') . '%');});
+
+            return view('toko.toko', [
+                'pos' => 'toko',
+                'unggulan' => $unggulan,
+                'products' => $search->paginate(6),
+                'productAlready' => $check,
+                'count' => Orderslist::where('user_id', Auth::id())->where('status', 0)
+            ]);
+        }
 
         return view('toko.toko', [
             'pos' => 'toko',
             'unggulan' => $unggulan,
-            'products' => $promosi,
-            'productAlready' => $check
+            'products' => $promosi->paginate(6),
+            'productAlready' => $check,
+            'count' => Orderslist::where('user_id', Auth::id())->where('status', 0)
         ]);
     }
 
     public function addProduct(Request $request){
-        $rules = [
-            'product_id' => 'required'
-        ];
-
-        $validated = $request->validate($rules);
-
         try{
-            $validated['product_id'] = Crypt::decryptString($request->product_id);
+            $request['product_id'] = Crypt::decryptString($request->product_id);
         } catch (DecryptException) {
             abort(403);
         }
+
+        $rules = [
+            'product_id' => 'required|exists:products,id'
+        ];
+
+        $validated = $request->validate($rules);
 
         $check = Checkout::where('user_id', Auth::id())->get(['product_id']);
 
@@ -76,7 +93,8 @@ class TokoController extends Controller
 
         return view('toko.checkout', [
             'pos' => 'toko',
-            'checkouts' => Checkout::where('user_id', Auth::id())->get()
+            'checkouts' => Checkout::where('user_id', Auth::id())->get(),
+            'count' => Orderslist::where('user_id', Auth::id())->where('status', 0)
         ]);
     }
 
@@ -154,6 +172,7 @@ class TokoController extends Controller
 
         return view('toko.hapus_produk', [
             'pos' => 'toko',
+            'count' => Orderslist::where('user_id', Auth::id())->where('status', 0),
             'checkouts' => Checkout::where('user_id', Auth::id())->get()
         ]);
     }
@@ -180,22 +199,32 @@ class TokoController extends Controller
             return redirect('/admin');
         }
 
+        $order_nf = Orderslist::where('user_id', Auth::id())->where('status', 0)->get();
+        $order_f = Orderslist::where('user_id', Auth::id())->where('status', 1)->get();
+
         return view('toko.status', [
             'pos' => 'toko',
-            'checkouts' => Checkout::all(),
-            // 'date' => now()->toDateTimeString('Y-m-d')
+            'order_not_finished' => $order_nf,
+            'order_finished' => $order_f,
+            'count' => Orderslist::where('user_id', Auth::id())->where('status', 0)
         ]);
     }
 
     // View
-    public function viewStatus() {
+    public function viewStatus($id) {
         if(auth()->user()->toko_id === 'D121181506') {
             return redirect('/admin');
         }
 
+        $orderlist = Orderslist::where('user_id', Auth::id())->where('id', $id)->first();
+        $order = Order::where('orderslist_id', $id)->get();
+
         return view('toko.view', [
             'pos' => 'toko',
             'checkouts' => Checkout::all(),
+            'count' => Orderslist::where('user_id', Auth::id())->where('status', 0),
+            'orderlists' => $orderlist,
+            'orders' => $order
             // 'date' => now()->toDateTimeString('Y-m-d')
         ]);
     }
@@ -210,8 +239,26 @@ class TokoController extends Controller
 
         return view('toko.passwordchange', [
             'pos' => 'toko',
-            'checkouts' => Checkout::all(),
-            // 'date' => now()->toDateTimeString('Y-m-d')
         ]);
+    }
+
+    public function gantiPassBerhasil(Request $request) {
+        $user = User::findOrFail(Auth::id());
+
+        $validated = $request->validate([
+            'old_pass' => 'required',
+            'password' => 'required|min:5|confirmed',
+        ]);
+
+        // Check password lama
+        if (Hash::check($validated['old_pass'], $user->password)){
+            $user->fill([
+                'password' => Hash::make($validated['password'])
+            ])->save();
+            return redirect('/toko');
+        }
+        else {
+            return redirect('toko/ganti-password')->with('error', 'Password lama tidak sesuai!');
+        }
     }
 }

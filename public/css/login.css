@@ -25,7 +25,7 @@ form {
 .input-text{
     display: grid;
     row-gap: 10px;
-    margin: auto;
+    margin: 0 auto;
 }
 
 a {
@@ -92,7 +92,7 @@ h1 {
 }
 
 .login-button-form button{
-    margin-top: 45px;
+    margin-top: 20px;
     padding: 10px 30px;
     background-color: #0083B0;
     border-radius: 5px;
@@ -144,6 +144,8 @@ h1 {
 
 .error-text {
     color: red;
+    padding: 0 20px;
+    margin-bottom: 10px;
     font-weight: 700;
 }
 

@@ -2,7 +2,7 @@
 
 <html lang="id">
     <head>
-        <title>Login Toko Jaya Mandiri</title>
+        <title>Ganti Password - Toko Jaya Mandiri</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon/favicon-32x32.png">
@@ -20,15 +20,19 @@
                         <a href="{{ url('/toko') }}"><img src="{{ asset('') }}assets/img/jm-logo.png" alt="Logo Jaya Mandiri"></a>
                     </div>
                     <h1>Ganti Password</h1>
-                    <form action="{{ route('login') }}" method="post">
+                    <form action="{{ route('gantiPassBerhasil') }}" method="post">
                         @csrf
-                        <div class="input-text">
-                            @if (session()->has('error'))
+                        @if (session()->has('error'))
                                 <span class="error-text">{{ session('error') }}</span>
                             @endif
+                            @error('password')
+                                <span class="error-text">Password baru tidak cocok!</span>
+                            @enderror
+                        <div class="input-text">
+
                             <input type="password" name="old_pass" class="input-box" placeholder="Masukkan Password Lama" required autofocus>
-                            <input type="password" name="new_pass" class="input-box" placeholder="Masukkan Password Baru" required >
-                            <input type="password" name="confirm_pass" class="input-box" placeholder="Konfirmasi Password Baru" required>
+                            <input type="password" name="password" class="input-box" placeholder="Masukkan Password Baru" required >
+                            <input type="password" name="password_confirmation" class="input-box" placeholder="Konfirmasi Password Baru" required>
                         </div>
                         <div class="login-button-form">
                             <button type="submit">Ganti</button>
