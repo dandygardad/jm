@@ -101,9 +101,12 @@ header h3{
 
 .search-wrapper{
     border: 1px solid #ccc;
+    margin-top: 50px;
+    margin-left: 65%;
     border-radius: 30px;
-    height: 50px;
+    height: 40px;
     display: flex;
+    width: 30%;
     align-items: center;
     overflow: hidden;
 }
@@ -242,7 +245,7 @@ img.gambar_input_promosi{
 button.submit_promosi{
     margin-top: 30px;
     margin-bottom: 20px;
-    width: 115px;
+    width: 145px;
     height: 40px;
     background: var(--main-color);
     color: var(--color-light);
@@ -276,7 +279,8 @@ h3.tulisan_master_data{
 }
 
 h3.tulisan_order{
-    margin-left: 45%;
+    margin-left: 35%;
+    margin-right: auto;
     margin-top: 100px;
 }
 
@@ -286,7 +290,7 @@ h3.tulisan_admin{
 }
 
 h3.tulisan_riwayat{
-    margin-left: 45%;
+    margin-left: 35%;
     margin-top: 50px;
 }
 
@@ -402,7 +406,7 @@ button.button_tolak{
 
 button.button_edit{
     background: #129239;
-    width: 45px;
+    width: 60px;
     height: 30px;
     border-radius: 5px;
     border: none;
@@ -541,7 +545,7 @@ tr:nth-child(odd){
 }
 
 table.letak_tabel_order{
-    margin-top: 50px;
+    margin-top: 10px;
     height: 10px;
     width: 90%;
     margin-left: 50px;
@@ -549,7 +553,7 @@ table.letak_tabel_order{
 }
 
 table.letak_tabel_produk{
-    margin-top: 50px;
+    margin-top: 10px;
     height: 10px;
     width: 90%;
     margin-left: 50px;
@@ -560,7 +564,17 @@ a{
     text-decoration: none;
 }
 
+h3.tulisan_produk_unggulan_daftar{
+    margin-top: 90px;
+    margin-left: 35%;
+}
+
 h3.tulisan_input_data_promosi{
+    margin-top: 20px;
+    margin-left: 40%;
+}
+
+h3.tulisan_input_data_promosi_master_data{
     margin-top: 20px;
     margin-left: 40%;
 }
@@ -626,3 +640,9 @@ button.button_tolak_lihat_order{
 .row-1{
     column-count: 1;
 }
+
+input.search_admin{
+    margin-top: 50px;
+    margin-left: 54.7%;
+}
+

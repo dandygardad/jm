@@ -9,7 +9,10 @@
                 <table>
                     <tr>
                         <td><img src="{{ asset('') }}assets/img/icons/mobile-call.png" alt="Logo Telepon"></td>
-                        <td><a href="tel:+628134012222">+628134012222</a></td>
+                        <td>
+                            <a href="tel:+6281241615252">+6281241615252</a>
+                            <a href="tel:0411887451">0411887451</a>
+                        </td>
                     </tr>
                     <tr>
                         <td><img src="{{ asset('') }}assets/img/icons/location.png" alt="Logo Lokasi"></td>
@@ -17,7 +20,7 @@
                     </tr>
                     <tr>
                         <td><img src="{{ asset('') }}assets/img/icons/email.png" alt="Logo E-mail"></td>
-                        <td><a href="mailto:dandygarda@gmail.com">dandygarda@gmail.com</a></td>
+                        <td><a href="mailto:jmmakassar@gmail.com">jmmakassar@gmail.com</a></td>
                     </tr>
                 </table>
             </div>

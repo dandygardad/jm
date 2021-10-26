@@ -347,7 +347,8 @@ h3, p, td, li, a {
   align-items: center;
 }
 .toko .container .halaman .produk-unggulan .item img {
-  width: 35%;
+  width: 371px;
+  height: 212px;
 }
 .toko .container .halaman .produk-unggulan .item .teks-produk-unggulan {
   padding: 30px;
@@ -429,7 +430,8 @@ h3, p, td, li, a {
   border-radius: 9px 9px 0 0;
 }
 .toko .container .halaman .promosi-hari-ini .container-card .card img {
-  width: 100%;
+  width: 248px;
+  height: 165px;
 }
 .toko .container .halaman .promosi-hari-ini .container-card .card .container-text {
   padding: 15px 15px;

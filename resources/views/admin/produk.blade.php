@@ -48,7 +48,7 @@
 
     <div class="main-content">
         <div class="header_produk">
-            <h3>Produk Unggulan</h3>
+            <h3 class="produk_unggulan_tulisan">Produk Unggulan</h3>
             <div class="user-wrapper">
                 <img src="{{ asset('') }}dash/gambar/dasboard/logout.png" width="50px" height="40px" alt="">
                 <form action='{{ route('logoutAdmin') }}' method="post">
@@ -62,7 +62,7 @@
     </div>
     <div class="main-content">
         <div class="page_order">
-            <h3 class="tulisan_master_data">Daftar Produk Unggulan</h3>
+            <h3 class="tulisan_produk_unggulan_daftar">Daftar Produk Unggulan</h3>
 
             @if (session('success'))
                 {{ session('success') }}

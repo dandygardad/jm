@@ -67,7 +67,7 @@
                     <form action="{{ route('inputProduk') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
-                            <h3 class="tulisan_input_data_promosi">Input Produk</h3>
+                            <h3 class="tulisan_input_data_promosi_master_data">Input Produk</h3>
                             @error('name')
                             <p class="warning">Nama produk sudah terdaftar!</p>
                             @enderror
@@ -87,7 +87,7 @@
                                 <h5 class="tulisan_label"><label for="nama">Nama</label></h5>
                             </div>
                             <div class="col-75">
-                                <input type="text" id="nama" name="name" placeholder="Nama Barang" required>
+                                <input type="text" id="nama" name="name" placeholder="Nama Barang" style="width:100%" required>
                             </div>
                             <div class="col-25">
                                 <h5 class="tulisan_label"><label for="unit">Unit</label></h5>

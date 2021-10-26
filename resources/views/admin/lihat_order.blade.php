@@ -73,7 +73,7 @@
                     @csrf
                     <input type="hidden" name="id" value="{{ Crypt::encryptString($created_date->id) }}">
                     <div class="col-button-terima">
-                        <button class="button_terima_lihat_order text-white">Terima</button>
+                        <button class="button_terima_lihat_order text-white">Selesai</button>
                     </div>
                 </form>
             @endif
@@ -86,15 +86,13 @@
             <div class="col-panggilan">
                 <h5 class="nama_lihat_order">{{ $order_profile->toko_id }}</h5>
             </div>
-            @if ($created_date->status == 0)
             <form action="{{ route('tolakOrder') }}" method="post">
                 @csrf
                 <input type="hidden" name="id" value="{{ Crypt::encryptString($created_date->id) }}">
                 <div class="col-button-tolak">
-                    <button type="submit" class="button_tolak_lihat_order text-white">Tolak</button>
+                    <button type="submit" class="button_tolak_lihat_order text-white" onclick="return confirm('Apakah anda yakin ingin menghapus order ini?\nIni juga terhapus di database!')">Hapus</button>
                 </div>
             </form>
-            @endif
         </div>
         <div class="row-1">
             <div class="col-awal">

@@ -22,8 +22,9 @@ class AdminController extends Controller
         $this->authorize('admin');
 
         return view('admin/dashboard', [
-            'totalCustomer' => User::all()->count(),
-            'totalOrder' => Order::all()->count()
+            // Kurang 1 dikarenakan ada akun administrator
+            'totalCustomer' => User::all()->count()-1,
+            'totalOrder' => Orderslist::where('status', 0)->count()
         ]);
     }
 
@@ -304,7 +305,7 @@ class AdminController extends Controller
         // Validate
         $validated = $request->validate([
             'name' => 'required|unique:products,name',
-            'unit' => 'required|max:5',
+            'unit' => 'required|max:10',
             'img' => 'required|image|file|max:1024',
             'desc' => 'required'
         ]);
