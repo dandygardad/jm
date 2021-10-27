@@ -432,12 +432,17 @@ h3, p, td, li, a {
 .toko .container .halaman .promosi-hari-ini .container-card .card img {
   border-radius: 9px 9px 0 0;
 }
-.toko .container .halaman .promosi-hari-ini .container-card .card img {
+.toko .container .halaman .promosi-hari-ini .container-card .card .foto-produk {
   width: 248px;
   height: 165px;
 }
 .toko .container .halaman .promosi-hari-ini .container-card .card .container-text {
   padding: 15px 15px;
+}
+.toko .container .halaman .promosi-hari-ini .container-card .card .container-text p {
+  color: red;
+  font-style: italic;
+  font-weight: 700;
 }
 .toko .container .halaman .promosi-hari-ini .container-card .card:hover {
   transform: scale(1.05);

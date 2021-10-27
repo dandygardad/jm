@@ -276,6 +276,7 @@ button.button_logout{
 h3.tulisan_master_data{
     margin-left: 35%;
     margin-top: 40px;
+    margin-bottom: 40px;
 }
 
 h3.tulisan_order{
@@ -294,8 +295,18 @@ h3.tulisan_riwayat{
     margin-top: 50px;
 }
 
+h6.show_password{
+    margin-left: 27%;
+}
+
+td.checklist{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
 td.nama_barang{
     text-align: left;
+    padding: 20px;
     width: 200px;
 }
 
@@ -303,6 +314,12 @@ td.deskripsi{
     text-align: justify;
     width: 450px;
     height: 60px;
+}
+
+td.unit{
+    text-align: center;
+    padding: 20px;
+    width: 50px;
 }
 
 .col-pertanyaan{
@@ -566,17 +583,23 @@ a{
 
 h3.tulisan_produk_unggulan_daftar{
     margin-top: 90px;
-    margin-left: 35%;
+    text-align: center;
+    vertical-align: middle;
+    height: auto;
 }
 
 h3.tulisan_input_data_promosi{
+    text-align: center;
+    vertical-align: middle;
     margin-top: 20px;
-    margin-left: 40%;
+    height: auto;
 }
 
 h3.tulisan_input_data_promosi_master_data{
+    text-align: center;
+    vertical-align: middle;
+    height: auto;
     margin-top: 20px;
-    margin-left: 40%;
 }
 
 img.gambar_order{

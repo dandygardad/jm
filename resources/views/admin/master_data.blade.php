@@ -135,7 +135,7 @@
                         <td>{{ $loop->iteration }}</td>
                         <td class="nama_barang">{{ $product->name }}</td>
                         <td class="deskripsi">{{  $product->desc  }}</td>
-                        <td>{{ $product->unit }}</td>
+                        <td class="unit">{{ $product->unit }}</td>
                         <td><a href="{{ asset('storage/' . $product->img) }}" target="_blank">Lihat</a></td>
                         <td>
                             <a href="{{ url('admin/master_data/view/' . $product->id) }}"><button class="button_edit text-white">Edit</button></a>

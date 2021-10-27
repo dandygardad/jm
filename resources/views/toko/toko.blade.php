@@ -21,7 +21,7 @@
             <div class="produk-unggulan">
                 <h1 class="heading-title">Produk Unggulan</h1>
                 <div class="item">
-                    <img src="assets/img/dummy_toko/produk-unggulan.png" alt="Produk Unggulan">
+                    <img src="{{ asset('') . $unggulan->img }}" alt="Produk Unggulan">
                     <div class="teks-produk-unggulan">
                         <h2>{{ $unggulan->name }}</h2>
                         <p>{{ $unggulan->desc }}</p>
@@ -47,7 +47,7 @@
                         @if (!$productAlready->contains('product_id', $product->product_id))
                         <div class="card">
                             {{-- ISI ASSET GAMBAR DISINI DAN TENTUKAN SIZENYA --}}
-                            <img src="assets/img/dummy_toko/card.png" alt="Penghargaan 1">
+                            <img src="{{ asset(''.$product->product->img) }}" alt="Foto Produk" class="foto-produk">
                             <div class="container-text">
                                 <h3>{{ $product->product->name }}</h3>
                                 <p class="content-card">{{ $product->desc_promo }}</p>
@@ -63,7 +63,7 @@
                         @else
                         <div class="card">
                             {{-- ISI ASSET GAMBAR DISINI DAN TENTUKAN SIZENYA --}}
-                            <img src="assets/img/dummy_toko/card.png" alt="Penghargaan 1">
+                            <img src="{{ asset(''.$product->product->img) }}" alt="Penghargaan 1" class="foto-produk">
                             <div class="container-text">
                                 <h3>{{ $product->product->name }}</h3>
                                 <p class="content-card">{{ $product->desc_promo }}</p>

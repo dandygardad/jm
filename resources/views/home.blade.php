@@ -80,8 +80,8 @@
                         <img src="assets/img/dummy/achivement_1.png" alt="Penghargaan 1">
                         <div class="container-text">
                             <p class="rank">#1</p>
-                            <h3>The Best Distributor In The Year 2019</h3>
-                            <p class="content-card">CV. Jaya Mandiri menjadi distributor terbaik pada tahun 2018</p>
+                            <h3>The Best Distributor In The Year 2019 (KAO)</h3>
+                            <p class="content-card">CV. Jaya Mandiri menjadi distributor KAO terbaik pada tahun 2018</p>
                         </div>
                     </div>
                     <div class="card">
@@ -116,7 +116,7 @@
             <div class="container">
                 <div class="mitra-text">
                     <h1 class="heading-title">KAMI BEKERJA DENGAN<br>PARTNER TERBAIK</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit ex commodi sequi sit doloribus, atque accusamus illum officia.</p>
+                    <p>Beberapa partner yang bekerjasama dengan CV. Jaya Mandiri</p>
                 </div>
                 <div class="mitra-logo">
                     <div class="logo">

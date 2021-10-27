@@ -63,16 +63,17 @@
     <div class="main-content">
         <div class="page_order">
             <h3 class="tulisan_produk_unggulan_daftar">Daftar Produk Unggulan</h3>
-
+            <p class="tulisan_success" style="text-align: center; vertical-align:middle; height: auto;">
             @if (session('success'))
                 {{ session('success') }}
             @endif
+            <p>
             <!-- Awal Tabel Order pada Dashboard -->
             <form action="{{ route('gantiProduk') }}" method="post">
                 @csrf
                 <table class="letak_tabel_produk">
                     <tr>
-                        <th>Checklist</th>
+                        <th class="checklist">Checklist</th>
                         <th>No.</th>
                         <th>Nama Barang</th>
                         <th>Deskripsi Barang</th>

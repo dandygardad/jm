@@ -94,8 +94,10 @@
                                 <h5 class="tulisan_label"><label for="password">Password</label></h5>
                             </div>
                             <div class="col-75-input">
-                                <input type="password" id="password" name="password" placeholder="Password" style="width: 90%;" required>
+                                <input type="password" id="myInput" name="password" placeholder="Password" style="width: 90%;" required>
                             </div>
+                            <br>
+                                <h6 class="show_password"><input type="checkbox" onclick="myFunction()" style="font-size: 12px;">Show Password</h6>
                             <div class="letak_button">
                                 <h5><button type="submit" class="submit_promosi" onclick="return confirm('Apakah data sudah sesuai?')">Tambah</button></h5>
                     </form>
@@ -137,5 +139,15 @@
             </table>
         </div>
     </div>
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myInput");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+        }
+    </script>
 </body>
 </html>
