@@ -26,7 +26,7 @@ class TokoController extends Controller
 
         $unggulan = Product::where('unggulan', 1)->first();
 
-        $promosi = Promotion::orderBy('product_id', 'asc');
+        $promosi = Promotion::with('product')->orderBy('product_id', 'asc');
 
         if (request('search')) {
             $search = Promotion::with('product')->whereHas('product', function($q){
@@ -93,7 +93,7 @@ class TokoController extends Controller
 
         return view('toko.checkout', [
             'pos' => 'toko',
-            'checkouts' => Checkout::where('user_id', Auth::id())->get(),
+            'checkouts' => Checkout::with('product')->where('user_id', Auth::id())->get(),
             'count' => Orderslist::where('user_id', Auth::id())->where('status', 0)
         ]);
     }
@@ -199,8 +199,8 @@ class TokoController extends Controller
             return redirect('/admin');
         }
 
-        $order_nf = Orderslist::where('user_id', Auth::id())->where('status', 0)->get();
-        $order_f = Orderslist::where('user_id', Auth::id())->where('status', 1)->get();
+        $order_nf = Orderslist::with('users')->where('user_id', Auth::id())->where('status', 0)->get();
+        $order_f = Orderslist::with('users')->where('user_id', Auth::id())->where('status', 1)->get();
 
         return view('toko.status', [
             'pos' => 'toko',
@@ -216,8 +216,8 @@ class TokoController extends Controller
             return redirect('/admin');
         }
 
-        $orderlist = Orderslist::where('user_id', Auth::id())->where('id', $id)->first();
-        $order = Order::where('orderslist_id', $id)->get();
+        $orderlist = Orderslist::with('users')->where('user_id', Auth::id())->where('id', $id)->first();
+        $order = Order::with(['orderlist', 'product'])->where('orderslist_id', $id)->get();
 
         return view('toko.view', [
             'pos' => 'toko',

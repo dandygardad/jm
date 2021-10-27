@@ -34,7 +34,7 @@ class AdminController extends Controller
         return view('admin.promosi', [
             'num' => 1,
             'products' => Product::all(),
-            'promotions' => Promotion::orderBy('product_id', 'asc')->get(),
+            'promotions' => Promotion::with('product')->orderBy('product_id', 'asc')->get(),
         ]);
     }
 
@@ -228,8 +228,8 @@ class AdminController extends Controller
 
     // Order
     public function order() {
-        $not_finished = Orderslist::where('status', 0)->get();
-        $finished = Orderslist::where('status', 1)->get();
+        $not_finished = Orderslist::with('users')->where('status', 0)->get();
+        $finished = Orderslist::with('users')->where('status', 1)->get();
 
         // dd($not_finished);
         return view('admin.order', [
@@ -245,7 +245,7 @@ class AdminController extends Controller
 
         // GET ORDERNYA
         // Find by id Product
-        $orders = Order::where('orderslist_id', $id)->get();
+        $orders = Order::with(['orderlist', 'product'])->where('orderslist_id', $id)->get();
 
         return view('admin.lihat_order', [
             'order_profile' => $profile->users,
