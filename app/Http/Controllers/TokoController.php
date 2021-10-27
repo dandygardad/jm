@@ -172,8 +172,8 @@ class TokoController extends Controller
 
         return view('toko.hapus_produk', [
             'pos' => 'toko',
-            'count' => Orderslist::where('user_id', Auth::id())->where('status', 0),
-            'checkouts' => Checkout::where('user_id', Auth::id())->get()
+            'count' => Orderslist::with('users')->where('user_id', Auth::id())->where('status', 0),
+            'checkouts' => Checkout::with('product')->where('user_id', Auth::id())->get()
         ]);
     }
 
