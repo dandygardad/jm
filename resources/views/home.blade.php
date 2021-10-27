@@ -22,7 +22,7 @@
         <div class="tentang-kami" id="tentang">
             <div class="container">
                 <div class="img-office">
-                    <img src="assets/img/dummy/tentang_kami.png" width="600px" alt="Gambar suasana kantor">
+                    <img src="{{ asset('assets/img/dummy/tentang kami.jpeg') }}" width="600px" alt="Gambar suasana kantor">
                 </div>
                 <div class="text-box">
                     <h1 class="heading-title">TENTANG KAMI</h1>
@@ -43,7 +43,7 @@
                         <img src="assets/img/dummy/nota_kerja.png" alt="Pekerja 2">
                     </div>
                     <div class="img-pekerja">
-                        <img src="assets/img/dummy/richie_kerja.png" alt="Gudang">
+                        <img src="{{ asset('assets/img/dummy/gudang_kerja.jpeg') }}" alt="Gudang">
                     </div>
                 </div>
 
