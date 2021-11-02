@@ -60,7 +60,7 @@
         </header>
         <main>
             <!-- Untuk visitor otomatis berapa banyak orang sudah mengunjungi website -->
-            <div class="cards">
+            {{-- <div class="cards">
                 <div class="card-single">
                     <div>
                         <h1>200</h1>
@@ -70,7 +70,7 @@
                         <img src="{{ asset('') }}dash/gambar/dasboard/visitor.png" style="padding-left: 30px;" width="150px" height="95px" alt="">
                     </div>
                 </div>
-            </div>
+            </div> --}}
             <!-- Untuk costumers akan menghitung jumlah costumer yang ada pada master -->
             <div class="cards">
                 <div class="card-single">

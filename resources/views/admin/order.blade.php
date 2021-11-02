@@ -88,7 +88,7 @@
                     <th>Nama Toko</th>
                     <th>ID Toko</th>
                     <th>Keterangan</th>
-                    <th>Lihat</th>
+                    <th>Aksi</th>
                 </tr>
                 @foreach ($orders_finished as $order)
                 <tr>

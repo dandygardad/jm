@@ -46,7 +46,7 @@
     <!-- Akhir menu bagian samping -->
     <div class="main-content">
         <div class="header_order">
-            <h3>Admin</h3>
+            <h3>Pelanggan</h3>
             <div class="user-wrapper">
                 <img src="{{ asset('') }}dash/gambar/dasboard/logout.png" width="50px" height="40px" alt="">
                 <form action='{{ route('logoutAdmin') }}' method="post">

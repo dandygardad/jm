@@ -30,7 +30,7 @@
                 </li>
                 <li>
                     <a href="{{ url('/admin/admin') }}"><span class="las la-users"></span>
-                    <span>Admin</span></a>
+                    <span>Pelanggan</span></a>
                 </li>
                 <li>
                     <a href="{{ url('/admin/order') }}"><span class="las la-clipboard"></span>

@@ -84,7 +84,7 @@
                             <p class="content-card">CV. Jaya Mandiri menjadi distributor KAO terbaik pada tahun 2018</p>
                         </div>
                     </div>
-                    <div class="card">
+                    {{-- <div class="card">
                         <img src="assets/img/dummy/achievement.png" alt="Penghargaan 2">
                         <div class="container-text">
                             <p class="rank">#1</p>
@@ -107,7 +107,7 @@
                             <h3>Penjualan Produk Terbaik</h3>
                             <p class="content-card">Lorem ipsum dolor sit amet, consectetur</p>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
